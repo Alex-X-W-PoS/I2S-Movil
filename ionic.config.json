@@ -1,8 +1,0 @@
-{
-  "name": "i2s",
-  "app_id": "a8fcb400",
-  "type": "ionic-angular",
-  "integrations": {
-    "cordova": {}
-  }
-}
