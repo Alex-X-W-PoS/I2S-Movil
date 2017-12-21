@@ -1,0 +1,8 @@
+{
+  "name": "i2solutions-mobile",
+  "app_id": "82ece298",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
