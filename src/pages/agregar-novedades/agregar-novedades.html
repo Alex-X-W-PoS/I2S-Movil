@@ -1,0 +1,62 @@
+<ion-header>
+    
+</ion-header>
+
+  <ion-content padding class="body-novedad">
+    <h4 id="escoger">
+      Ingreso de Novedad
+    </h4>
+    <br>
+    <h5 id="empresa">
+       Empresa: FIRL Productions
+    </h5>
+    <p id="empresa">
+       Establecimiento: Matriz
+    </p>
+    <p id="empresa">
+       Área: Levantamiento de Carga
+    </p>
+    <p id="empresa">
+       Puesto de trabajo: Puesto 1
+    </p>
+  <ion-card class="mainCard">
+
+    <ion-list>
+
+  <ion-item class="mainItem">
+    <ion-label stacked class="input-label">Descripción:</ion-label>
+    <ion-input type="text" placeholder="Ingrese descripción." class="input-placeholder"></ion-input>
+  </ion-item>
+
+  <ion-item class="mainItem">
+    <ion-label class="input-label">Prioridad</ion-label>
+    <ion-select [(ngModel)]="prioridad">
+      <ion-option value="baja">Baja</ion-option>
+      <ion-option value="media">Media</ion-option>
+      <ion-option value="alta">Alta</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+</ion-card>
+		<ion-label class="input-label">Foto (Opcional)</ion-label>
+<ion-grid>
+	<ion-row>
+		<ion-col col-6>
+		
+					<button ion-button icon-left> <ion-icon name="camera"></ion-icon>Desde Cámara</button>
+</ion-col>
+		<ion-col col-6>
+					<button ion-button icon-left> <ion-icon name="image"></ion-icon>Desde Galería</button>
+</ion-col>
+</ion-row>
+</ion-grid>
+
+
+
+
+<div class="logo">
+  <h6 id="pie"> Aplicación brindada por </h6>
+  <img src="../../assets/imgs/i2solutions2.png">
+</div>
+
+</ion-content>

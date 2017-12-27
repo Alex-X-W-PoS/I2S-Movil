@@ -7,6 +7,7 @@ import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
 import { RolesPage } from '../pages/roles/roles';
+import { AgregarNovedadesPage } from '../pages/agregar-novedades/agregar-novedades';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -18,7 +19,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    RolesPage
+    RolesPage,
+    AgregarNovedadesPage
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    RolesPage
+    RolesPage,
+    AgregarNovedadesPage
   ],
   providers: [
     StatusBar,
