@@ -1,11 +1,39 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Roles</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Roles de Aplicación</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="action-sheets-basic-page">
-  <button ion-button block (click)="openMenu()">
-    Inspector de Seguridad
-  </button>
+
+  <ion-content padding class="body-roles">
+    <h5 id="escoger">
+      Escoja el Rol a Usar
+    </h5>
+    <br>
+    <h6 id="empresa">
+       FIRL Productions
+    </h6>
+  <ion-card class="mainCard">
+      <ion-card-header class="titulo">
+        Roles de Aplicación
+      </ion-card-header>
+    <button ion-button block (click)="openMenu()">
+      Inspector de Seguridad
+    </button>
+    <button ion-button block (click)="openMenu()">
+      Jefe de Seguridad
+    </button>
+    <button ion-button block (click)="openMenu()">
+      Empleados
+    </button>
+</ion-card>
+
+<div class="logo">
+  <h6 id="pie"> Aplicación brindada por </h6>
+  <img src="../../assets/imgs/i2solutions2.png">
+</div>
+
 </ion-content>

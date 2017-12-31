@@ -1,5 +1,5 @@
-
-import { IonicPage, NavController, NavParams} from 'ionic-angular';
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -9,31 +9,9 @@ import { IonicPage, NavController, NavParams} from 'ionic-angular';
 export class RolesPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RolesPage');
-  }
-
-}
+  
 
 
-
-import { Component } from '@angular/core';
-
-import { Platform, ActionSheetController } from 'ionic-angular';
-
-
-@Component({
-  templateUrl: 'basic.html'
-})
-export class BasicPage {
-  constructor(
-    public platform: Platform,
-    public actionsheetCtrl: ActionSheetController
-  ) { }
-
-  openMenu() {
-    
-  }
 }
