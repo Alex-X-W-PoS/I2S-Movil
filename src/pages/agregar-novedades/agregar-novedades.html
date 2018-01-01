@@ -38,17 +38,33 @@
   </ion-item>
 </ion-list>
 </ion-card>
-		<ion-label class="input-label">Foto (Opcional)</ion-label>
-<ion-grid>
-	<ion-row>
-		<ion-col col-6>
-		
-					<button ion-button icon-left> <ion-icon name="camera"></ion-icon>Desde Cámara</button>
-</ion-col>
-		<ion-col col-6>
-					<button ion-button icon-left> <ion-icon name="image"></ion-icon>Desde Galería</button>
+<ion-label class="input-label">Foto (Opcional)</ion-label>
+<button ion-button (click)=" presentActionSheet()">Agregar Foto</button>
+
+<div class=final-image *ngIf="(image!= '')">
+	<p class="input-label">Foto Seleccionada</p>
+	<img [src]=image>
+	<ion-grid>
+		<ion-row>
+			<ion-col col-4></ion-col>
+			<ion-col col-4>
+	<button ion-button icon-only block large (click)= " borrarImagen()">
+  <ion-icon name="close"></ion-icon>
+</button>
 </ion-col>
 </ion-row>
+</ion-grid>
+</div>
+
+<ion-grid class="final-grid">
+	<ion-row>
+		<ion-col col-6>
+			<button ion-button block>Añadir</button>
+		</ion-col>
+		<ion-col col-6>
+			<button ion-button block>Cancelar</button>
+		</ion-col>
+	</ion-row>
 </ion-grid>
 
 
