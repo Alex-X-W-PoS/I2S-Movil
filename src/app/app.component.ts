@@ -6,6 +6,8 @@ import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ListPage } from '../pages/list/list';
 import { RolesPage } from '../pages/roles/roles';
 import { AgregarNovedadesPage } from '../pages/agregar-novedades/agregar-novedades';
+import { PuestoDeTrabajoPage } from '../pages/puesto-de-trabajo/puesto-de-trabajo';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -33,7 +35,8 @@ export class MyApp {
       { title: 'Hello Ionic', component: HelloIonicPage },
       { title: 'Roles Page', component: RolesPage },
       { title: 'My First List', component: ListPage },
-      { title: 'Agregar Novedad', component: AgregarNovedadesPage }
+      { title: 'Agregar Novedad', component: AgregarNovedadesPage },
+      { title: 'Puestos de trabajo', component: PuestoDeTrabajoPage }
     ];
   }
 
