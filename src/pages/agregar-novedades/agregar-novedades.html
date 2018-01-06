@@ -1,5 +1,5 @@
 <ion-header>
-    
+
 </ion-header>
 
   <ion-content padding class="body-novedad">
@@ -19,42 +19,38 @@
     <p id="empresa">
        Puesto de trabajo: Puesto 1
     </p>
-  <ion-card class="mainCard">
-
-    <ion-list>
-
-  <ion-item class="mainItem">
-    <ion-label stacked class="input-label">Descripción:</ion-label>
-    <ion-input type="text" placeholder="Ingrese descripción." class="input-placeholder"></ion-input>
-  </ion-item>
-
-  <ion-item class="mainItem">
-    <ion-label class="input-label">Prioridad</ion-label>
-    <ion-select [(ngModel)]="prioridad">
-      <ion-option value="baja">Baja</ion-option>
-      <ion-option value="media">Media</ion-option>
-      <ion-option value="alta">Alta</ion-option>
-    </ion-select>
-  </ion-item>
-</ion-list>
-</ion-card>
-<ion-label class="input-label">Foto (Opcional)</ion-label>
-<button ion-button (click)=" presentActionSheet()">Agregar Foto</button>
-
-<div class=final-image *ngIf="(image!= '')">
-	<p class="input-label">Foto Seleccionada</p>
-	<img [src]=image>
-	<ion-grid>
-		<ion-row>
-			<ion-col col-4></ion-col>
-			<ion-col col-4>
-	<button ion-button icon-only block large (click)= " borrarImagen()">
-  <ion-icon name="close"></ion-icon>
-</button>
-</ion-col>
-</ion-row>
-</ion-grid>
-</div>
+    <ion-card class="mainCard">
+      <ion-list>
+        <ion-item class="mainItem">
+          <ion-label stacked class="input-label">Descripción:</ion-label>
+          <ion-input type="text" placeholder="Ingrese descripción." class="input-placeholder"></ion-input>
+        </ion-item>
+        <ion-item class="mainItem">
+          <ion-label class="input-label">Prioridad</ion-label>
+            <ion-select [(ngModel)]="prioridad">
+              <ion-option value="baja">Baja</ion-option>
+              <ion-option value="media">Media</ion-option>
+              <ion-option value="alta">Alta</ion-option>
+          </ion-select>
+        </ion-item>
+    </ion-list>
+  </ion-card>
+  <ion-label class="input-label">Foto (Opcional)</ion-label>
+  <button ion-button (click)=" presentActionSheet()">Agregar Foto</button>
+  <div class=final-image *ngIf="(image!= '')">
+    <p class="input-label">Foto Seleccionada</p>
+    <img [src]=image>
+    <ion-grid>
+		  <ion-row>
+        <ion-col col-4></ion-col>
+        <ion-col col-4>
+          <button ion-button icon-only block large (click)= " borrarImagen()">
+            <ion-icon name="close"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 
 <ion-grid class="final-grid">
 	<ion-row>
