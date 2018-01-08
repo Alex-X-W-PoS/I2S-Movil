@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { RolesPage } from './roles';
+import { NgModule } from '@angular/core'
+import { IonicPageModule } from 'ionic-angular'
+import { RolesPage } from './roles'
 
 @NgModule({
   declarations: [

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component } from '@angular/core'
+import { IonicPage, NavController, NavParams } from 'ionic-angular'
 
 @IonicPage()
 @Component({
@@ -7,10 +7,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'roles.html'
 })
 export class RolesPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-
+  constructor (public navCtrl: NavController, public navParams: NavParams) {
   }
-
-
 }

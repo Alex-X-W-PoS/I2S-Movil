@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
+import { Injectable } from '@angular/core'
+import { Http } from '@angular/http'
+import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/toPromise'
 /*
   Generated class for the HttpProvider provider.
 
@@ -10,20 +10,20 @@ import 'rxjs/add/operator/toPromise';
 */
 @Injectable()
 export class HttpProvider {
-	datos : any;
-	path : string ='https://randomuser.me/api/?results=25';
-  constructor(public http: Http) {
-    console.log('Hello HttpProvider Provider');
+  datos: any
+  path: string = 'https://randomuser.me/api/?results=25'
+  constructor (public http: Http) {
+    console.log('Hello HttpProvider Provider')
   }
 
-   loadUsers (){
+  loadUsers () {
     return this.http
-      .get(this.path)
-      .map(res => res.json(),
+    .get(this.path)
+    .map(res => res.json(),
       err => {
-        console.log(err);
+        console.log(err)
       }
       )
-      .toPromise();
+    .toPromise()
   }
 }
