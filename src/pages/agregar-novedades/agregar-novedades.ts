@@ -14,22 +14,22 @@ export class AgregarNovedadesPage {
     let actionSheet = this.actionSheetCtrl.create({
       buttons: [
         {
-          text: 'Cámara',
-          icon: 'camera',
+          icon: "camera",
+          text: "Cámara",
           handler: () => {
             this.getPicture()
           }
         },
         {
-          text: 'Galería',
-          icon: 'image',
+          icon: "image",
+          text: "Galería",
           handler: () => {
-            this.image = '../../assets/imgs/brokenac.jpg'
+            this. getPictureFromGallery()
           }
         },
         {
-          text: 'Cancelar',
-          role: 'cancel',
+          role: "cancel",
+          text: "Cancelar",
           handler: () => {
             console.log('Cancel clicked')
           }
@@ -43,19 +43,36 @@ export class AgregarNovedadesPage {
     this.image = ''
   }
 
-  getPicture(){
+  getPicture() {
     let options: CameraOptions = {
       destinationType: this.camera.DestinationType.DATA_URL,
       targetWidth: 1000,
       targetHeight: 1000,
       quality: 100
     }
-    this.camera.getPicture( options )
-    .then(imageData => {
-      this.image = `data:image/jpeg;base64,${imageData}`
-    })
-    .catch(error =>{
-      console.error( error )
-    })
+    this.camera.getPicture(options)
+      .then(imageData => {
+        this.image = `data:image/jpeg;base64,${imageData}`
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  }
+
+  getPictureFromGallery() {
+    let options: CameraOptions = {
+      sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      targetWidth: 1000,
+      targetHeight: 1000,
+      quality: 100
+    }
+    this.camera.getPicture(options)
+      .then(imageData => {
+        this.image = `data:image/jpeg;base64,${imageData}`
+      })
+      .catch(error => {
+        console.error(error)
+      })
   }
 }
