@@ -12,14 +12,26 @@ import 'rxjs/add/operator/toPromise';
 export class HttpProvider {
 	datos : any;
 	path : string ='https://randomuser.me/api/?results=25';
+  novedades: string = '/api/movil/novedad'
   
   constructor(public http: Http) {
     console.log('Hello HttpProvider Provider');
   }
 
-   loadUsers(){
+   loadUsers (){
     return this.http
     .get(this.path)
+    .map(res => res.json(),
+        err => {
+          console.log(err);
+        }
+      )
+    .toPromise();
+    }
+
+    loadNovedades (){
+    return this.http
+    .get(this.novedades)
     .map(res => res.json(),
         err => {
           console.log(err);

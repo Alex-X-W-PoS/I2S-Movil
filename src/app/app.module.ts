@@ -9,6 +9,7 @@ import { ListPage } from '../pages/list/list';
 import { RolesPage } from '../pages/roles/roles';
 import { AgregarNovedadesPage } from '../pages/agregar-novedades/agregar-novedades';
 import { PuestoDeTrabajoPage } from '../pages/puesto-de-trabajo/puesto-de-trabajo';
+import { ListaNovedadesPage } from '../pages/lista-novedades/lista-novedades';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -24,7 +25,8 @@ import { HttpModule } from '@angular/http';
     ListPage,
     RolesPage,
     AgregarNovedadesPage,
-    PuestoDeTrabajoPage
+    PuestoDeTrabajoPage,
+    ListaNovedadesPage
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import { HttpModule } from '@angular/http';
     ListPage,
     RolesPage,
     AgregarNovedadesPage,
-    PuestoDeTrabajoPage
+    PuestoDeTrabajoPage,
+    ListaNovedadesPage
   ],
   providers: [
     StatusBar,
