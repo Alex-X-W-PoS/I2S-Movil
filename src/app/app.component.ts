@@ -8,7 +8,7 @@ import { RolesPage } from '../pages/roles/roles'
 import { AgregarNovedadesPage } from '../pages/agregar-novedades/agregar-novedades'
 import { StatusBar } from '@ionic-native/status-bar'
 import { SplashScreen } from '@ionic-native/splash-screen'
-
+import { PuestoDeTrabajoPage } from '../pages/puesto-de-trabajo/puesto-de-trabajo';
 
 @Component({
   templateUrl: 'app.html'
@@ -33,8 +33,9 @@ export class MyApp {
       { title: 'Hello Ionic', component: HelloIonicPage },
       { title: 'Roles Page', component: RolesPage },
       { title: 'My First List', component: ListPage },
-      { title: 'Agregar Novedad', component: AgregarNovedadesPage }
-    ]
+      { title: 'Agregar Novedad', component: AgregarNovedadesPage },
+      { title: 'Puestos de trabajo', component: PuestoDeTrabajoPage },
+    ];
   }
 
   initializeApp() {
