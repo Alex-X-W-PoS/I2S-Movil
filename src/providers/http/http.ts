@@ -10,14 +10,13 @@ import 'rxjs/add/operator/toPromise';
 */
 @Injectable()
 export class HttpProvider {
-  datos: any;
-  path: string = 'https://randomuser.me/api/?results=25';
-
+	datos : any;
+	path : string ='https://randomuser.me/api/?results=25';
   constructor(public http: Http) {
     console.log('Hello HttpProvider Provider');
   }
 
-  loadUsers() {
+   loadUsers (){
     return this.http
       .get(this.path)
       .map(res => res.json(),
@@ -27,6 +26,4 @@ export class HttpProvider {
       )
       .toPromise();
   }
-
-
 }
