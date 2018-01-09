@@ -8,7 +8,8 @@ import { RolesPage } from '../pages/roles/roles'
 import { AgregarNovedadesPage } from '../pages/agregar-novedades/agregar-novedades'
 import { StatusBar } from '@ionic-native/status-bar'
 import { SplashScreen } from '@ionic-native/splash-screen'
-import { PuestoDeTrabajoPage } from '../pages/puesto-de-trabajo/puesto-de-trabajo';
+import { PuestoDeTrabajoPage } from '../pages/puesto-de-trabajo/puesto-de-trabajo'
+import { NovedadesSinAtenderPage } from '../pages/novedades-sin-atender/novedades-sin-atender';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,8 +17,8 @@ import { PuestoDeTrabajoPage } from '../pages/puesto-de-trabajo/puesto-de-trabaj
 export class MyApp {
   @ViewChild(Nav) nav: Nav
 
-  // make HelloIonicPage the root (or first) page
-  rootPage = HelloIonicPage;
+  // the root (or first) page
+  rootPage = NovedadesSinAtenderPage;
   pages: Array<{ title: string, component: any }>
 
   constructor(
@@ -35,6 +36,7 @@ export class MyApp {
       { title: 'My First List', component: ListPage },
       { title: 'Agregar Novedad', component: AgregarNovedadesPage },
       { title: 'Puestos de trabajo', component: PuestoDeTrabajoPage },
+      { title: 'Novedades sin Atender', component: NovedadesSinAtenderPage },
     ];
   }
 
