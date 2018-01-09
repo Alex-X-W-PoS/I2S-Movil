@@ -8,42 +8,42 @@ import { Camera, CameraOptions } from '@ionic-native/camera'
 })
 export class AgregarNovedadesPage {
   image = ''
-  constructor(private camera: Camera, public actionSheetCtrl: ActionSheetController) { }
+  constructor (private camera: Camera, public actionSheetCtrl: ActionSheetController) { }
 
-  presentActionSheet() {
+  presentActionSheet () {
     let actionSheet = this.actionSheetCtrl.create({
       buttons: [
         {
-          icon: "camera",
-          text: "Cámara",
+          icon: 'camera',
+          text: 'Cámara',
           handler: () => {
             this.getPicture()
           }
         },
         {
-          icon: "image",
-          text: "Galería",
+          icon: 'image',
+          text: 'Galería',
           handler: () => {
             this. getPictureFromGallery()
           }
         },
         {
-          role: "cancel",
-          text: "Cancelar",
+          role: 'cancel',
+          text: 'Cancelar',
           handler: () => {
             console.log('Cancel clicked')
           }
         }
       ]
     })
-    actionSheet.present()
+    void actionSheet.present()
   }
 
-  borrarImagen() {
+  borrarImagen () {
     this.image = ''
   }
 
-  getPicture() {
+  getPicture () {
     let options: CameraOptions = {
       destinationType: this.camera.DestinationType.DATA_URL,
       targetWidth: 1000,
@@ -59,7 +59,7 @@ export class AgregarNovedadesPage {
       })
   }
 
-  getPictureFromGallery() {
+  getPictureFromGallery () {
     let options: CameraOptions = {
       sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
       destinationType: this.camera.DestinationType.DATA_URL,

@@ -1,7 +1,5 @@
 import { Component, ViewChild } from '@angular/core'
-
 import { Platform, MenuController, Nav } from 'ionic-angular'
-
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic'
 import { ListPage } from '../pages/list/list'
 import { RolesPage } from '../pages/roles/roles'
@@ -21,7 +19,7 @@ export class MyApp {
   rootPage = NovedadesSinAtenderPage;
   pages: Array<{ title: string, component: any }>
 
-  constructor(
+  constructor (
     public platform: Platform,
     public menu: MenuController,
     public statusBar: StatusBar,
@@ -40,19 +38,21 @@ export class MyApp {
     ];
   }
 
-  initializeApp() {
+  initializeApp () {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault()
       this.splashScreen.hide()
+    }).catch(error => {
+      console.error(error)
     })
   }
 
-  openPage(page) {
+  openPage (page) {
     // close the menu when clicking a link from the menu
-    this.menu.close()
+    void this.menu.close()
     // navigate to the new page if it is not the current page
-    this.nav.setRoot(page.component)
+    void this.nav.setRoot(page.component)
   }
 }
