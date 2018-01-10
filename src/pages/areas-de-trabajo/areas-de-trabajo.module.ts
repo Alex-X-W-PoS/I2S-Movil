@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { AreasDeTrabajoPage } from './areas-de-trabajo';
+import { NgModule } from '@angular/core'
+import { IonicPageModule } from 'ionic-angular'
+import { AreasDeTrabajoPage } from './areas-de-trabajo'
 
 @NgModule({
   declarations: [
-    AreasDeTrabajoPage,
+    AreasDeTrabajoPage
   ],
   imports: [
-    IonicPageModule.forChild(AreasDeTrabajoPage),
-  ],
+    IonicPageModule.forChild(AreasDeTrabajoPage)
+  ]
 })
 export class AreasDeTrabajoPageModule {}

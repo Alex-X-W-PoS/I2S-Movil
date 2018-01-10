@@ -7,15 +7,16 @@ import { GlobalProvider } from '../../providers/global/global'
   templateUrl: 'roles.html'
 })
 export class RolesPage {
-  constructor(public navCtrl: NavController, public navParams: NavParams, public rolUsuario:GlobalProvider) {
+  constructor (public navCtrl: NavController, public navParams: NavParams, public rolUsuario: GlobalProvider) {
   }
 
-  selectInspector(){
+  selectInspector () {
   	this.rolUsuario.claseUsuario = 0
   }
-  selectJefe(){
+  selectJefe () {
   	this.rolUsuario.claseUsuario = 1
   }
-  selectEmpleado(){
+  selectEmpleado () {
   	this.rolUsuario.claseUsuario = 2
+  }
 }

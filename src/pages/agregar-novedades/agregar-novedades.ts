@@ -1,7 +1,8 @@
 import { Component } from '@angular/core'
-import { ActionSheetController } from 'ionic-angular'
+import { ActionSheetController,NavController } from 'ionic-angular'
 import { Camera, CameraOptions } from '@ionic-native/camera'
 import { HttpProvider } from '../../providers/http/http'
+import { NovedadesSinAtenderPage } from '../../pages/novedades-sin-atender/novedades-sin-atender'
 
 @Component({
   selector: 'page-agregar-novedades',
@@ -14,7 +15,7 @@ export class AgregarNovedadesPage {
   descripcion: string
   prioridad = ''
 
-  constructor (private camera: Camera, public actionSheetCtrl: ActionSheetController, public http: HttpProvider) { }
+  constructor (public navCtrl: NavController, private camera: Camera, public actionSheetCtrl: ActionSheetController, public http: HttpProvider) { }
 
   presentActionSheet () {
     let actionSheet = this.actionSheetCtrl.create({
@@ -100,11 +101,29 @@ export class AgregarNovedadesPage {
   }
 
   crearNovedad () {
-    this.http.agregarNovedad(this.puestoId, this.descripcion, this.prioridad, this.imgurLink).then(res => {
-      console.log('exito')
-    })
-    .catch(error => {
-      console.error(error)
-    })
+    if (this.isNotEmpty(this.puestoId) && this.isNotEmpty(this.descripcion) && this.isNotEmpty(this.prioridad) && this.isNotEmpty(this.imgurLink)) {
+      this.http.agregarNovedad(this.puestoId, this.descripcion, this.prioridad, this.imgurLink).then(res => {
+        void this.navCtrl.push(NovedadesSinAtenderPage, {
+          mensaje: 'Novedad Ingresada Exitosamente.'
+        })
+      })
+      .catch(error => {
+        console.error(error)
+      })
+    } else {
+      alert('No se ha podido crear la novedad. Por favor llene los campos faltantes.')
+    }
+  }
+
+  cancelar () {
+    void this.navCtrl.pop()
+  }
+
+  isNotEmpty (valor: string) {
+    if (!valor || valor === '') {
+      return false
+    } else {
+      return true
+    }
   }
 }

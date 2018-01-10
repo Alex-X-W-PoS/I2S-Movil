@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { IonicPage, NavController, NavParams } from 'ionic-angular'
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular'
 import { AgregarNovedadesPage } from '../agregar-novedades/agregar-novedades'
 
 @IonicPage()
@@ -9,11 +9,22 @@ import { AgregarNovedadesPage } from '../agregar-novedades/agregar-novedades'
 })
 export class NovedadesSinAtenderPage {
 
-  constructor (public navCtrl: NavController, public navParams: NavParams) {
+  mensajeExito = ''
+
+  constructor (public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+    if (navParams.get('mensaje') !== '') {
+      this.mensajeExito = navParams.get('mensaje')
+    }
   }
 
   ionViewDidLoad () {
-    console.log('ionViewDidLoad NovedadesSinAtenderPage')
+    if (this.mensajeExito !== '') {
+      this.alertCtrl.create({
+        title: 'Mensaje',
+        subTitle: this.mensajeExito,
+        buttons: ['OK']
+      })
+    }
   }
 
   agregarNovedades () {
