@@ -8,7 +8,9 @@ import { RolesPage } from '../pages/roles/roles'
 import { AgregarNovedadesPage } from '../pages/agregar-novedades/agregar-novedades'
 import { StatusBar } from '@ionic-native/status-bar'
 import { SplashScreen } from '@ionic-native/splash-screen'
-import { PuestoDeTrabajoPage } from '../pages/puesto-de-trabajo/puesto-de-trabajo';
+import { PuestoDeTrabajoPage } from '../pages/puesto-de-trabajo/puesto-de-trabajo'
+import { AreasDeTrabajoPage } from '../pages/areas-de-trabajo/areas-de-trabajo'
+
 
 @Component({
   templateUrl: 'app.html'
@@ -35,6 +37,7 @@ export class MyApp {
       { title: 'My First List', component: ListPage },
       { title: 'Agregar Novedad', component: AgregarNovedadesPage },
       { title: 'Puestos de trabajo', component: PuestoDeTrabajoPage },
+      { title: 'Areas de trabajo', component: AreasDeTrabajoPage },
     ];
   }
 
