@@ -1,14 +1,12 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-import { GlobalProvider } from '../../providers/global/global';
+import { Component } from '@angular/core'
+import { IonicPage, NavController, NavParams } from 'ionic-angular'
+import { GlobalProvider } from '../../providers/global/global'
 @IonicPage()
 @Component({
   selector: 'page-roles',
   templateUrl: 'roles.html'
 })
 export class RolesPage {
-
   constructor(public navCtrl: NavController, public navParams: NavParams, public rolUsuario:GlobalProvider) {
   }
 
@@ -20,7 +18,4 @@ export class RolesPage {
   }
   selectEmpleado(){
   	this.rolUsuario.claseUsuario = 2
-  }
-
-
 }
