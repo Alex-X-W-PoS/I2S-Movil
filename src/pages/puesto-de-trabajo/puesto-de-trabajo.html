@@ -19,7 +19,7 @@
 				</ion-col>
 				<span class="clearer"></span>
 				<ion-col col-12>
-					<h1 text-center class="big"><b>15</b></h1>
+					<h1 text-center class="big"><b>{{num_empleados}}</b></h1>
 				</ion-col>
 			</ion-col>
 			<ion-col col-5 text-center class="white-square">
@@ -28,7 +28,7 @@
 				</ion-col>
 				<span class="clearer"></span>
 				<ion-col col-12>
-					<h1 text-center class="big"><b>3</b></h1>
+					<h1 text-center class="big"><b>{{num_novedades}}</b></h1>
 				</ion-col>
 			</ion-col>
 		</ion-row>
@@ -39,24 +39,19 @@
 			<ion-col col-12>
 			<ion-item>
 				<ion-label>Riesgos</ion-label>
-				<ion-select [(ngModel)]="gender">
-					<ion-option value="id_incendio">Incendio</ion-option>
-					<ion-option value="id_riesgo_2">Riesgo_2</ion-option>
-					<ion-option value="id_riesgo_3">Riesgo_3</ion-option>
-					<ion-option value="id_riesgo_4">Riesgo_4</ion-option>
-					<ion-option value="id_riesgo_5">Riesgo_5</ion-option>
+				<ion-select [(ngModel)]="idRiesgos">
+					<ion-option *ngFor="let riesgo of arrayRiesgos" value="{{riesgo.nombre_riesgo}}">{{riesgo.nombre_riesgo}}</ion-option>
 				</ion-select>
 			</ion-item>
 		</ion-col>
 		<ion-col col-5 class="white-square">
-				<h2><b>60%</b></h2>
+				<h2><b>{{porcentaje}}%</b></h2>
 		</ion-col>
 		<ion-col col-7 class="white-square">
 				
 		</ion-col>
 		</ion-row>
 	</ion-grid>
-
 <div class="logo">
   <h6 id="pie"> Aplicación brindada por </h6>
   <img src="../../assets/imgs/i2solutions2.png">

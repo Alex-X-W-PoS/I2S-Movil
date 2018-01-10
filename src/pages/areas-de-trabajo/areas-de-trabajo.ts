@@ -16,28 +16,8 @@ import { HttpProvider } from '../../providers/http/http';
   templateUrl: 'areas-de-trabajo.html',
 })
 export class AreasDeTrabajoPage {
-
-  todosLosPuestos
   constructor(public navCtrl: NavController, public navParams: NavParams, public puestos:HttpProvider) {
   }
 	  ionViewDidLoad() {
-	  	console.log("asd");
-	    this.puestos.obtenerArea().then(res =>{
-	    	this.todosLosPuestos = res.results;
-	    	console.log(this.todosLosPuestos)
-	    },
-	    error =>{
-	    	console.log(error);
-	    });
 	}
 }
-
-/*
-this.http.loadUsers().then(res => {
-      this.usuarios = res.results;
-      console.log(this.usuarios)
-    },
-      error => {
-        console.log(error);
-      });
-*/
