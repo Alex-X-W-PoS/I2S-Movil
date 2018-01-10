@@ -1,14 +1,14 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { NovedadesSinAtenderPage } from './novedades-sin-atender';
+import { NgModule } from '@angular/core'
+import { IonicPageModule } from 'ionic-angular'
+import { NovedadesSinAtenderPage } from './novedades-sin-atender'
 
 @NgModule({
   declarations: [
-    NovedadesSinAtenderPage,
+    NovedadesSinAtenderPage
   ],
   imports: [
-    IonicPageModule.forChild(NovedadesSinAtenderPage),
-  ],
+    IonicPageModule.forChild(NovedadesSinAtenderPage)
+  ]
 })
 export class NovedadesSinAtenderPageModule {
 

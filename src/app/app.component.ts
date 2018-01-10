@@ -7,7 +7,7 @@ import { AgregarNovedadesPage } from '../pages/agregar-novedades/agregar-novedad
 import { StatusBar } from '@ionic-native/status-bar'
 import { SplashScreen } from '@ionic-native/splash-screen'
 import { PuestoDeTrabajoPage } from '../pages/puesto-de-trabajo/puesto-de-trabajo'
-import { NovedadesSinAtenderPage } from '../pages/novedades-sin-atender/novedades-sin-atender';
+import { NovedadesSinAtenderPage } from '../pages/novedades-sin-atender/novedades-sin-atender'
 
 @Component({
   templateUrl: 'app.html'
@@ -16,7 +16,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav
 
   // the root (or first) page
-  rootPage = NovedadesSinAtenderPage;
+  rootPage = NovedadesSinAtenderPage
   pages: Array<{ title: string, component: any }>
 
   constructor (
@@ -34,8 +34,8 @@ export class MyApp {
       { title: 'My First List', component: ListPage },
       { title: 'Agregar Novedad', component: AgregarNovedadesPage },
       { title: 'Puestos de trabajo', component: PuestoDeTrabajoPage },
-      { title: 'Novedades sin Atender', component: NovedadesSinAtenderPage },
-    ];
+      { title: 'Novedades sin Atender', component: NovedadesSinAtenderPage }
+    ]
   }
 
   initializeApp () {
