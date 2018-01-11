@@ -12,18 +12,18 @@ export class NovedadesSinAtenderPage {
   mensajeExito = ''
 
   constructor (public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
-    if (navParams.get('mensaje') !== '') {
+    if (navParams && navParams.get('mensaje') !== '') {
       this.mensajeExito = navParams.get('mensaje')
     }
   }
 
   ionViewDidLoad () {
-    if (this.mensajeExito !== '') {
-      this.alertCtrl.create({
-        title: 'Mensaje',
-        subTitle: this.mensajeExito,
+    if (this.mensajeExito && this.mensajeExito !== '') {
+      let alert = this.alertCtrl.create({
+        title: this.mensajeExito,
         buttons: ['OK']
       })
+      void alert.present()
     }
   }
 

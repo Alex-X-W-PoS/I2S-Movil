@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { ActionSheetController,NavController } from 'ionic-angular'
+import { ActionSheetController,NavController, LoadingController } from 'ionic-angular'
 import { Camera, CameraOptions } from '@ionic-native/camera'
 import { HttpProvider } from '../../providers/http/http'
 import { NovedadesSinAtenderPage } from '../../pages/novedades-sin-atender/novedades-sin-atender'
@@ -15,7 +15,7 @@ export class AgregarNovedadesPage {
   descripcion: string
   prioridad = ''
 
-  constructor (public navCtrl: NavController, private camera: Camera, public actionSheetCtrl: ActionSheetController, public http: HttpProvider) { }
+  constructor (public navCtrl: NavController, private camera: Camera, public actionSheetCtrl: ActionSheetController, public http: HttpProvider, private loadingCtrl: LoadingController) { }
 
   presentActionSheet () {
     let actionSheet = this.actionSheetCtrl.create({
@@ -61,8 +61,13 @@ export class AgregarNovedadesPage {
     this.camera.getPicture(options)
       .then(imageData => {
         this.image = `data:image/jpeg;base64,${imageData}`
+        let loading = this.loadingCtrl.create({
+          content: 'Por favor, espere...'
+        })
+        void loading.present()
         this.http.uploadImageToImgur(imageData).then(res => {
           this.imgurLink = res.data.link
+          void loading.dismiss()
         })
         .catch(error => {
           console.error(error)
@@ -84,8 +89,13 @@ export class AgregarNovedadesPage {
     this.camera.getPicture(options)
       .then(imageData => {
         this.image = `data:image/jpeg;base64,${imageData}`
+        let loading = this.loadingCtrl.create({
+          content: 'Por favor, espere...'
+        })
+        void loading.present()
         this.http.uploadImageToImgur(imageData).then(res => {
           this.imgurLink = res.data.link
+          void loading.dismiss()
         })
         .catch(error => {
           console.error(error)
@@ -102,10 +112,15 @@ export class AgregarNovedadesPage {
 
   crearNovedad () {
     if (this.isNotEmpty(this.puestoId) && this.isNotEmpty(this.descripcion) && this.isNotEmpty(this.prioridad) && this.isNotEmpty(this.imgurLink)) {
+      let loading = this.loadingCtrl.create({
+        content: 'Por favor, espere...'
+      })
+      void loading.present()
       this.http.agregarNovedad(this.puestoId, this.descripcion, this.prioridad, this.imgurLink).then(res => {
         void this.navCtrl.push(NovedadesSinAtenderPage, {
           mensaje: 'Novedad Ingresada Exitosamente.'
         })
+        void loading.dismiss()
       })
       .catch(error => {
         console.error(error)

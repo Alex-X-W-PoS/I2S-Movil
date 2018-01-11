@@ -38,9 +38,6 @@
   </ion-card>
   <ion-label class="input-label">Foto (Opcional)</ion-label>
   <button ion-button (click)=" presentActionSheet()">Agregar Foto</button>
-  <div *ngIf="(imgurLink!= '')">
-    <p> {{ imgurLink }} </p>
-  </div>
   <div class=final-image *ngIf="(image!= '')">
     <p class="input-label">Foto Seleccionada</p>
     <img [src]=image>
@@ -66,7 +63,7 @@
 		</ion-col>
 	</ion-row>
 </ion-grid>
-
+<button ion-button block (click)= " alertar ()">Alertar</button>
 
 
 
