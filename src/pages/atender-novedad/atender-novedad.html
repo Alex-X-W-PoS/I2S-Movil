@@ -1,0 +1,71 @@
+
+<ion-header>
+
+
+
+  </ion-header>
+
+
+  <ion-content padding class="body">
+    <ion-grid>
+      <!--header-->
+      <ion-row class="separator">
+          <h2 class="title"> Novedades sin Atender</h2>
+      </ion-row >
+
+      <ion-row >
+        <h1></h1>
+      </ion-row>
+
+      <!--Novedad Seleccionada-->
+      <ion-row class="selection">
+          <h4>Novedades Seleccionada :</h4>
+      </ion-row>
+      <ion-row>
+            <h6>{{descripcion}}</h6>
+      </ion-row>
+
+      <!--Prioridad-->
+      <ion-row class="priority">
+              <h4>Prioridad :</h4>
+      </ion-row>
+      <ion-row icon-start>
+           <h6>
+             <ion-icon name="warning" color="{{prioridad}}" class="icono">
+             </ion-icon>
+             {{prioridad}}
+            </h6>
+      </ion-row>
+      <!--Fecha Reportada-->
+      <ion-row class="date">
+          <ion-col>
+            <h4>Fecha Reportada :</h4>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+            <h6>{{fecha | date: 'yyyy-MM-dd HH:mm:ss ' }}</h6>
+      </ion-row>
+
+        <ion-row>
+          <h4>Evidencia:</h4>
+          <ion-img [src]='foto' *ngIf="foto!=''">
+          </ion-img>
+        </ion-row>
+
+      <!--Marcar versión como atendida-->
+      <ion-row class="message">
+          <ion-col>
+            <h2>¿Desea marcar esta novedad como atendida?</h2>
+          </ion-col>
+      </ion-row>
+
+      <!-- Buttons -->
+          <button ion-button (click)=cambiarEstado()>
+              Si
+            </button>
+            <button ion-button (click)=regresar()>
+                No
+              </button>
+    </ion-grid>
+    <hr><hr>
+  </ion-content>

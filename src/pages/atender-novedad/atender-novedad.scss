@@ -1,0 +1,32 @@
+page-atender-novedad {
+  .body{
+    .separator{
+      border-bottom:2px solid rgb(23, 142, 255);
+    }
+    background-color:#3A4144;
+    .title{
+      color:#178EFF;
+    }
+    .date, .message, .priority, .selection{
+      margin-top: 10px;
+    }
+    h2,h4{
+      color: #178EFF;
+     font-weight: bold;
+    }
+
+    h6{
+      color: #178EFF;
+      margin-left: 5px;
+    }
+    .icono{
+      font-size: 2.5em;
+    }
+    hr{
+      color: #178EFF;
+      border: 2px solid rgb(23, 142, 255);
+    }
+  }
+}
+
+

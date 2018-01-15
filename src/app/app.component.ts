@@ -9,6 +9,7 @@ import { SplashScreen } from '@ionic-native/splash-screen'
 import { PuestoDeTrabajoPage } from '../pages/puesto-de-trabajo/puesto-de-trabajo'
 import { AreasDeTrabajoPage } from '../pages/areas-de-trabajo/areas-de-trabajo'
 import { NovedadesSinAtenderPage } from '../pages/novedades-sin-atender/novedades-sin-atender'
+import { AtenderNovedadPage } from '../pages/atender-novedad/atender-novedad'
 @Component({
   templateUrl: 'app.html'
 })
@@ -35,7 +36,8 @@ export class MyApp {
       { title: 'Agregar Novedad', component: AgregarNovedadesPage },
       { title: 'Puestos de trabajo', component: PuestoDeTrabajoPage },
       { title: 'Areas de trabajo', component: AreasDeTrabajoPage },
-      { title: 'Novedades sin Atender', component: NovedadesSinAtenderPage }
+      { title: 'Novedades sin Atender', component: NovedadesSinAtenderPage },
+      { title: 'AtenderNovedad', component: AtenderNovedadPage }
     ]
   }
 

@@ -1,0 +1,47 @@
+import { Component } from '@angular/core'
+import { IonicPage, NavController, NavParams } from 'ionic-angular'
+import { NovedadesSinAtenderPage } from '../../pages/novedades-sin-atender/novedades-sin-atender'
+import { HttpProvider } from '../../providers/http/http'
+@IonicPage()
+@Component({
+  selector: 'page-atender-novedad',
+  templateUrl: 'atender-novedad.html'
+})
+export class AtenderNovedadPage {
+  novedadDetalle: any
+  id: string
+  fecha: any
+  descripcion: string
+  prioridad: string
+  foto: any
+  puestoId = '1'
+  constructor (public navCtrl: NavController, public navParams: NavParams, public http: HttpProvider) {
+    this.novedadDetalle = navParams.data.item
+    this.fecha = this.novedadDetalle.fechaCreacion
+    this.descripcion = this.novedadDetalle.descripcion
+    this.foto = this.novedadDetalle.foto_url
+    this.prioridad = this.novedadDetalle.prioridad
+    this.id = this.novedadDetalle.id
+
+  }
+
+  ionViewDidLoad () {
+    console.log(this.novedadDetalle.descripcion)
+    console.log(' AtenderNovedadPage')
+  }
+
+  regresar () {
+    this.navCtrl.pop()
+  }
+  cambiarEstado () {
+    this.http.marcarComoAtendida(this.id , this.puestoId).then(res => {
+      void this.navCtrl.push(NovedadesSinAtenderPage, {
+        mensaje: 'Novedad Atendida con Exito'
+      })
+      .catch(error => {
+        console.error(error)
+      })
+    }
+  )
+  }
+}

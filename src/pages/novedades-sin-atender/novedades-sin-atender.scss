@@ -1,10 +1,10 @@
 page-novedades-sin-atender {
   .body{
-    background-color:#3A4144;
+    background-color:#142b3b;
     ion-list{
      .misNovedades, .header, .pie{
         border: 1px solid #178EFF;
-        background-color: #3A4144;
+        background-color: #142b3b;
         .title{
           color:#178eff;
           font-size: 24.3px;
@@ -24,12 +24,21 @@ page-novedades-sin-atender {
         }
         .icono2{
           font-size: 3.7em;
-          padding: 1px;
+          padding: 2px;
           color: #178EFF;
+          position: fixed;
+          bottom: 0;
+          right: 0;
+          margin-right: 15px;
+
       }
+      .hidden{
+        visibility: hidden;
+      }
+
       .icono2:hover{
         opacity:1;
-        color:bisque;
+        color:#0DFF71;
       }
       .novedad{
         color: #178EFF;
@@ -37,16 +46,13 @@ page-novedades-sin-atender {
       .list-md{
         margin: -1px 0 1px;
       }
-      .back:hover{
-        opacity: 1;
-        color:aqua;
-      }
-    }
 
+    }
     .misNovedades:hover{
      background-color: whitesmoke;
      opacity: 1;
     }
+
   }
 }
 
