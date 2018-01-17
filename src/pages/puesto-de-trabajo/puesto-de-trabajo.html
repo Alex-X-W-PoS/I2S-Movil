@@ -19,7 +19,7 @@
 				</ion-col>
 				<span class="clearer"></span>
 				<ion-col col-12>
-					<h1 text-center class="big"><b>{{num_empleados}}</b></h1>
+					<h1 text-center class="big"><b>{{numEmpleados}}</b></h1>
 				</ion-col>
 			</ion-col>
 			<ion-col col-5 text-center class="white-square">
@@ -28,7 +28,7 @@
 				</ion-col>
 				<span class="clearer"></span>
 				<ion-col col-12>
-					<h1 text-center class="big"><b>{{num_novedades}}</b></h1>
+					<h1 text-center class="big" (click)="cargarNovedades()"><b>{{numNovedades}}</b></h1>
 				</ion-col>
 			</ion-col>
 		</ion-row>
@@ -48,7 +48,6 @@
 				<h2><b>{{porcentaje}}%</b></h2>
 		</ion-col>
 		<ion-col col-7 class="white-square">
-				
 		</ion-col>
 		</ion-row>
 	</ion-grid>
