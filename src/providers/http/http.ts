@@ -14,8 +14,10 @@ export class HttpProvider {
   path: string = 'https://randomuser.me/api/?results=25'
   todosPuestos: string = 'https://i2solutions.herokuapp.com/api/movil/puesto_trabajo/area_trabajo/'
   puesto: string = 'https://i2solutions.herokuapp.com/api/movil/puesto_trabajo/'
+  novedadesPath: string = 'https://i2solutions.herokuapp.com/api/movil/novedad/puesto_trabajo/'
   constructor (public http: Http) {
   }
+
   loadUsers () {
     return this.http
     .get(this.path)
@@ -54,6 +56,20 @@ export class HttpProvider {
       )
     .toPromise()
   }
+
+  marcarComoAtendida (novedadId: string, puestoId: string) {
+    let data = { atendida: true }
+    let url = 'https://i2solutions.herokuapp.com/api/movil/novedad/' + novedadId + '/puesto_trabajo/' + puestoId
+    return this.http
+    .post(url,data)
+    .map(res => console.log(res.json()),
+      err => {
+        console.error(err)
+      }
+    )
+    .toPromise()
+  }
+
   obtenerPuestoDeTrabajoDeArea (idArea: string) {
     return this.http
       .get(this.todosPuestos.concat(idArea))
@@ -64,9 +80,21 @@ export class HttpProvider {
       )
       .toPromise()
   }
+
   obtenerPuestoDeTrabajo (idPuesto: string) {
     return this.http
       .get(this.puesto.concat(idPuesto))
+      .map(res => res.json(),
+        err => {
+          console.log(err)
+        }
+        )
+        .toPromise()
+  }
+
+  obetenerNovedadesSinAtender (idPuesto: string) {
+    return this.http
+  .get(this.novedadesPath.concat(idPuesto).concat('?atendida=false'))
       .map(res => res.json(),
         err => {
           console.log(err)

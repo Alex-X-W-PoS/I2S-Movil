@@ -12,6 +12,7 @@ import { AgregarNovedadesPage } from '../pages/agregar-novedades/agregar-novedad
 import { PuestoDeTrabajoPage } from '../pages/puesto-de-trabajo/puesto-de-trabajo'
 import { AreasDeTrabajoPage } from '../pages/areas-de-trabajo/areas-de-trabajo'
 import { NovedadesSinAtenderPage } from '../pages/novedades-sin-atender/novedades-sin-atender'
+import { AtenderNovedadPage } from '../pages/atender-novedad/atender-novedad'
 
 import { StatusBar } from '@ionic-native/status-bar'
 import { SplashScreen } from '@ionic-native/splash-screen'
@@ -29,7 +30,8 @@ import { GlobalProvider } from '../providers/global/global'
     AgregarNovedadesPage,
     PuestoDeTrabajoPage,
     AreasDeTrabajoPage,
-    NovedadesSinAtenderPage
+    NovedadesSinAtenderPage,
+    AtenderNovedadPage
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import { GlobalProvider } from '../providers/global/global'
     AgregarNovedadesPage,
     PuestoDeTrabajoPage,
     AreasDeTrabajoPage,
-    NovedadesSinAtenderPage
+    NovedadesSinAtenderPage,
+    AtenderNovedadPage
   ],
   providers: [
     Camera,

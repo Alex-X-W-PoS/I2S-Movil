@@ -2,38 +2,28 @@
 <ion-header>
 </ion-header>
 
-<ion-content nopadding class="body">
-      <ion-list>
+<ion-content nopadding class="body" *ngIf="size != 0 ">
+      <ion-list >
         <!--Header-->
           <ion-item class="header">
-              <h2 class="title">Novedades sin Atender</h2>
+              <h2 class="title">{{title}}</h2>
               <ion-icon name="md-play" item-end color="danger" class="back"></ion-icon>
           </ion-item>
-          <!--End Header-->
+        <!--End Header-->
+
           <!--Lista de Novedades Sin Atender-->
-          <ion-item class="misNovedades">
-            <h1 class="novedad">No hay Gas</h1>
-            <ion-icon name="warning" color="danger" class="icono"></ion-icon>
-            <span class="fecha_hora">12/05/2017-13:00 pm</span>
-            <ion-icon name="md-images" item-end color="light" class="icono"></ion-icon>
-        </ion-item>
 
-        <ion-item class="misNovedades" (click)="agregarNovedades()">
-          <h1 class="novedad">No hay Luz</h1>
-          <ion-icon name="warning" color="media" class="icono"></ion-icon>
-          <span class="fecha_hora">12/05/2017-16:00 pm</span>
-        </ion-item>
+          <button ion-item class="misNovedades"  *ngFor="let novedades of novedades" (click)=detallesNovedades(novedades)>
+            <h1 class="novedad">{{ novedades.descripcion }}</h1>
+              <h5 icon-start class='fecha_hora' >
+                <ion-icon name="warning" color="{{novedades.prioridad}}" class="icono">
+                </ion-icon> {{novedades.fechaCreacion | date:'yyyy-MM-dd HH:mm:ss '}}
+              </h5> <ion-icon *ngIf="novedades.foto_url != ''" name="md-images" item-end color="light" class="icono" ></ion-icon>
+          </button>
 
-        <ion-item class="misNovedades">
-          <h1 class="novedad">No hay papel higenico</h1>
-          <ion-icon name="warning" color="baja" class="icono"></ion-icon>
-          <span class="fecha_hora" > 12/05/2017-08:00 am </span>
-          <ion-icon name="md-images" item-end color="light" class="icono"></ion-icon>
-        </ion-item>
           <!--Pie de página-->
         <ion-item no-lines class="pie">
-          <ion-icon name="md-add-circle" item-end  class="icono2" (click)="agregarNovedades()"></ion-icon>
+          <ion-icon ngHide="puesto != '1' "  name="md-add-circle" item-end  class="icono2" (click)="agregarNovedades()"></ion-icon>
         </ion-item>
-
 </ion-list>
 </ion-content>
