@@ -10,7 +10,7 @@ export class HelloIonicPage {
   usuarios: any[]
 
   constructor (public navCtrl: NavController, public http: HttpProvider) {
-    this.cargarUsuarios ()
+    this.cargarUsuarios()
   }
 
   cargarUsuarios () {

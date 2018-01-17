@@ -17,11 +17,11 @@ export class AreasDeTrabajoPage {
   obtenerAreas () {
     this.listaDeAreas = ['']
     this.puestos.obtenerPuestoDeTrabajoDeArea(this.areaValue).then(res => {
-      this.listaDeAreas = res.datos          
+      this.listaDeAreas = res.datos
     },
-      error => {
-        console.log(error)
-    }) 
+    error => {
+      console.log(error)
+    })
   }
   entrarPuestosDeTrabajo () {
     void this.navCtrl.push(PuestoDeTrabajoPage, this.puestoValue)

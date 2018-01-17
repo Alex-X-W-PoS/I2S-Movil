@@ -31,7 +31,7 @@ export class AtenderNovedadPage {
   }
 
   regresar () {
-    this.navCtrl.pop()
+    void this.navCtrl.pop()
   }
   cambiarEstado () {
     this.http.marcarComoAtendida(this.id , this.puestoId).then(res => {

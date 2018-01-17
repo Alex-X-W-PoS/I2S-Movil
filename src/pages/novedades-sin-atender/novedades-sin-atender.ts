@@ -49,7 +49,7 @@ export class NovedadesSinAtenderPage {
   }
 
   detallesNovedades (item) {
-    this.navCtrl.push(AtenderNovedadPage, { item: item })
+    void this.navCtrl.push(AtenderNovedadPage, { item: item })
   }
 
 }

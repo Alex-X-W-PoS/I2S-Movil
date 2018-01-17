@@ -15,7 +15,7 @@ export class PuestoDeTrabajoPage {
   public porcentaje: any
   public idRiesgos: any
   constructor (public navCtrl: NavController, public navParams: NavParams, public classPuesto: HttpProvider) {
-  	
+
   }
 
   ionViewDidLoad () {
