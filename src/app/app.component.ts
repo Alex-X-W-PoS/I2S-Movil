@@ -1,7 +1,5 @@
 import { Component, ViewChild } from '@angular/core'
 import { Platform, MenuController, Nav } from 'ionic-angular'
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic'
-import { ListPage } from '../pages/list/list'
 import { RolesPage } from '../pages/roles/roles'
 import { AgregarNovedadesPage } from '../pages/agregar-novedades/agregar-novedades'
 import { StatusBar } from '@ionic-native/status-bar'
@@ -17,7 +15,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav
 
   // the root (or first) page
-  rootPage = NovedadesSinAtenderPage
+  rootPage = RolesPage
   pages: Array<{ title: string, component: any }>
 
   constructor (
@@ -30,9 +28,7 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
       { title: 'Roles Page', component: RolesPage },
-      { title: 'My First List', component: ListPage },
       { title: 'Agregar Novedad', component: AgregarNovedadesPage },
       { title: 'Puestos de trabajo', component: PuestoDeTrabajoPage },
       { title: 'Areas de trabajo', component: AreasDeTrabajoPage },

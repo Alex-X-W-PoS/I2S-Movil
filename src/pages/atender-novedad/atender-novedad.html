@@ -1,8 +1,4 @@
-
 <ion-header>
-
-
-
   </ion-header>
 
 
@@ -46,24 +42,24 @@
             <h6>{{fecha | date: 'yyyy-MM-dd HH:mm:ss ' }}</h6>
       </ion-row>
 
-        <ion-row>
+        <ion-row *ngIf="foto!=''">
           <h4>Evidencia:</h4>
           <ion-img [src]='foto' *ngIf="foto!=''">
           </ion-img>
         </ion-row>
 
       <!--Marcar versión como atendida-->
-      <ion-row class="message">
+      <ion-row class="message" *ngIf="user==0">
           <ion-col>
             <h2>¿Desea marcar esta novedad como atendida?</h2>
           </ion-col>
       </ion-row>
 
       <!-- Buttons -->
-          <button ion-button (click)=cambiarEstado()>
+          <button ion-button (click)=cambiarEstado() *ngIf="user==0">
               Si
             </button>
-            <button ion-button (click)=regresar()>
+            <button ion-button (click)=regresar() *ngIf="user==0">
                 No
               </button>
     </ion-grid>

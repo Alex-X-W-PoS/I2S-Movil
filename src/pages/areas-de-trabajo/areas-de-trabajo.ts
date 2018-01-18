@@ -2,7 +2,7 @@ import { Component } from '@angular/core'
 import { IonicPage, NavController, NavParams } from 'ionic-angular'
 import { HttpProvider } from '../../providers/http/http'
 import { PuestoDeTrabajoPage } from '../puesto-de-trabajo/puesto-de-trabajo'
-
+import { GlobalProvider } from '../../providers/global/global'
 @IonicPage()
 @Component({
   selector: 'page-areas-de-trabajo',
@@ -12,7 +12,9 @@ export class AreasDeTrabajoPage {
   listaDeAreas: any
   areaValue: any
   puestoValue: any
-  constructor (public navCtrl: NavController, public navParams: NavParams, public puestos: HttpProvider) {
+  user: any
+  constructor (public navCtrl: NavController, public navParams: NavParams, public puestos: HttpProvider, public rolUsuario: GlobalProvider) {
+    this.user = rolUsuario.claseUsuario
   }
   obtenerAreas () {
     this.listaDeAreas = ['']

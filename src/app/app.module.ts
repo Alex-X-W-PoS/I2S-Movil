@@ -4,9 +4,6 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular'
 import { MyApp } from './app.component'
 import { Camera } from '@ionic-native/camera'
 
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic'
-import { ItemDetailsPage } from '../pages/item-details/item-details'
-import { ListPage } from '../pages/list/list'
 import { RolesPage } from '../pages/roles/roles'
 import { AgregarNovedadesPage } from '../pages/agregar-novedades/agregar-novedades'
 import { PuestoDeTrabajoPage } from '../pages/puesto-de-trabajo/puesto-de-trabajo'
@@ -23,9 +20,6 @@ import { GlobalProvider } from '../providers/global/global'
 @NgModule({
   declarations: [
     MyApp,
-    HelloIonicPage,
-    ItemDetailsPage,
-    ListPage,
     RolesPage,
     AgregarNovedadesPage,
     PuestoDeTrabajoPage,
@@ -41,9 +35,6 @@ import { GlobalProvider } from '../providers/global/global'
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HelloIonicPage,
-    ItemDetailsPage,
-    ListPage,
     RolesPage,
     AgregarNovedadesPage,
     PuestoDeTrabajoPage,

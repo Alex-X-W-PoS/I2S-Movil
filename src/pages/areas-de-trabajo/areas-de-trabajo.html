@@ -1,16 +1,9 @@
-<!--
-  Generated template for the AreasDeTrabajoPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-  </ion-navbar>
-
+    <h4 *ngIf="user==0" style="text-align: center">Inspector de Seguridad</h4>
+    <h4 *ngIf="user==1" style="text-align: center">Jefe de Seguridad</h4>
+    <h4 *ngIf="user==2" style="text-align: center">Usuario Normal</h4>
+    <h3 style="text-align: center">Areas de trabajo</h3>
 </ion-header>
-
 <h3>Areas de trabajo</h3>
 <ion-content text-center class="vertical-align-content">
 	<ion-grid center text-center>

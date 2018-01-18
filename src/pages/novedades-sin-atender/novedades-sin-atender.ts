@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { AgregarNovedadesPage } from '../agregar-novedades/agregar-novedades'
 import { AtenderNovedadPage } from '../atender-novedad/atender-novedad'
 import { HttpProvider } from '../../providers/http/http'
+import { GlobalProvider } from '../../providers/global/global'
 @IonicPage()
 @Component({
   selector: 'page-novedades-sin-atender',
@@ -11,14 +12,16 @@ import { HttpProvider } from '../../providers/http/http'
 export class NovedadesSinAtenderPage {
   mensajeExito = ''
   puesto: string = '1'
+  usuario: number
   public title = 'Novedades Sin Atender'
   novedades: any[]
   size: number
 
-  constructor (public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,public http: HttpProvider) {
+  constructor (public navCtrl: NavController, public navParams: NavParams, public rolUsuario: GlobalProvider, public alertCtrl: AlertController,public http: HttpProvider) {
     if (navParams && navParams.get('mensaje') !== '') {
       this.mensajeExito = navParams.get('mensaje')
       this.cargarNovedades()
+      this.usuario = rolUsuario.claseUsuario
     }
   }
 
@@ -32,8 +35,8 @@ export class NovedadesSinAtenderPage {
     }
   }
 
-  agregarNovedades (idPuesto) {
-    void this.navCtrl.push(AgregarNovedadesPage, { item: idPuesto })
+  agregarNovedades () {
+    void this.navCtrl.push(AgregarNovedadesPage, { 'item': this.puesto })
   }
 
   cargarNovedades () {

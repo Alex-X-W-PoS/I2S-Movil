@@ -2,6 +2,8 @@ import { Component } from '@angular/core'
 import { IonicPage, NavController, NavParams } from 'ionic-angular'
 import { NovedadesSinAtenderPage } from '../../pages/novedades-sin-atender/novedades-sin-atender'
 import { HttpProvider } from '../../providers/http/http'
+import { GlobalProvider } from '../../providers/global/global'
+
 @IonicPage()
 @Component({
   selector: 'page-atender-novedad',
@@ -15,18 +17,18 @@ export class AtenderNovedadPage {
   prioridad: string
   foto: any
   puestoId = '1'
-  constructor (public navCtrl: NavController, public navParams: NavParams, public http: HttpProvider) {
+  user: number
+  constructor (public navCtrl: NavController, public navParams: NavParams, public http: HttpProvider, rolUsuario: GlobalProvider) {
     this.novedadDetalle = navParams.data.item
     this.fecha = this.novedadDetalle.fechaCreacion
     this.descripcion = this.novedadDetalle.descripcion
     this.foto = this.novedadDetalle.foto_url
     this.prioridad = this.novedadDetalle.prioridad
     this.id = this.novedadDetalle.id
-
+    this.user = rolUsuario.claseUsuario
   }
 
   ionViewDidLoad () {
-    console.log(this.novedadDetalle.descripcion)
     console.log(' AtenderNovedadPage')
   }
 
