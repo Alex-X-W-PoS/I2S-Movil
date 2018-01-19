@@ -14,18 +14,17 @@
 					<ion-select [(ngModel)]="areaValue	" (ionChange)="obtenerAreas()">
 						<ion-option value="1">Area_1</ion-option>
 						<ion-option value="6">Area_2</ion-option>
-
 					</ion-select>
 				</ion-item>
 			</ion-col>
 			<ion-item>
 				<ion-label>Seleccione el puesto</ion-label>
-				<ion-select [(ngModel)]="puestoValue">
+				<ion-select [(ngModel)]="puestoValue" (ionChange)="verifyButton()">
 					<ion-option *ngFor="let area of listaDeAreas" value="{{area.id}}">{{area.nombre}}</ion-option>
 				</ion-select>
 			</ion-item>
 		<ion-col col-12>
-			<button ion-button round (click)="entrarPuestosDeTrabajo()">Entrar al área</button>
+			<button ion-button round (click)="entrarPuestosDeTrabajo()" [disabled]="!isenabled">Entrar al área</button>
 		</ion-col>
 		</ion-row>
 	</ion-grid>

@@ -28,13 +28,13 @@ export class PuestoDeTrabajoPage {
       this.numNovedades = this.dataPuestos.num_novedades
       this.arrayRiesgos = this.dataPuestos.valoracion_puesto_trabajo
       this.porcentaje = 0
-      console.log(this.numEmpleados)
+      console.log(this.dataPuestos.puesto_trabajo_id)
     },
     error => {
       console.log(error)
     })
   }
   cargarNovedades () {
-    void this.navCtrl.push(NovedadesSinAtenderPage, this.navParams.data)
+    void this.navCtrl.push(NovedadesSinAtenderPage, this.dataPuestos.puesto_trabajo_id)
   }
 }

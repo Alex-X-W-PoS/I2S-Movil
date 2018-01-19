@@ -13,11 +13,15 @@ export class AreasDeTrabajoPage {
   areaValue: any
   puestoValue: any
   user: any
+  isenabled: boolean
   constructor (public navCtrl: NavController, public navParams: NavParams, public puestos: HttpProvider, public rolUsuario: GlobalProvider) {
     this.user = rolUsuario.claseUsuario
+    this.isenabled = false
   }
   obtenerAreas () {
     this.listaDeAreas = ['']
+    this.puestoValue = undefined
+    this.verifyButton()
     this.puestos.obtenerPuestoDeTrabajoDeArea(this.areaValue).then(res => {
       this.listaDeAreas = res.datos
     },
@@ -27,5 +31,12 @@ export class AreasDeTrabajoPage {
   }
   entrarPuestosDeTrabajo () {
     void this.navCtrl.push(PuestoDeTrabajoPage, this.puestoValue)
+  }
+  verifyButton () {
+    if (this.areaValue !== undefined && this.puestoValue !== undefined) {
+      this.isenabled = true
+    } else {
+      this.isenabled = false
+    }
   }
 }

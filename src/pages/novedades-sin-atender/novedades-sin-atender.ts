@@ -11,13 +11,14 @@ import { GlobalProvider } from '../../providers/global/global'
 })
 export class NovedadesSinAtenderPage {
   mensajeExito = ''
-  puesto: string = '1'
+  puesto: string
   usuario: number
   public title = 'Novedades Sin Atender'
   novedades: any[]
   size: number
 
   constructor (public navCtrl: NavController, public navParams: NavParams, public rolUsuario: GlobalProvider, public alertCtrl: AlertController,public http: HttpProvider) {
+    this.puesto = navParams.data
     if (navParams && navParams.get('mensaje') !== '') {
       this.mensajeExito = navParams.get('mensaje')
       this.cargarNovedades()
