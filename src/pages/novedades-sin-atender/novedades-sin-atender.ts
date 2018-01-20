@@ -18,7 +18,8 @@ export class NovedadesSinAtenderPage {
   size: number
 
   constructor (public navCtrl: NavController, public navParams: NavParams, public rolUsuario: GlobalProvider, public alertCtrl: AlertController,public http: HttpProvider) {
-    this.puesto = navParams.data
+    this.puesto = navParams.get('item')
+    console.log(this.puesto)
     if (navParams && navParams.get('mensaje') !== '') {
       this.mensajeExito = navParams.get('mensaje')
       this.cargarNovedades()
@@ -37,7 +38,7 @@ export class NovedadesSinAtenderPage {
   }
 
   agregarNovedades () {
-    void this.navCtrl.push(AgregarNovedadesPage, { 'item': this.puesto })
+    void this.navCtrl.push(AgregarNovedadesPage, { item: this.puesto })
   }
 
   cargarNovedades () {

@@ -35,6 +35,6 @@ export class PuestoDeTrabajoPage {
     })
   }
   cargarNovedades () {
-    void this.navCtrl.push(NovedadesSinAtenderPage, this.dataPuestos.puesto_trabajo_id)
+    void this.navCtrl.push(NovedadesSinAtenderPage, { item: this.dataPuestos.puesto_trabajo_id} )
   }
 }

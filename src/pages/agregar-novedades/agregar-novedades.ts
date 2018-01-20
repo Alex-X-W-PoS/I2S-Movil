@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { ActionSheetController,NavController, LoadingController } from 'ionic-angular'
+import { ActionSheetController,NavController, LoadingController, NavParams } from 'ionic-angular'
 import { Camera, CameraOptions } from '@ionic-native/camera'
 import { HttpProvider } from '../../providers/http/http'
 import { NovedadesSinAtenderPage } from '../../pages/novedades-sin-atender/novedades-sin-atender'
@@ -11,11 +11,15 @@ import { NovedadesSinAtenderPage } from '../../pages/novedades-sin-atender/noved
 export class AgregarNovedadesPage {
   image = ''
   imgurLink = ''
-  puestoId = '1'
+  puestoId: any
   descripcion: string
   prioridad = ''
+  isenabled: boolean
 
-  constructor (public navCtrl: NavController, private camera: Camera, public actionSheetCtrl: ActionSheetController, public http: HttpProvider, private loadingCtrl: LoadingController) { }
+  constructor (public navCtrl: NavController, public navParams: NavParams, private camera: Camera, public actionSheetCtrl: ActionSheetController, public http: HttpProvider, private loadingCtrl: LoadingController) {
+    this.puestoId = navParams.get('item')
+    this.isenabled = false
+  }
 
   presentActionSheet () {
     let actionSheet = this.actionSheetCtrl.create({
@@ -108,17 +112,19 @@ export class AgregarNovedadesPage {
 
   onChange (prioridad: string) {
     this.prioridad = prioridad
+    this.verifyButton()
   }
 
   crearNovedad () {
-    if (this.isNotEmpty(this.puestoId) && this.isNotEmpty(this.descripcion) && this.isNotEmpty(this.prioridad) && this.isNotEmpty(this.imgurLink)) {
+    if (this.isNotEmpty(this.puestoId) && this.isNotEmpty(this.descripcion) && this.isNotEmpty(this.prioridad)) {
       let loading = this.loadingCtrl.create({
         content: 'Por favor, espere...'
       })
       void loading.present()
       this.http.agregarNovedad(this.puestoId, this.descripcion, this.prioridad, this.imgurLink).then(res => {
         void this.navCtrl.push(NovedadesSinAtenderPage, {
-          mensaje: 'Novedad Ingresada Exitosamente.'
+          mensaje: 'Novedad Ingresada Exitosamente.',
+          item: this.puestoId
         })
         void loading.dismiss()
       })
@@ -139,6 +145,16 @@ export class AgregarNovedadesPage {
       return false
     } else {
       return true
+    }
+  }
+
+  verifyButton () {
+    console.log(this.descripcion)
+    if (this.isNotEmpty(this.descripcion) && this.isNotEmpty(this.prioridad)) {
+      this.isenabled = true
+      console.log('true')
+    } else {
+      this.isenabled = false
     }
   }
 }
