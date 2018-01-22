@@ -2,7 +2,7 @@ import { Component } from '@angular/core'
 import { ActionSheetController,NavController, LoadingController, NavParams } from 'ionic-angular'
 import { Camera, CameraOptions } from '@ionic-native/camera'
 import { HttpProvider } from '../../providers/http/http'
-import { NovedadesSinAtenderPage } from '../../pages/novedades-sin-atender/novedades-sin-atender'
+import { GlobalProvider } from '../../providers/global/global'
 
 @Component({
   selector: 'page-agregar-novedades',
@@ -16,7 +16,7 @@ export class AgregarNovedadesPage {
   prioridad = ''
   isenabled: boolean
 
-  constructor (public navCtrl: NavController, public navParams: NavParams, private camera: Camera, public actionSheetCtrl: ActionSheetController, public http: HttpProvider, private loadingCtrl: LoadingController) {
+  constructor (public navCtrl: NavController, public navParams: NavParams, private camera: Camera, public actionSheetCtrl: ActionSheetController, public http: HttpProvider, private loadingCtrl: LoadingController, public global: GlobalProvider) {
     this.puestoId = navParams.get('item')
     this.isenabled = false
   }
@@ -122,10 +122,8 @@ export class AgregarNovedadesPage {
       })
       void loading.present()
       this.http.agregarNovedad(this.puestoId, this.descripcion, this.prioridad, this.imgurLink).then(res => {
-        void this.navCtrl.push(NovedadesSinAtenderPage, {
-          mensaje: 'Novedad Ingresada Exitosamente.',
-          item: this.puestoId
-        })
+        this.global.crearNovedad = true
+        void this.navCtrl.pop()
         void loading.dismiss()
       })
       .catch(error => {

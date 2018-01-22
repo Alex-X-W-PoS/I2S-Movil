@@ -20,16 +20,14 @@ export class NovedadesSinAtenderPage {
   constructor (public navCtrl: NavController, public navParams: NavParams, public rolUsuario: GlobalProvider, public alertCtrl: AlertController,public http: HttpProvider) {
     // this.puesto = navParams.get('item')
     // console.log(this.puesto)
-    if (navParams && navParams.get('mensaje') !== '') {
-      this.mensajeExito = navParams.get('mensaje')
-      this.usuario = rolUsuario.claseUsuario
-    }
+    this.usuario = rolUsuario.claseUsuario
   }
 
-  ionViewDidLoad () {
-    if (this.mensajeExito && this.mensajeExito !== '') {
+  ionViewDidEnter () {
+    if (this.rolUsuario.crearNovedad === true) {
+      this.rolUsuario.crearNovedad = false
       let alert = this.alertCtrl.create({
-        title: this.mensajeExito,
+        title: 'Novedad agregada exitosamente',
         buttons: ['OK']
       })
       void alert.present()

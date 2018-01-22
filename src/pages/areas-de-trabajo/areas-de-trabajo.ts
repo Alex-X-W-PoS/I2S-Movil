@@ -23,9 +23,7 @@ export class AreasDeTrabajoPage {
     this.puestoValue = undefined
     this.verifyButton()
     this.puestos.obtenerPuestoDeTrabajoDeArea(this.areaValue).then(res => {
-    this.listaDeAreas = res.datos
-    console.log(this.listaDeAreas)
-
+      this.listaDeAreas = res.datos
     },
     error => {
       console.log(error)
