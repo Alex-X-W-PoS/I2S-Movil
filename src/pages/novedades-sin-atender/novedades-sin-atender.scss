@@ -1,14 +1,21 @@
 page-novedades-sin-atender {
   .body{
-    background-color:#142b3b;
+    background-color:#FFFFFF;
+
     ion-list{
-     .misNovedades, .header, .pie{
+      .header{
         border: 1px solid #178EFF;
-        background-color: #142b3b;
+        background-color: #607D8B;
         .title{
           color:#178eff;
           font-size: 24.3px;
         }
+      }
+     .misNovedades{
+        border: 1px solid #178EFF;
+        background-color: #BBDEFB;
+        margin-top: 5px;
+
         .back{
           color: #178EFF;
           font-size: 2.5em;
@@ -22,24 +29,6 @@ page-novedades-sin-atender {
           font-size: 2.5em;
           padding: 1px;
         }
-        .icono2{
-          font-size: 3.7em;
-          padding: 2px;
-          color: #178EFF;
-          position: fixed;
-          bottom: 0;
-          right: 0;
-          margin-right: 15px;
-
-      }
-      .hidden{
-        visibility: hidden;
-      }
-
-      .icono2:hover{
-        opacity:1;
-        color:#0DFF71;
-      }
       .novedad{
         color: #178EFF;
       }
@@ -53,6 +42,23 @@ page-novedades-sin-atender {
      opacity: 1;
     }
 
+  }
+
+  .pie{
+    .icono2{
+      font-size: 3.7em;
+      padding: 2px;
+      color: #178EFF;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      margin-right: 15px;
+
+  }
+  .icono2:hover{
+    opacity:1;
+    color:#0DFF71;
+  }
   }
 }
 

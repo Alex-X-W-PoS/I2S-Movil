@@ -11,22 +11,10 @@ import 'rxjs/add/operator/toPromise'
 @Injectable()
 export class HttpProvider {
   datos: any
-  path: string = 'https://randomuser.me/api/?results=25'
   todosPuestos: string = 'https://i2solutions.herokuapp.com/api/movil/puesto_trabajo/area_trabajo/'
   puesto: string = 'https://i2solutions.herokuapp.com/api/movil/puesto_trabajo/'
   novedadesPath: string = 'https://i2solutions.herokuapp.com/api/movil/novedad/puesto_trabajo/'
   constructor (public http: Http) {
-  }
-
-  loadUsers () {
-    return this.http
-    .get(this.path)
-    .map(res => res.json(),
-      err => {
-        console.log(err)
-      }
-      )
-    .toPromise()
   }
 
   uploadImageToImgur (imagen: String) {
@@ -57,8 +45,8 @@ export class HttpProvider {
     .toPromise()
   }
 
-  marcarComoAtendida (novedadId: string, puestoId: string) {
-    let data = { atendida: true }
+  marcarComoAtendida (novedadId: string, puestoId: string, descripcion: string) {
+    let data = { atendida: true, descripcionAtendida: descripcion }
     let url = 'https://i2solutions.herokuapp.com/api/movil/novedad/' + novedadId + '/puesto_trabajo/' + puestoId
     return this.http
     .post(url,data)
@@ -100,7 +88,7 @@ export class HttpProvider {
           console.log(err)
         }
         )
-        .toPromise()
+      .toPromise()
   }
 }
 

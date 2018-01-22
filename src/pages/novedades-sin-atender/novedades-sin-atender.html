@@ -29,8 +29,8 @@
           </button>
 
           <!--Pie de página-->
-        <ion-item no-lines class="pie">
-          <ion-icon *ngIf="usuario==1"  name="md-add-circle" item-end  class="icono2" (click)="agregarNovedades()"></ion-icon>
-        </ion-item>
+          <ion-grid class="pie">
+            <ion-icon *ngIf="usuario==0"  name="md-add-circle" item-end  class="icono2" (click)="agregarNovedades()"></ion-icon>
+          </ion-grid>
 </ion-list>
 </ion-content>

@@ -11,18 +11,17 @@ import { GlobalProvider } from '../../providers/global/global'
 })
 export class NovedadesSinAtenderPage {
   mensajeExito = ''
-  puesto: string
+  // puesto: string
   usuario: number
   public title = 'Novedades Sin Atender'
   novedades: any[]
   size: number
 
   constructor (public navCtrl: NavController, public navParams: NavParams, public rolUsuario: GlobalProvider, public alertCtrl: AlertController,public http: HttpProvider) {
-    this.puesto = navParams.get('item')
-    console.log(this.puesto)
+    // this.puesto = navParams.get('item')
+    // console.log(this.puesto)
     if (navParams && navParams.get('mensaje') !== '') {
       this.mensajeExito = navParams.get('mensaje')
-      this.cargarNovedades()
       this.usuario = rolUsuario.claseUsuario
     }
   }
@@ -35,10 +34,11 @@ export class NovedadesSinAtenderPage {
       })
       void alert.present()
     }
+    this.cargarNovedades()
   }
 
   agregarNovedades () {
-    void this.navCtrl.push(AgregarNovedadesPage, { item: this.puesto })
+    void this.navCtrl.push(AgregarNovedadesPage, { item: this.navParams.get('puestoId') })
   }
 
   regresar () {
@@ -46,7 +46,7 @@ export class NovedadesSinAtenderPage {
   }
 
   cargarNovedades () {
-    this.http.obetenerNovedadesSinAtender(this.puesto).then(res => {
+    this.http.obetenerNovedadesSinAtender(this.navParams.get('puestoId')).then(res => {
       this.novedades = res.datos
       this.size = this.novedades.length
       console.log(this.novedades)
@@ -58,7 +58,7 @@ export class NovedadesSinAtenderPage {
   }
 
   detallesNovedades (item) {
-    void this.navCtrl.push(AtenderNovedadPage, { item: item })
+    void this.navCtrl.push(AtenderNovedadPage, { item: item , 'puesto': this.navParams.get('puestoId') })
   }
 
 }

@@ -48,18 +48,28 @@
           </ion-img>
         </ion-row>
 
+        <ion-list *ngIf="user==1" class="resolver">
+              <ion-item class="textArea">
+                  <ion-label fixed class="description">Descripción:</ion-label>
+              </ion-item>
+              <ion-item [(ngModel)]="descripcionAtendida" class="textArea">
+                <ion-textarea [attr.rows]="4" placeholder="¿Cómo se resolvió?"></ion-textarea>
+              </ion-item>
+        </ion-list>
+
+
       <!--Marcar versión como atendida-->
-      <ion-row class="message" *ngIf="user==0">
+      <ion-row class="message" *ngIf="user==1">
           <ion-col>
             <h2>¿Desea marcar esta novedad como atendida?</h2>
           </ion-col>
       </ion-row>
 
       <!-- Buttons -->
-          <button ion-button (click)=cambiarEstado() *ngIf="user==0">
+          <button ion-button (click)=cambiarEstado() *ngIf="user==1">
               Si
             </button>
-            <button ion-button (click)=regresar() *ngIf="user==0">
+            <button ion-button (click)=regresar() *ngIf="user==1">
                 No
               </button>
     </ion-grid>

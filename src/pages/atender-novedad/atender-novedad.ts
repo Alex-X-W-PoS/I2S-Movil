@@ -16,8 +16,9 @@ export class AtenderNovedadPage {
   descripcion: string
   prioridad: string
   foto: any
-  puestoId = '1'
+  puestoId: string
   user: number
+  descripcionAtendida: string
   constructor (public navCtrl: NavController, public navParams: NavParams, public http: HttpProvider, rolUsuario: GlobalProvider) {
     this.novedadDetalle = navParams.data.item
     this.fecha = this.novedadDetalle.fechaCreacion
@@ -26,6 +27,8 @@ export class AtenderNovedadPage {
     this.prioridad = this.novedadDetalle.prioridad
     this.id = this.novedadDetalle.id
     this.user = rolUsuario.claseUsuario
+    this.puestoId = navParams.get('puesto')
+    console.log(this.descripcionAtendida)
   }
 
   ionViewDidLoad () {
@@ -35,8 +38,9 @@ export class AtenderNovedadPage {
   regresar () {
     void this.navCtrl.pop()
   }
+
   cambiarEstado () {
-    this.http.marcarComoAtendida(this.id , this.puestoId).then(res => {
+    this.http.marcarComoAtendida(this.id , this.puestoId, this.descripcionAtendida).then(res => {
       void this.navCtrl.push(NovedadesSinAtenderPage, {
         mensaje: 'Novedad Atendida con Exito'
       })

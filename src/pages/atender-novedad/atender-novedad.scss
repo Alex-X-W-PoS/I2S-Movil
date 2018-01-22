@@ -3,6 +3,20 @@ page-atender-novedad {
     .separator{
       border-bottom:2px solid rgb(23, 142, 255);
     }
+
+    .resolver{
+      margin-top: 5px;
+      .textArea{
+        border: 2px solid rgb(23, 142, 255);
+        border-top: 3px;
+        background-color: #b9f3ec ;
+
+          .description{
+            color: #178EFF;
+          }
+      }
+    }
+
     background-color:#3A4144;
     .title{
       color:#178EFF;
@@ -26,6 +40,7 @@ page-atender-novedad {
       color: #178EFF;
       border: 2px solid rgb(23, 142, 255);
     }
+
   }
 }
 
