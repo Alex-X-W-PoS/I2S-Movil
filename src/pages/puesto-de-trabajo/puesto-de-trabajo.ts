@@ -17,8 +17,7 @@ export class PuestoDeTrabajoPage {
   constructor (public navCtrl: NavController, public navParams: NavParams, public classPuesto: HttpProvider) {
 
   }
-
-  ionViewDidLoad () {
+  ionViewDidEnter () {
     this.cargarRiesgos()
   }
   cargarRiesgos () {
@@ -28,13 +27,13 @@ export class PuestoDeTrabajoPage {
       this.numNovedades = this.dataPuestos.num_novedades
       this.arrayRiesgos = this.dataPuestos.valoracion_puesto_trabajo
       this.porcentaje = 0
-      console.log(this.dataPuestos.puesto_trabajo_id)
+      console.log(this.dataPuestos)
     },
     error => {
       console.log(error)
     })
   }
   cargarNovedades () {
-    void this.navCtrl.push(NovedadesSinAtenderPage, { item: this.dataPuestos.puesto_trabajo_id} )
+    void this.navCtrl.push(NovedadesSinAtenderPage, { item: this.dataPuestos.puesto_trabajo_id })
   }
 }

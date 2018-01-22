@@ -41,6 +41,10 @@ export class NovedadesSinAtenderPage {
     void this.navCtrl.push(AgregarNovedadesPage, { item: this.puesto })
   }
 
+  regresar () {
+    void this.navCtrl.pop()
+  }
+
   cargarNovedades () {
     this.http.obetenerNovedadesSinAtender(this.puesto).then(res => {
       this.novedades = res.datos
