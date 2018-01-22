@@ -1,37 +1,24 @@
 <ion-header>
-  </ion-header>
+  <ion-navbar  color="primary">
+    <ion-title>
+      Atender novedad
+    </ion-title>
+  </ion-navbar>
+</ion-header>
 
 
-  <ion-content padding class="body">
-    <ion-grid>
-      <!--header-->
-      <ion-row class="separator">
-          <h2 class="title"> Novedades sin Atender</h2>
-      </ion-row >
+<ion-content>
+  <ion-row style="text-align: center">
+        <h4>{{descripcion}}</h4>
+  </ion-row>
 
-      <ion-row >
-        <h1></h1>
-      </ion-row>
-
-      <!--Novedad Seleccionada-->
-      <ion-row class="selection">
-          <h4>Novedades Seleccionada :</h4>
-      </ion-row>
-      <ion-row>
-            <h6>{{descripcion}}</h6>
-      </ion-row>
-
-      <!--Prioridad-->
-      <ion-row class="priority">
-              <h4>Prioridad :</h4>
-      </ion-row>
-      <ion-row icon-start>
-           <h6>
-             <ion-icon name="warning" color="{{prioridad}}" class="icono">
-             </ion-icon>
-             {{prioridad}}
-            </h6>
-      </ion-row>
+  <ion-row icon-start>
+       <h4>
+         <ion-icon name="warning" color="{{prioridad}}" class="icono">
+         </ion-icon>
+         {{prioridad}}
+        </h4>
+  </ion-row>
       <!--Fecha Reportada-->
       <ion-row class="date">
           <ion-col>
@@ -55,13 +42,18 @@
           </ion-col>
       </ion-row>
 
-      <!-- Buttons -->
-          <button ion-button (click)=cambiarEstado() *ngIf="user==0">
+  <button ion-button icon-start  (click)=cambiarEstado() *ngIf="user==0">
+    Si
+  </button>
+
+  <button ion-button icon-end  color="danger" (click)=regresar() *ngIf="user==0">
+    No
+  </button>
+          <!-- <button ion-button (click)=cambiarEstado() *ngIf="user==0">
               Si
             </button>
             <button ion-button (click)=regresar() *ngIf="user==0">
                 No
-              </button>
-    </ion-grid>
-    <hr><hr>
-  </ion-content>
+              </button> -->
+    <!-- </ion-grid> -->
+</ion-content>

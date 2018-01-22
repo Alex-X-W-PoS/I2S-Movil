@@ -1,8 +1,9 @@
 import { Component } from '@angular/core'
-import { IonicPage, NavController, NavParams } from 'ionic-angular'
+import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular'
 import { HttpProvider } from '../../providers/http/http'
-import { PuestoDeTrabajoPage } from '../puesto-de-trabajo/puesto-de-trabajo'
 import { GlobalProvider } from '../../providers/global/global'
+import { EscogerPuestoTrabajoPage } from '../escoger-puesto-trabajo/escoger-puesto-trabajo'
+
 @IonicPage()
 @Component({
   selector: 'page-areas-de-trabajo',
@@ -14,7 +15,7 @@ export class AreasDeTrabajoPage {
   puestoValue: any
   user: any
   isenabled: boolean
-  constructor (public navCtrl: NavController, public navParams: NavParams, public puestos: HttpProvider, public rolUsuario: GlobalProvider) {
+  constructor (public loadingController: LoadingController, public navCtrl: NavController, public navParams: NavParams, public puestos: HttpProvider, public rolUsuario: GlobalProvider) {
     this.user = rolUsuario.claseUsuario
     this.isenabled = false
   }
@@ -29,8 +30,16 @@ export class AreasDeTrabajoPage {
       console.log(error)
     })
   }
-  entrarPuestosDeTrabajo () {
-    void this.navCtrl.push(PuestoDeTrabajoPage, this.puestoValue)
+  entrarPuestosDeTrabajo (areaId) {
+    let loading = this.loadingController.create({ content: 'Cargando, por favor espere un momento' })
+    loading.present()
+    this.puestos.obtenerPuestoDeTrabajoDeArea(areaId).then(res => {
+      loading.dismissAll()
+      void this.navCtrl.push(EscogerPuestoTrabajoPage, res.datos)
+    },
+    error => {
+      console.log(error)
+    })
   }
   verifyButton () {
     if (this.areaValue !== undefined && this.puestoValue !== undefined) {

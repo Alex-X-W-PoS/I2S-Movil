@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 .body-roles{
-	background-color:#E0F8FF;
-	
+  [scrollbar-y-auto] .scroll-content {
+    overflow-y: false !important;
+  }
+	// background-color:#E0F8FF;
+
 	#escoger{
 		text-align: center;
 		color:#004189;
@@ -47,6 +50,7 @@
 	text-align: center;
 	color: #8895A3;
 	}
+
 }
 
 

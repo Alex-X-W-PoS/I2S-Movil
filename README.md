@@ -20,6 +20,7 @@ npm install
  ionic serve --lab -c
 ```
 
+ionic cordova run android
 ## Production
 
  Build android .apk

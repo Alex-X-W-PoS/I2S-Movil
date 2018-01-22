@@ -1,12 +1,19 @@
 <ion-header>
-    <h4 *ngIf="user==0" style="text-align: center">Inspector de Seguridad</h4>
-    <h4 *ngIf="user==1" style="text-align: center">Jefe de Seguridad</h4>
-    <h4 *ngIf="user==2" style="text-align: center">Usuario Normal</h4>
-    <h3 style="text-align: center">Areas de trabajo</h3>
+  <ion-navbar  color="primary">
+    <ion-title>
+      Areas de trabajo
+<!--       <p class="subtitle" *ngIf="user==0">Inspector de Seguridad</p>
+      <p class="subtitle" *ngIf="user==1">Jefe de Seguridad</p>
+      <p class="subtitle" *ngIf="user==2">Empleados</p> -->
+    </ion-title>
+  </ion-navbar>
 </ion-header>
-<h3>Areas de trabajo</h3>
-<ion-content text-center class="vertical-align-content">
-	<ion-grid center text-center>
+
+<ion-content padding class="body-roles" scrollbar-y-auto>
+  <button ion-button full large value="1" (click)="entrarPuestosDeTrabajo('1')">Mecánica</button>
+  <button ion-button full large value="6" (click)="entrarPuestosDeTrabajo('6')">FIEC</button>
+  <!-- <button ion-button full large value="6" [(ngModel)]="areaValue" (click)="entrarPuestosDeTrabajo()">FIEC</button> -->
+<!-- 	<ion-grid center text-center>
 		<ion-row center>
 			<ion-col col-12>
 				<ion-item>
@@ -27,5 +34,5 @@
 			<button ion-button round (click)="entrarPuestosDeTrabajo()" [disabled]="!isenabled">Entrar al área</button>
 		</ion-col>
 		</ion-row>
-	</ion-grid>
+	</ion-grid> -->
 </ion-content>
