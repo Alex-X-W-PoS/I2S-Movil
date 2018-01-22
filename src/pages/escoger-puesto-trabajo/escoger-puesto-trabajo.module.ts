@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { EscogerPuestoTrabajoPage } from './escoger-puesto-trabajo';
+import { NgModule } from '@angular/core'
+import { IonicPageModule } from 'ionic-angular'
+import { EscogerPuestoTrabajoPage } from './escoger-puesto-trabajo'
 
 @NgModule({
   declarations: [
-    EscogerPuestoTrabajoPage,
+    EscogerPuestoTrabajoPage
   ],
   imports: [
-    IonicPageModule.forChild(EscogerPuestoTrabajoPage),
-  ],
+    IonicPageModule.forChild(EscogerPuestoTrabajoPage)
+  ]
 })
 export class EscogerPuestoTrabajoPageModule {}
