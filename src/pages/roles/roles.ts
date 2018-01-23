@@ -8,6 +8,7 @@ import { AreasDeTrabajoPage } from '../areas-de-trabajo/areas-de-trabajo'
   templateUrl: 'roles.html'
 })
 export class RolesPage {
+  public text: string = '2'
   constructor (public navCtrl: NavController, public navParams: NavParams, public rolUsuario: GlobalProvider) {
   }
 

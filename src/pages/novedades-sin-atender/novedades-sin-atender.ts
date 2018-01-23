@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular'
+import { IonicPage, NavController, NavParams, AlertController, LoadingController, ToastController } from 'ionic-angular'
 import { AgregarNovedadesPage } from '../agregar-novedades/agregar-novedades'
 import { AtenderNovedadPage } from '../atender-novedad/atender-novedad'
 import { HttpProvider } from '../../providers/http/http'
@@ -17,8 +17,9 @@ export class NovedadesSinAtenderPage {
   public title = 'Novedades Sin Atender'
   novedades: any[]
   size: number
+  puesto: string
 
-  constructor (public loadingController: LoadingController, public navCtrl: NavController, public navParams: NavParams, public rolUsuario: GlobalProvider, public alertCtrl: AlertController,public http: HttpProvider) {
+  constructor (public toastCtrl: ToastController, public loadingController: LoadingController, public navCtrl: NavController, public navParams: NavParams, public rolUsuario: GlobalProvider, public alertCtrl: AlertController,public http: HttpProvider) {
     this.puesto = navParams.get('puestoId')
     if (navParams && navParams.get('mensaje') !== '') {
       this.mensajeExito = navParams.get('mensaje')
@@ -30,11 +31,12 @@ export class NovedadesSinAtenderPage {
   ionViewDidEnter () {
     if (this.rolUsuario.crearNovedad === true) {
       this.rolUsuario.crearNovedad = false
-      let alert = this.alertCtrl.create({
-        title: 'Novedad agregada exitosamente',
-        buttons: ['OK']
+      let toast = this.toastCtrl.create({
+        message: 'Novedad agregada exitosamente',
+        duration: 2000,
+        position: 'bottom'
       })
-      void alert.present()
+      void toast.present()
     }
     this.cargarNovedades()
   }

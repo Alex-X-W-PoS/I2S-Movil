@@ -18,7 +18,7 @@ export class AtenderNovedadPage {
   foto: any
   puestoId: string
   user: number
-  descripcionAtendida: string
+  public descripcionAtendida: string = ''
   constructor (public loadingController: LoadingController, public navCtrl: NavController, public navParams: NavParams, public http: HttpProvider, rolUsuario: GlobalProvider) {
     this.novedadDetalle = navParams.data.item
     this.fecha = this.novedadDetalle.fechaCreacion
@@ -39,6 +39,9 @@ export class AtenderNovedadPage {
   }
 
   cambiarEstado () {
+    console.log(`ES EL ID: ${this.id}`)
+    console.log(`ES EL ID: ${this.puestoId}`)
+    console.log(`ES EL ID: ${this.descripcionAtendida}`)
     this.http.marcarComoAtendida(this.id , this.puestoId, this.descripcionAtendida).then(res => {
       void this.navCtrl.push(NovedadesSinAtenderPage, {
         mensaje: 'Novedad Atendida con Exito', puestoId: this.puestoId

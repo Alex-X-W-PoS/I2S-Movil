@@ -45,7 +45,7 @@ export class HttpProvider {
 
   marcarComoAtendida (novedadId: string, puestoId: string, descripcion: string) {
     let data = { atendida: true, descripcionAtendida: descripcion }
-    let url = 'https://i2solutions.herokuapp.com/api/movil/novedad/' + novedadId + '/puesto_trabajo/' + puestoId
+    let url = BASE_PATH + '/api/movil/novedad/' + novedadId + '/puesto_trabajo/' + puestoId
     return this.http
     .post(url,data)
     .map(res => console.log(res.json()),
