@@ -30,6 +30,7 @@ export class NovedadesSinAtenderPage {
 
   ionViewDidEnter () {
     if (this.rolUsuario.crearNovedad === true) {
+      this.rolUsuario.atenderNovedad = false
       this.rolUsuario.crearNovedad = false
       let toast = this.toastCtrl.create({
         message: 'Novedad agregada exitosamente',

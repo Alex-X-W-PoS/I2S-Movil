@@ -1,8 +1,9 @@
 import { Component } from '@angular/core'
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular'
-import { NovedadesSinAtenderPage } from '../../pages/novedades-sin-atender/novedades-sin-atender'
+// import { NovedadesSinAtenderPage } from '../../pages/novedades-sin-atender/novedades-sin-atender'
 import { HttpProvider } from '../../providers/http/http'
 import { GlobalProvider } from '../../providers/global/global'
+// import { global } from '@angular/core/src/util'
 
 @IonicPage()
 @Component({
@@ -19,14 +20,14 @@ export class AtenderNovedadPage {
   puestoId: string
   user: number
   public descripcionAtendida: string = ''
-  constructor (public loadingController: LoadingController, public navCtrl: NavController, public navParams: NavParams, public http: HttpProvider, rolUsuario: GlobalProvider) {
+  constructor (public loadingController: LoadingController, public navCtrl: NavController, public navParams: NavParams, public http: HttpProvider, public globalVar: GlobalProvider) {
     this.novedadDetalle = navParams.data.item
     this.fecha = this.novedadDetalle.fechaCreacion
     this.descripcion = this.novedadDetalle.descripcion
     this.foto = this.novedadDetalle.foto_url
     this.prioridad = this.novedadDetalle.prioridad
     this.id = this.novedadDetalle.id
-    this.user = rolUsuario.claseUsuario
+    this.user = globalVar.claseUsuario
     this.puestoId = navParams.get('puesto')
   }
 
@@ -43,9 +44,8 @@ export class AtenderNovedadPage {
     console.log(`ES EL ID: ${this.puestoId}`)
     console.log(`ES EL ID: ${this.descripcionAtendida}`)
     this.http.marcarComoAtendida(this.id , this.puestoId, this.descripcionAtendida).then(res => {
-      void this.navCtrl.push(NovedadesSinAtenderPage, {
-        mensaje: 'Novedad Atendida con Exito', puestoId: this.puestoId
-      })
+      this.globalVar.atenderNovedad = true
+      this.navCtrl.pop()
       // loading.dismissAll()
       .catch(error => {
         console.error(error)
