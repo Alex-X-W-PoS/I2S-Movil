@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-navbar  color="primary">
+    <ion-title>
+      Puestos de trabajo
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="body-roles" scrollbar-y-auto>
+  <button ion-button full large *ngFor="let area of listaDePuestos" value="{{area.id}}" (click)="entrarPuestosDeTrabajo(area.id, area.nombre)">{{area.nombre}}</button>
+</ion-content>

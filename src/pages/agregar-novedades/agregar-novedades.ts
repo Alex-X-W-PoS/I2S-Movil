@@ -9,7 +9,7 @@ import { GlobalProvider } from '../../providers/global/global'
   templateUrl: 'agregar-novedades.html'
 })
 export class AgregarNovedadesPage {
-  image = ''
+  image = '' // http://img04.deviantart.net/b31c/i/2015/254/a/2/mabel_pines_render_by_pokemonlover7669-d997jl2.png
   imgurLink = ''
   puestoId: any
   descripcion: string

@@ -2,18 +2,16 @@ import { Injectable } from '@angular/core'
 import { Http, Headers, RequestOptions } from '@angular/http'
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/toPromise'
-/*
-  Generated class for the HttpProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
+export const BASE_PATH = 'http://i2solutions.herokuapp.com' // http://localhost:3000 http://i2solutions.herokuapp.com
+//
 @Injectable()
 export class HttpProvider {
   datos: any
-  todosPuestos: string = 'https://i2solutions.herokuapp.com/api/movil/puesto_trabajo/area_trabajo/'
-  puesto: string = 'https://i2solutions.herokuapp.com/api/movil/puesto_trabajo/'
-  novedadesPath: string = 'https://i2solutions.herokuapp.com/api/movil/novedad/puesto_trabajo/'
+  path: string = 'https://randomuser.me/api/?results=25'
+  todosPuestos: string = BASE_PATH + '/api/movil/puesto_trabajo/area_trabajo/'
+  puesto: string = BASE_PATH + '/api/movil/puesto_trabajo/'
+  novedadesPath: string = BASE_PATH + '/api/movil/novedad/puesto_trabajo/'
   constructor (public http: Http) {
   }
 
@@ -34,7 +32,7 @@ export class HttpProvider {
 
   agregarNovedad (puestoId: String, descripcion: String, prioridad: String, urlFoto: String) {
     let data = { puesto_trabajo_id: puestoId, descripcion: descripcion, prioridad: prioridad, foto_url: urlFoto }
-    let url = 'https://i2solutions.herokuapp.com/api/movil/novedad'
+    let url = BASE_PATH + '/api/movil/novedad'
     return this.http
     .post(url,data)
     .map(res => res.json(),
@@ -82,7 +80,7 @@ export class HttpProvider {
 
   obetenerNovedadesSinAtender (idPuesto: string) {
     return this.http
-  .get(this.novedadesPath.concat(idPuesto).concat('?atendida=false'))
+  .get(this.novedadesPath.concat(idPuesto))
       .map(res => res.json(),
         err => {
           console.log(err)

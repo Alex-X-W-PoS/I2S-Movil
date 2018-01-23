@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { NavController, NavParams } from 'ionic-angular'
+import { NavController, NavParams, LoadingController } from 'ionic-angular'
 import { HttpProvider } from '../../providers/http/http'
 import { NovedadesSinAtenderPage } from '../novedades-sin-atender/novedades-sin-atender'
 
@@ -14,20 +14,24 @@ export class PuestoDeTrabajoPage {
   public arrayRiesgos: any
   public porcentaje: any
   public idRiesgos: any
-  constructor (public navCtrl: NavController, public navParams: NavParams, public classPuesto: HttpProvider) {
+  public puestoNombre: any
+  constructor (public loadingController: LoadingController, public navCtrl: NavController, public navParams: NavParams, public classPuesto: HttpProvider) {
 
   }
   ionViewDidEnter () {
     this.cargarRiesgos()
   }
   cargarRiesgos () {
-    this.classPuesto.obtenerPuestoDeTrabajo(this.navParams.data).then(res => {
+    let loading = this.loadingController.create({ content: 'Cargando, por favor espere un momento' })
+    void loading.present()
+    this.classPuesto.obtenerPuestoDeTrabajo(this.navParams.data.puestoId).then(res => {
+      this.puestoNombre = this.navParams.data.nombrePuesto
       this.dataPuestos = res.datos
       this.numEmpleados = this.dataPuestos.num_empleados
       this.numNovedades = this.dataPuestos.num_novedades
       this.arrayRiesgos = this.dataPuestos.valoracion_puesto_trabajo
       this.porcentaje = 0
-      console.log(this.dataPuestos)
+      loading.dismissAll()
     },
     error => {
       console.log(error)

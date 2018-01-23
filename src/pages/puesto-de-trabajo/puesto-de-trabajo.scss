@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 .body-novedad{
 	background-color:#E0F8FF;
-		
 
 	.black-blue{
 
@@ -17,9 +16,9 @@
 		margin-top: 100px;
 	}
 	.white-square{
-		background-color: white;
-		color: grey;
-		border: solid 1px grey;
+		background-color: red;
+		color: red;
+		border: solid 3px #BBDEFB;
 		height: 20vh;
 	}
 	.medium-bigger{
@@ -32,8 +31,21 @@
 	.clearer{
 		clear: both;
 	}
-	#pie{
-	text-align: center;
-	color: #8895A3;
-	}
+  #notification-button {
+    // position: relative;
+    // width: 42px;
+    // top:1px;
+    // right: 1px;
+    // overflow: visible!important;
+    // float: right !important;
+  }
+
+
+  #notifications-badge {
+    // background-color: red;
+    // position: absolute;
+    // top: -3px;
+    // right: -3px;
+    // border-radius: 100%;
+  }
 }
