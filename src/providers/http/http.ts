@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/toPromise'
 
 export const BASE_PATH = 'http://i2solutions.herokuapp.com' // http://localhost:3000 http://i2solutions.herokuapp.com
-
+//
 @Injectable()
 export class HttpProvider {
   datos: any
@@ -91,7 +91,7 @@ export class HttpProvider {
 
   obetenerNovedadesSinAtender (idPuesto: string) {
     return this.http
-  .get(this.novedadesPath.concat(idPuesto).concat('?atendida=false'))
+  .get(this.novedadesPath.concat(idPuesto))
       .map(res => res.json(),
         err => {
           console.log(err)

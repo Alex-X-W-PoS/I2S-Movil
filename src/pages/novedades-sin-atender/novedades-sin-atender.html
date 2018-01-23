@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar  color="primary">
     <ion-title>
-      Novedades sin atender
+      Novedades
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -13,19 +13,29 @@
         <h1>No existe Novedades sin Atender</h1>
       </ion-card-content>
     </ion-card>
-    <ion-card  class="tittle" class="misNovedades"  *ngFor="let novedades of novedades" (click)=detallesNovedades(novedades)> <!--  style="border-left:  4px solid red " -->
-      <ion-item>
-      <ion-avatar item-start>
-        <ion-icon name="warning" color="{{novedades.prioridad}}"></ion-icon>
-      </ion-avatar>
-      <h2>{{ novedades.descripcion }}</h2>
-      <p>{{novedades.fechaCreacion | date:'dd-MM-yyyy HH:mm '}}</p>
-    </ion-item>
+    <ion-card style="background-color: black" class="tittle" class="misNovedades"  *ngFor="let novedades of novedades">
+      <ion-item (click)=detallesNovedades(novedades) *ngIf="novedades.prioridad == 'urgente' && !novedades.atendida" style="border-left:  4px solid red;">
+        <h2 >{{ novedades.descripcion }}</h2>
+        <p >{{novedades.fechaCreacion | date:'dd-MM-yyyy HH:mm '}}</p>
+      </ion-item>
+      <ion-item (click)=detallesNovedades(novedades) *ngIf="novedades.prioridad == 'baja' && !novedades.atendida" style="border-left:  4px solid green ">
+        <h2>{{ novedades.descripcion }}</h2>
+        <p>{{novedades.fechaCreacion | date:'dd-MM-yyyy HH:mm '}}</p>
+      </ion-item>
+      <ion-item (click)=detallesNovedades(novedades) *ngIf="novedades.prioridad == 'media' && !novedades.atendida" style="border-left:  4px solid yellow ">
+        <h2>{{ novedades.descripcion }}</h2>
+        <p>{{novedades.fechaCreacion | date:'dd-MM-yyyy HH:mm '}}</p>
+      </ion-item>
+      <ion-item (click)=detallesNovedades(novedades) *ngIf="novedades.prioridad == 'alta' && !novedades.atendida" style="border-left:  4px solid orange ">
+        <h2>{{ novedades.descripcion }}</h2>
+        <p>{{novedades.fechaCreacion | date:'dd-MM-yyyy HH:mm '}}</p>
+      </ion-item>
+      <ion-item *ngIf="novedades.atendida" style="border-left:  4px solid black">
+        <h2>{{ novedades.descripcion }}</h2>
+        <p>{{novedades.fechaCreacion | date:'dd-MM-yyyy HH:mm '}}</p>
+      </ion-item>
     </ion-card>
   </ion-list>
-<!--   <ion-fab right bottom>
-    <button ion-fab color="light" name="add" item-end (click)="agregarNovedades()" color="accent"><ion-icon name="add"  ></ion-icon></button>
-  </ion-fab> -->
   <ion-fab right bottom>
     <button ion-fab color="light" name="add" item-end  *ngIf="usuario==1"  (click)="agregarNovedades()" color="accent"><ion-icon name="add"  ></ion-icon></button>
   </ion-fab>

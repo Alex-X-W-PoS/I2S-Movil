@@ -1,59 +1,54 @@
 <ion-header>
-  <ion-navbar  color="primary">
+  <ion-navbar  color="primary"  style="border-bottom: 6px solid red" *ngIf="prioridad == 'urgente'">
+    <ion-title>
+      Atender novedad
+    </ion-title>
+  </ion-navbar>
+  <ion-navbar  color="primary"  style="border-bottom: 6px solid yellow" *ngIf="prioridad == 'media'">
+    <ion-title>
+      Atender novedad
+    </ion-title>
+  </ion-navbar>
+  <ion-navbar  color="primary"  style="border-bottom: 6px solid green" *ngIf="prioridad == 'baja'">
+    <ion-title>
+      Atender novedad
+    </ion-title>
+  </ion-navbar>
+  <ion-navbar  color="primary"  style="border-bottom: 6px solid orange" *ngIf="prioridad == 'alta'">
     <ion-title>
       Atender novedad
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-
 <ion-content>
-  <ion-row style="text-align: center">
-        <h4>{{descripcion}}</h4>
+  <ion-row>
+    <ion-col col-12 text-center>
+      <p style="color:  #757575">{{fecha | date: 'dd-MM-yyyy HH:mm' }}</p>
+    </ion-col>
   </ion-row>
 
-  <ion-row icon-start>
-       <h4>
-         <ion-icon name="warning" color="{{prioridad}}" class="icono">
-         </ion-icon>
-         {{prioridad}}
-        </h4>
-  </ion-row>
-      <!--Fecha Reportada-->
-      <ion-row class="date">
-          <ion-col>
-            <h4>Fecha Reportada :</h4>
-          </ion-col>
-      </ion-row>
-      <ion-row>
-            <h6>{{fecha | date: 'yyyy-MM-dd HH:mm:ss ' }}</h6>
-      </ion-row>
+  <ion-card>
+    <img [src]='foto' *ngIf="foto!=''"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{descripcion}}
+      </ion-card-title>
+    </ion-card-content>
+  </ion-card>
 
-        <ion-row *ngIf="foto!=''">
-          <h4>Evidencia:</h4>
-          <ion-img [src]='foto' *ngIf="foto!=''">
-          </ion-img>
-        </ion-row>
-
-      <!--Marcar versión como atendida-->
-      <ion-row class="message" *ngIf="user==0">
-          <ion-col>
-            <h2>¿Desea marcar esta novedad como atendida?</h2>
-          </ion-col>
-      </ion-row>
-
-  <button ion-button icon-start  (click)=cambiarEstado() *ngIf="user==0">
-    Si
-  </button>
-
-  <button ion-button icon-end  color="danger" (click)=regresar() *ngIf="user==0">
-    No
-  </button>
-          <!-- <button ion-button (click)=cambiarEstado() *ngIf="user==0">
-              Si
-            </button>
-            <button ion-button (click)=regresar() *ngIf="user==0">
-                No
-              </button> -->
-    <!-- </ion-grid> -->
 </ion-content>
+<ion-footer no-shadow>
+  <ion-toolbar position="bottom">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 text-center>
+          <button ion-button color="dark" block (click)=cambiarEstado() *ngIf="user==1">ATENDER</button>
+        </ion-col>
+        <ion-col col-6 text-center>
+          <button ion-button color="secondary" block (click)=regresar() *ngIf="user==1">CANCELAR</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

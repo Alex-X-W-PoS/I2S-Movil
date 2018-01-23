@@ -7,62 +7,68 @@
 </ion-header>
 
 <ion-content>
-<!--     <br>
-    <h5 id="empresa">
-       Empresa: FIRL Productions
-    </h5>
-    <p id="empresa">
-       Establecimiento: Matriz
-    </p>
-    <p id="empresa">
-       Área: Levantamiento de Carga
-    </p>
-    <p id="empresa">
-       Puesto de trabajo: Puesto 1
-    </p> -->
-    <ion-card class="mainCard">
-      <ion-list>
-        <ion-item class="mainItem">
-          <ion-label stacked class="input-label">Descripción:</ion-label>
-          <ion-input [(ngModel)]="descripcion" type="text" placeholder="Ingrese descripción." class="input-placeholder" (ionChange)="verifyButton()"></ion-input>
-        </ion-item>
-        <ion-item class="mainItem">
-          <ion-label class="input-label">Prioridad</ion-label>
-            <ion-select #newSelect [(ngModel)]="prioridad" (ionChange)="onChange(prioridad)">
-              <ion-option value="baja">Baja</ion-option>
-              <ion-option value="media">Media</ion-option>
-              <ion-option value="alta">Alta</ion-option>
-              <ion-option value="urgente">Urgente</ion-option>
-          </ion-select>
-        </ion-item>
-    </ion-list>
+  <ion-card>
+    <div *ngIf="(image!= '')" class="final-image">
+      <img [src]=image>
+      <ion-fab right top>
+        <button ion-fab color="accent" (click)= " borrarImagen()">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-fab>
+    </div>
+    <ion-fab center *ngIf="(image== '')">
+      <button ion-button full (click)=" presentActionSheet()" color="secondary"><ion-icon name="camera"></ion-icon></button>
+    </ion-fab>
+    <ion-card-content>
+      <ion-card-title>
+        <ion-list>
+          <ion-item>
+            <ion-label color="primary" floating>Ingrese una descripción</ion-label>
+            <ion-input clearInput type="text" (ionChange)="verifyButton()" [(ngModel)]="descripcion" class="input-placeholder"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-card-title>
+    </ion-card-content>
   </ion-card>
-  <ion-label class="input-label">Foto (Opcional)</ion-label>
-  <button ion-button (click)=" presentActionSheet()">Agregar Foto</button>
-  <div class=final-image *ngIf="(image!= '')">
-    <p class="input-label">Foto Seleccionada</p>
-    <img [src]=image>
+
+  <ion-list radio-group [(ngModel)]="prioridad"  (ionChange)="onChange(prioridad)">
+    <ion-list-header>
+      Grado peligrosidad
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Urgente</ion-label>
+      <ion-radio checked="true" value="urgente" color="urgente"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Alta</ion-label>
+      <ion-radio value="alta" color="alta"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Media</ion-label>
+      <ion-radio value="media" color="media"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Baja</ion-label>
+      <ion-radio value="baja" color="baja"></ion-radio>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer no-shadow>
+  <ion-toolbar position="bottom">
     <ion-grid>
-		  <ion-row>
-        <ion-col col-4></ion-col>
-        <ion-col col-4>
-          <button ion-button icon-only block large (click)= " borrarImagen()">
-            <ion-icon name="close"></ion-icon>
-          </button>
+      <ion-row>
+        <ion-col col-6 text-center>
+          <button ion-button color="dark" block (click)= "crearNovedad()" [disabled]="!isenabled">Añadir</button>
+        </ion-col>
+        <ion-col col-6 text-center>
+          <button ion-button color="secondary" block (click)= "cancelar()">Cancelar</button>
         </ion-col>
       </ion-row>
     </ion-grid>
-  </div>
-
-<ion-grid class="final-grid">
-	<ion-row>
-		<ion-col col-6>
-			<button ion-button block (click)= " crearNovedad ()" [disabled]="!isenabled">Añadir</button>
-		</ion-col>
-		<ion-col col-6>
-			<button ion-button block (click)= " cancelar ()">Cancelar</button>
-		</ion-col>
-	</ion-row>
-</ion-grid>
-
-</ion-content>
+  </ion-toolbar>
+</ion-footer>

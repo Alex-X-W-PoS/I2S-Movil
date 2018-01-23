@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { IonicPage, NavController, NavParams } from 'ionic-angular'
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular'
 import { NovedadesSinAtenderPage } from '../../pages/novedades-sin-atender/novedades-sin-atender'
 import { HttpProvider } from '../../providers/http/http'
 import { GlobalProvider } from '../../providers/global/global'
@@ -16,9 +16,9 @@ export class AtenderNovedadPage {
   descripcion: string
   prioridad: string
   foto: any
-  puestoId = '1'
+  puestoId: string
   user: number
-  constructor (public navCtrl: NavController, public navParams: NavParams, public http: HttpProvider, rolUsuario: GlobalProvider) {
+  constructor (public loadingController: LoadingController, public navCtrl: NavController, public navParams: NavParams, public http: HttpProvider, rolUsuario: GlobalProvider) {
     this.novedadDetalle = navParams.data.item
     this.fecha = this.novedadDetalle.fechaCreacion
     this.descripcion = this.novedadDetalle.descripcion
@@ -26,6 +26,14 @@ export class AtenderNovedadPage {
     this.prioridad = this.novedadDetalle.prioridad
     this.id = this.novedadDetalle.id
     this.user = rolUsuario.claseUsuario
+    this.puestoId = navParams.get('puesto')
+    // this.novedadDetalle = navParams.data.item
+    // this.fecha = '2018-01-22T17:25:54.389Z'
+    // this.descripcion = 'Esta es mi descripcion'
+    // this.foto = 'https://i.imgur.com/E4S80tP.jpg'
+    // this.prioridad = 'urgente'
+    // this.id = 1
+    // this.user = 0
   }
 
   ionViewDidLoad () {
@@ -36,10 +44,13 @@ export class AtenderNovedadPage {
     void this.navCtrl.pop()
   }
   cambiarEstado () {
+    // let loading = this.loadingController.create({ content : 'Cargando, por favor espere un momento' })
+    // void loading.present()
     this.http.marcarComoAtendida(this.id , this.puestoId).then(res => {
       void this.navCtrl.push(NovedadesSinAtenderPage, {
-        mensaje: 'Novedad Atendida con Exito'
+        mensaje: 'Novedad Atendida con Exito', puestoId: this.puestoId
       })
+      // loading.dismissAll()
       .catch(error => {
         console.error(error)
       })
