@@ -54,7 +54,7 @@
     <ion-grid>
       <ion-row>
         <ion-col col-6 text-center>
-          <button ion-button color="dark" block (click)=cambiarEstado() *ngIf="user==1">ATENDER</button>
+          <button ion-button color="dark" block (click)=cambiarEstado() *ngIf="user==1" [disabled]="!isenabled">ATENDER</button>
         </ion-col>
         <ion-col col-6 text-center>
           <button ion-button color="secondary" block (click)=regresar() *ngIf="user==1">CANCELAR</button>
