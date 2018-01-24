@@ -42,7 +42,7 @@
       <ion-list>
         <ion-item>
           <ion-label color="primary" floating>¿Cómo se atendió la novedad?</ion-label>
-          <ion-input clearInput type="text" [(ngModel)]="descripcionAtendida" class="input-placeholder"></ion-input>
+          <ion-input clearInput type="text" (ionChange)="verifyButton()" [(ngModel)]="descripcionAtendida" class="input-placeholder"></ion-input>
         </ion-item>
       </ion-list>
     </ion-card-content>
