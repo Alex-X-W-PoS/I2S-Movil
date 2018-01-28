@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular'
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular'
 import { HttpProvider } from '../../providers/http/http'
 import { GlobalProvider } from '../../providers/global/global'
 import { EscogerPuestoTrabajoPage } from '../escoger-puesto-trabajo/escoger-puesto-trabajo'

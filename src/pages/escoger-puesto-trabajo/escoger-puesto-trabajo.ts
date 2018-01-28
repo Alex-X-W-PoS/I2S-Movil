@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { IonicPage, NavController, NavParams } from 'ionic-angular'
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular'
 import { GlobalProvider } from '../../providers/global/global'
 import { HttpProvider } from '../../providers/http/http'
 // import { PuestoDeTrabajoPage } from '../puesto-de-trabajo/puesto-de-trabajo'
@@ -16,7 +16,7 @@ export class EscogerPuestoTrabajoPage {
   areaValue: any
   user: any
   isenabled: boolean
-  constructor (public navCtrl: NavController, public navParams: NavParams, public http: HttpProvider, public rolUsuario: GlobalProvider) {
+  constructor (public loadingController: LoadingController, public navCtrl: NavController, public navParams: NavParams, public http: HttpProvider, public rolUsuario: GlobalProvider) {
     this.user = rolUsuario.claseUsuario
     this.isenabled = false
     this.listaDePuestos = this.navParams.data
@@ -25,6 +25,8 @@ export class EscogerPuestoTrabajoPage {
     this.cargarDatos(puestoId, nombrePuesto)
   }
   cargarDatos (puestoId, nombrePuesto) {
+    let loading = this.loadingController.create({ content: 'Cargando, por favor espere un momento' })
+    void loading.present()
     this.rolUsuario.puestoNombre = nombrePuesto
     this.http.cargarDatos(`${this.rolUsuario.area}`, puestoId).then(res => {
       this.rolUsuario.cantidadEmpleados = res.datos.cantidadEmpleados
@@ -33,6 +35,7 @@ export class EscogerPuestoTrabajoPage {
       this.rolUsuario.novedadesAtendidas = res.datos.novedadesAtendidas
       this.rolUsuario.puesto = puestoId
       let puesto = { puestoId: puestoId, nombrePuesto: nombrePuesto, novedadesSinAtender: res.datos.novedadesSinAtender.length }
+      loading.dismissAll()
       void this.navCtrl.push(TabsPage, puesto)
     })
   }

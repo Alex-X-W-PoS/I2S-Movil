@@ -19,7 +19,6 @@ export class PuestoDeTrabajoPage {
   public idRiesgos: any
   public puestoNombre: any
   public cantidadEmpleados: number
-  public cantidadNovedades: number = 0
   constructor (public loadingController: LoadingController, public navCtrl: NavController, public navParams: NavParams, public classPuesto: HttpProvider, public rolUsuario: GlobalProvider) {
   }
   ionViewDidEnter () {

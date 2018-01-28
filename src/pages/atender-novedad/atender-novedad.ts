@@ -55,6 +55,8 @@ export class AtenderNovedadPage {
     return a.to(b, true)
   }
   cambiarEstado () {
+    let loading = this.loadingController.create({ content: 'Cargando, por favor espere un momento' })
+    void loading.present()
     this.http.marcarComoAtendida(this.id ,`${this.globalVar.puesto}`, this.descripcionAtendida).then(res => {
       // let novedadTmp = this.navParams.data.item
       // let date = new Date()
@@ -71,6 +73,7 @@ export class AtenderNovedadPage {
           this.globalVar.novedadesSinAtender.splice(i,1)
         }
       }
+      loading.dismissAll()
       void this.navCtrl.pop()
     },error => {
       console.log(error)
