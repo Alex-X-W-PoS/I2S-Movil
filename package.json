@@ -2,7 +2,7 @@
   "name": "i2solutions",
   "version": "0.0.1",
   "author": "TODOS",
-  "homepage": "http://ionicframework.com/",
+  "homepage": "https://github.com/Alex-X-W-PoS/I2S-Movil",
   "private": true,
   "scripts": {
     "dev": "NODE_ENV=local ionic serve --lab -c",

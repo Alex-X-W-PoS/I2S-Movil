@@ -25,12 +25,13 @@
       </ion-searchbar>
     </ion-toolbar>
       <!-- +++++++++++++++++++++ -->
-      <ion-item-group>
-        <ion-item-divider color="light">PRIORIDAD ALTA</ion-item-divider>
+      <ion-item-group *ngIf="novedadesPrioridad(global.novedadesSinAtender, 'alta')">
+        <ion-item-divider color="light" *ngIf="queryText == ''">ALTA PRIORIDAD</ion-item-divider>
         <div *ngFor="let novedad of items">
           <ion-item *ngIf="novedad.prioridad== 'alta'">
             <h2>{{novedad.descripcion}}</h2>
             <p>Creada {{time(novedad.fechaCreacion)}}</p>
+            <p *ngIf="queryText != ''">PRIORIDAD {{novedad.prioridad.toUpperCase()}}</p>
             <button ion-button clear item-end (click)=detallesNovedades(novedad) *ngIf="global.claseUsuario != 1">Ver</button>
             <button ion-button clear item-end (click)=detallesNovedades(novedad) *ngIf="global.claseUsuario == 1">Atender</button>
           </ion-item>
@@ -38,12 +39,13 @@
       </ion-item-group>
 
       <!-- +++++++++++++++++++++ -->
-      <ion-item-group>
-        <ion-item-divider color="light"> PRIORIDAD MEDIA</ion-item-divider>
+      <ion-item-group *ngIf="novedadesPrioridad(global.novedadesSinAtender, 'media')">
+        <ion-item-divider color="light" *ngIf="queryText == ''">MEDIA PRIORIDAD</ion-item-divider>
         <div *ngFor="let novedad of items">
           <ion-item *ngIf="novedad.prioridad== 'media'">
             <h2>{{novedad.descripcion}}</h2>
             <p>Creada {{time(novedad.fechaCreacion)}}</p>
+            <p *ngIf="queryText != ''">PRIORIDAD {{novedad.prioridad.toUpperCase()}}</p>
             <button ion-button clear item-end (click)=detallesNovedades(novedad) *ngIf="global.claseUsuario != 1">Ver</button>
             <button ion-button clear item-end (click)=detallesNovedades(novedad) *ngIf="global.claseUsuario == 1">Atender</button>
           </ion-item>
@@ -51,12 +53,13 @@
       </ion-item-group>
 
       <!-- +++++++++++++++++++++ -->
-      <ion-item-group>
-        <ion-item-divider color="light">PRIORIDAD BAJA</ion-item-divider>
+      <ion-item-group *ngIf="novedadesPrioridad(global.novedadesSinAtender, 'baja')">
+        <ion-item-divider color="light" *ngIf="queryText == ''">BAJA PRIORIDAD</ion-item-divider>
         <div *ngFor="let novedad of items">
           <ion-item *ngIf="novedad.prioridad== 'baja'">
             <h2>{{novedad.descripcion}}</h2>
             <p>Creada {{time(novedad.fechaCreacion)}}</p>
+            <p *ngIf="queryText != ''">PRIORIDAD {{novedad.prioridad.toUpperCase()}}</p>
             <button ion-button clear item-end (click)=detallesNovedades(novedad) *ngIf="global.claseUsuario != 1">Ver</button>
             <button ion-button clear item-end (click)=detallesNovedades(novedad) *ngIf="global.claseUsuario == 1">Atender</button>
           </ion-item>
@@ -65,7 +68,7 @@
   </ion-list>
   <ion-list *ngIf="segment === 'atendidas'">
     <ion-toolbar no-border-top>
-      <ion-searchbar color="primary" [(ngModel)]="queryText" (ionInput)="filterAtendidas($event)" placeholder="Buscar">
+      <ion-searchbar color="primary" [(ngModel)]="queryTextNoAtendidas" (ionInput)="filterAtendidas($event)" placeholder="Buscar">
       </ion-searchbar>
     </ion-toolbar>
     <ion-list>
