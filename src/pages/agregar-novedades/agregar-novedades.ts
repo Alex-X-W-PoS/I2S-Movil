@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { ActionSheetController,NavController, LoadingController, NavParams } from 'ionic-angular'
+import { ActionSheetController,NavController, LoadingController, NavParams, ToastController } from 'ionic-angular'
 import { Camera, CameraOptions } from '@ionic-native/camera'
 import { HttpProvider } from '../../providers/http/http'
 import { GlobalProvider } from '../../providers/global/global'
@@ -16,7 +16,7 @@ export class AgregarNovedadesPage {
   prioridad = ''
   isenabled: boolean
 
-  constructor (public navCtrl: NavController, public navParams: NavParams, private camera: Camera, public actionSheetCtrl: ActionSheetController, public http: HttpProvider, private loadingCtrl: LoadingController, public global: GlobalProvider) {
+  constructor (public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams, private camera: Camera, public actionSheetCtrl: ActionSheetController, public http: HttpProvider, private loadingCtrl: LoadingController, public global: GlobalProvider) {
     this.puestoId = navParams.get('item')
     this.isenabled = false
   }
@@ -116,15 +116,20 @@ export class AgregarNovedadesPage {
   }
 
   crearNovedad () {
-    if (this.isNotEmpty(this.puestoId) && this.isNotEmpty(this.descripcion) && this.isNotEmpty(this.prioridad)) {
+    if (this.isNotEmpty(`${this.global.puesto}`) && this.isNotEmpty(this.descripcion) && this.isNotEmpty(this.prioridad)) {
       let loading = this.loadingCtrl.create({
         content: 'Por favor, espere...'
       })
       void loading.present()
-      this.http.agregarNovedad(this.puestoId, this.descripcion, this.prioridad, this.imgurLink).then(res => {
+      this.http.agregarNovedad(`${this.global.puesto}`, this.descripcion, this.prioridad, this.imgurLink).then(res => {
         this.global.crearNovedad = true
-        void this.navCtrl.pop()
         void loading.dismiss()
+        this.descripcion = null
+        this.prioridad = null
+        this.global.cantidadNovedadesSinAtender = this.global.cantidadNovedadesSinAtender + 1
+        this.borrarImagen()
+        this.global.novedadesSinAtender.push(res.datos)
+        this.presentToast('NOVEDAD CREADA CORRECTAMENTE')
       })
       .catch(error => {
         console.error(error)
@@ -154,5 +159,14 @@ export class AgregarNovedadesPage {
     } else {
       this.isenabled = false
     }
+  }
+
+  presentToast (mensaje: string) {
+    let toast = this.toastCtrl.create({
+      message: mensaje,
+      duration: 3000,
+      position: 'middle'
+    })
+    void toast.present()
   }
 }

@@ -1,33 +1,13 @@
-<ion-header>
+<ion-header id="authenticated">
    <ion-navbar color="primary">
-    <!-- <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button> -->
-    <ion-title>
+    <ion-title text-center>
       Roles de la empresa
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding class="body-roles" scrollbar-y-auto>
-    <!-- <h5 id="escoger">
-      Escoja el Rol a Usar
-    </h5>
-    <br>
-    <h6 id="empresa">
-       FIRL Productions
-    </h6> -->
-  <!-- <ion-card class="mainCard"> -->
-<!--       <ion-card-header class="titulo">
-        Roles de Aplicación
-      </ion-card-header> -->
-    <button ion-button full large (click)="selectInspector()">Inspector de Seguridad</button>
-    <button ion-button full large (click)="selectJefe()"> Jefe de Seguridad</button>
-    <button ion-button full large (click)="selectEmpleado()">Empleados</button>
-  <!-- </ion-card> -->
-<!-- <div class="logo" style="text-align: center">
-  <h6 id="pie"> Aplicación brindada por </h6>
-  <img src="../../assets/imgs/i2solutions2.png">
-</div> -->
-
+  <button ion-button full large (click)="selectInspector()">Inspector de Seguridad</button>
+  <button ion-button full large (click)="selectJefe()"> Jefe de Seguridad</button>
+  <button ion-button full large (click)="selectEmpleado()">Empleados</button>
 </ion-content>

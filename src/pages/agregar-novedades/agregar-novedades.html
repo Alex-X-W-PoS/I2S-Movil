@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar  color="primary">
+  <ion-navbar  color="primary" text-center>
     <ion-title>
       Agregar Novedad
     </ion-title>
@@ -11,8 +11,8 @@
     <div *ngIf="(image!= '')" class="final-image">
       <img [src]=image>
       <ion-fab right top>
-        <button ion-fab color="accent" (click)= " borrarImagen()">
-          <ion-icon name="close"></ion-icon>
+        <button ion-fab (click)= "borrarImagen()" color="danger">
+          <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
         </button>
       </ion-fab>
     </div>
@@ -33,26 +33,21 @@
 
   <ion-list radio-group [(ngModel)]="prioridad"  (ionChange)="onChange(prioridad)">
     <ion-list-header>
-      Grado peligrosidad
+      <h2 text-center>Grado peligrosidad</h2>
     </ion-list-header>
 
     <ion-item>
-      <ion-label>Urgente</ion-label>
-      <ion-radio checked="true" value="urgente" color="urgente"></ion-radio>
-    </ion-item>
-
-    <ion-item>
       <ion-label>Alta</ion-label>
-      <ion-radio value="alta" color="alta"></ion-radio>
+      <ion-radio value="alta"></ion-radio>
     </ion-item>
 
     <ion-item>
       <ion-label>Media</ion-label>
-      <ion-radio value="media" color="media"></ion-radio>
+      <ion-radio value="media"></ion-radio>
     </ion-item>
     <ion-item>
       <ion-label>Baja</ion-label>
-      <ion-radio value="baja" color="baja"></ion-radio>
+      <ion-radio value="baja"></ion-radio>
     </ion-item>
   </ion-list>
 
@@ -62,12 +57,7 @@
   <ion-toolbar position="bottom">
     <ion-grid>
       <ion-row>
-        <ion-col col-6 text-center>
-          <button ion-button color="dark" block (click)= "crearNovedad()" [disabled]="!isenabled">Añadir</button>
-        </ion-col>
-        <ion-col col-6 text-center>
-          <button ion-button color="secondary" block (click)= "cancelar()">Cancelar</button>
-        </ion-col>
+        <button ion-button color="dark" block (click)= "crearNovedad()" [disabled]="!isenabled">Añadir</button>
       </ion-row>
     </ion-grid>
   </ion-toolbar>

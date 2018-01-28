@@ -1,4 +1,7 @@
 page-atender-novedad {
+  .img-loaded + ion-spinner {
+    display:none;
+  }
   .body{
     .separator{
       border-bottom:2px solid rgb(23, 142, 255);

@@ -3,8 +3,8 @@ import { Http, Headers, RequestOptions } from '@angular/http'
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/toPromise'
 
-export const BASE_PATH = 'http://i2solutions.herokuapp.com' // http://localhost:3000 http://i2solutions.herokuapp.com
-//
+export const BASE_PATH = 'http://i2solutions.herokuapp.com'
+// http://localhost:3000 http://i2solutions.herokuapp.com
 @Injectable()
 export class HttpProvider {
   datos: any
@@ -48,7 +48,7 @@ export class HttpProvider {
     let url = BASE_PATH + '/api/movil/novedad/' + novedadId + '/puesto_trabajo/' + puestoId
     return this.http
     .post(url,data)
-    .map(res => console.log(res.json()),
+    .map(res => res.json(),
       err => {
         console.error(err)
       }
@@ -88,14 +88,12 @@ export class HttpProvider {
         )
       .toPromise()
   }
-}
 
-// Ejemplo de método GET para ObtenerArea
-/*
-  this.variablePublic.obtenerArea(id:String).then(res =>{
-          this.VariableQueAlmacene = res.datos;
-        },
-        error =>{
-          console.log(error);
-        });
-*/
+  cargarDatos (areaId: string, puestoId: string) {
+    return this.http
+      .get(`${BASE_PATH}/api/movil/area/${areaId}/puesto/${puestoId}`)
+      .map(res => res.json(), err => {
+        console.log(err)
+      }).toPromise()
+  }
+}

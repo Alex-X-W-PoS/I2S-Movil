@@ -1,11 +1,11 @@
 {
-  "name": "i2solutions-mobile",
+  "name": "i2solutions",
   "version": "0.0.1",
-  "author": "Ionic Framework",
+  "author": "TODOS",
   "homepage": "http://ionicframework.com/",
   "private": true,
   "scripts": {
-    "dev": "ionic serve --lab -c",
+    "dev": "NODE_ENV=local ionic serve --lab -c",
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
@@ -38,6 +38,7 @@
     "ionic-angular": "3.9.2",
     "ionic-plugin-keyboard": "^2.2.1",
     "ionicons": "3.0.0",
+    "moment": "^2.20.1",
     "rxjs": "5.5.2",
     "sw-toolbox": "3.6.0",
     "tslint-config-standard": "^7.0.0",

@@ -19,18 +19,15 @@ export class AreasDeTrabajoPage {
     this.user = rolUsuario.claseUsuario
     this.isenabled = false
   }
-  obtenerAreas () {
-    this.listaDeAreas = ['']
-    this.puestoValue = undefined
-    this.verifyButton()
-    this.puestos.obtenerPuestoDeTrabajoDeArea(this.areaValue).then(res => {
-      this.listaDeAreas = res.datos
-    },
-    error => {
-      console.log(error)
-    })
-  }
   entrarPuestosDeTrabajo (areaId) {
+    this.rolUsuario.area = areaId
+    if (areaId === '1') {
+      this.rolUsuario.areaNombre = 'Administrativa'
+    } else if (areaId === '2') {
+      this.rolUsuario.areaNombre = 'Matricería'
+    } else if (areaId === '3') {
+      this.rolUsuario.areaNombre = 'Inyección'
+    }
     let loading = this.loadingController.create({ content: 'Cargando, por favor espere un momento' })
     void loading.present()
     this.puestos.obtenerPuestoDeTrabajoDeArea(areaId).then(res => {
@@ -40,12 +37,5 @@ export class AreasDeTrabajoPage {
     error => {
       console.log(error)
     })
-  }
-  verifyButton () {
-    if (this.areaValue !== undefined && this.puestoValue !== undefined) {
-      this.isenabled = true
-    } else {
-      this.isenabled = false
-    }
   }
 }

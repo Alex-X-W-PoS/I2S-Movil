@@ -29,7 +29,7 @@
         <h2>{{ novedades.descripcion }}</h2>
         <p>{{novedades.fechaCreacion | date:'dd-MM-yyyy HH:mm '}}</p>
       </ion-item>
-      <ion-item *ngIf="novedades.atendida" style="border-left:  4px solid black">
+      <ion-item (click)=detallesNovedades(novedades) *ngIf="novedades.atendida" style="border-left:  4px solid black">
         <h2>{{ novedades.descripcion }}</h2>
         <p>{{novedades.fechaCreacion | date:'dd-MM-yyyy HH:mm '}}</p>
       </ion-item>

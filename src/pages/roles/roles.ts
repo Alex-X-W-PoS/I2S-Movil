@@ -24,4 +24,7 @@ export class RolesPage {
     this.rolUsuario.claseUsuario = 2
     void this.navCtrl.push(AreasDeTrabajoPage)
   }
+  ionViewDidLoad () {
+    this.rolUsuario.enPuestoDeTrabajo = false
+  }
 }

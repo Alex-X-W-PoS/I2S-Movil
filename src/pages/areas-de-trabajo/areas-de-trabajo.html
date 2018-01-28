@@ -2,38 +2,11 @@
   <ion-navbar  color="primary">
     <ion-title>
       Areas de trabajo
-<!--       <p class="subtitle" *ngIf="user==0">Inspector de Seguridad</p>
-      <p class="subtitle" *ngIf="user==1">Jefe de Seguridad</p>
-      <p class="subtitle" *ngIf="user==2">Empleados</p> -->
     </ion-title>
   </ion-navbar>
 </ion-header>
-<!-- // -->
-<!--  -->
 <ion-content padding class="body-roles" scrollbar-y-auto>
-  <button ion-button full large value="1" (click)="entrarPuestosDeTrabajo('1')">Mecánica</button>
-  <!-- <button ion-button full large value="6" (click)="entrarPuestosDeTrabajo('2')">FIEC</button> -->
-  <!-- <button ion-button full large value="6" [(ngModel)]="areaValue" (click)="entrarPuestosDeTrabajo()">FIEC</button> -->
-<!-- 	<ion-grid center text-center>
-		<ion-row center>
-			<ion-col col-12>
-				<ion-item>
-					<ion-label>Seleccione el Area</ion-label>
-					<ion-select [(ngModel)]="areaValue	" (ionChange)="obtenerAreas()">
-						<ion-option value="1">Area_1</ion-option>
-						<ion-option value="6">Area_2</ion-option>
-					</ion-select>
-				</ion-item>
-			</ion-col>
-			<ion-item>
-				<ion-label>Seleccione el puesto</ion-label>
-				<ion-select [(ngModel)]="puestoValue" (ionChange)="verifyButton()">
-					<ion-option *ngFor="let area of listaDeAreas" value="{{area.id}}">{{area.nombre}}</ion-option>
-				</ion-select>
-			</ion-item>
-		<ion-col col-12>
-			<button ion-button round (click)="entrarPuestosDeTrabajo()" [disabled]="!isenabled">Entrar al área</button>
-		</ion-col>
-		</ion-row>
-	</ion-grid> -->
+  <button ion-button full large value="1" (click)="entrarPuestosDeTrabajo('1')">Administrativa</button>
+  <button ion-button full large value="1" (click)="entrarPuestosDeTrabajo('2')">Matricería</button>
+  <button ion-button full large value="1" (click)="entrarPuestosDeTrabajo('3')">Inyección</button>
 </ion-content>

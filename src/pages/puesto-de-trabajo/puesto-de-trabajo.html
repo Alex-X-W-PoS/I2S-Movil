@@ -1,99 +1,49 @@
 <ion-header>
-  <ion-navbar color="primary">
-    <ion-title>{{puestoNombre}}</ion-title>
-    <ion-buttons end>
-    <button ion-button icon-only color="secondary" (click)="cargarNovedades()">
-      <ion-icon  name="notifications">
-        <ion-badge id="notifications-badge" color="danger">{{numNovedades}}</ion-badge>
-      </ion-icon>
+  <ion-navbar color="primary" text-center>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
     </button>
-    </ion-buttons>
+    <ion-title>
+      <h2>{{rolUsuario.areaNombre}}</h2>
+      <h3>{{rolUsuario.puestoNombre}}</h3>
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
-<!-- <ion-header>
-  <ion-navbar  color="primary" style="display: inline-block;">
-    <ion-title>
-      {{puestoNombre}}
-      <button id="notification-button" ion-button clear color="secondary" style="float: right;"  (click)="cargarNovedades()">
-        <ion-icon name="notifications">
-          <ion-badge id="notifications-badge" color="danger">{{numNovedades}}</ion-badge>
-        </ion-icon>
-      </button>
-    </ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only color="secondary" (click)="cargarNovedades()">
-        <ion-icon name="notifications">
-          <ion-badge id="notifications-badge" color="danger">{{numNovedades}}</ion-badge>
-        </ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-navbar>
-</ion-header> -->
-
 <ion-content>
-	<ion-grid>
-		<ion-row>
-			<ion-col col-12 text-center>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4 text-center>
         <ion-card>
-          <ion-card-content class="tittle">
-            <ion-col col-12>
-
-            </ion-col>
-            <span class="clearer"></span>
-            <ion-col col-12>
-              <h1 text-center class="big">
-                <label class="medium-bigger" float-left>
-                  #
-                </label>
-                <label>
-                   <ion-icon name="body" float-left class="medium-bigger"></ion-icon>
-                </label>
-              {{numEmpleados}}</h1>
-              </ion-col>
+          <ion-card-header>
+            {{cantidadEmpleados}}
+          </ion-card-header>
+          <ion-card-content>
+            <span style="font-size: 0.7em;">Cantidad Empleados</span>
           </ion-card-content>
         </ion-card>
-			</ion-col>
-<!-- 			<ion-col col-6 text-center>
+      </ion-col>
+      <ion-col col-4 text-center>
         <ion-card>
-          <ion-card-content class="tittle">
-            <ion-col col-12>
-              <label class="medium-bigger" float-left>#Novedades</label>
-            </ion-col>
-            <span class="clearer"></span>
-            <ion-col col-12>
-              <h1 text-center class="big" (click)="cargarNovedades()"><b>{{numNovedades}}</b></h1>
-            </ion-col>
+          <ion-card-header>
+            5 días
+          </ion-card-header>
+          <ion-card-content>
+            <span style="font-size: 0.7em;">Sin accidentes</span>
           </ion-card-content>
         </ion-card>
-			</ion-col> -->
-		</ion-row>
-	</ion-grid>
-<!-- Matriz de Riesgo -->
-	<ion-grid>
-		<!-- <ion-row> -->
-			<ion-col col-12>
-			<ion-item>
-				<ion-label>Riesgos</ion-label>
-				<ion-select [(ngModel)]="idRiesgos">
-					<ion-option *ngFor="let riesgo of arrayRiesgos" value="{{riesgo.nombre_riesgo}}">{{riesgo.nombre_riesgo}}</ion-option>
-				</ion-select>
-			</ion-item>
-		</ion-col>
-		<ion-col  text-center>
-      <ion-card>
-          <ion-card-content class="tittle">
-            <h2>{{porcentaje}}%</h2>
+      </ion-col>
+      <ion-col col-4 text-center>
+        <ion-card>
+          <ion-card-header>
+            50 días
+          </ion-card-header>
+          <ion-card-content>
+            <span style="font-size: 0.7em;">Sin</span>
+            <span style="font-size: 0.7em;" text-nowrap>capacitaciones</span>
           </ion-card-content>
-      </ion-card>
-		</ion-col>
-		<ion-col col-7 class="white-square">
-		</ion-col>
-		<!-- </ion-row> -->
-	</ion-grid>
-<!-- <div class="logo">
-  <h6 id="pie"> Aplicación brindada por </h6>
-  <img src="../../assets/imgs/i2solutions2.png">
-</div> -->
-
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

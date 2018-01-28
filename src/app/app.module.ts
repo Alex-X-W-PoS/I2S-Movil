@@ -11,11 +11,14 @@ import { AreasDeTrabajoPage } from '../pages/areas-de-trabajo/areas-de-trabajo'
 import { NovedadesSinAtenderPage } from '../pages/novedades-sin-atender/novedades-sin-atender'
 import { AtenderNovedadPage } from '../pages/atender-novedad/atender-novedad'
 import { EscogerPuestoTrabajoPage } from '../pages/escoger-puesto-trabajo/escoger-puesto-trabajo'
+import { TabsPage } from '../pages/tabs/tabs'
+import { NovedadesPage } from '../pages/novedades/novedades'
 
 import { StatusBar } from '@ionic-native/status-bar'
 import { SplashScreen } from '@ionic-native/splash-screen'
 import { HttpProvider } from '../providers/http/http'
 import { HttpModule } from '@angular/http'
+
 import { GlobalProvider } from '../providers/global/global'
 
 @NgModule({
@@ -27,7 +30,9 @@ import { GlobalProvider } from '../providers/global/global'
     AreasDeTrabajoPage,
     NovedadesSinAtenderPage,
     AtenderNovedadPage,
-    EscogerPuestoTrabajoPage
+    EscogerPuestoTrabajoPage,
+    TabsPage,
+    NovedadesPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,9 @@ import { GlobalProvider } from '../providers/global/global'
     AreasDeTrabajoPage,
     NovedadesSinAtenderPage,
     AtenderNovedadPage,
-    EscogerPuestoTrabajoPage
+    EscogerPuestoTrabajoPage,
+    TabsPage,
+    NovedadesPage
   ],
   providers: [
     Camera,

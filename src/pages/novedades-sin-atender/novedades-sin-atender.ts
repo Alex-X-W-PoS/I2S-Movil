@@ -61,6 +61,9 @@ export class NovedadesSinAtenderPage {
     error => {
       console.log(error)
     })
+    // this.novedades.sort(sortfunction)
+    // this.novedades = [{"id":2,"puesto_trabajo_id":1,"descripcion":"El operario no usa guantes","prioridad":"media","foto_url":"https://i.imgur.com/E4S80tP.jpg","atendida":false,"fechaCreacion":"2018-01-23T04:03:48.060Z"},{"id":3,"puesto_trabajo_id":1,"descripcion":"Las sillas no estan pintadas","prioridad":"baja","foto_url":"https://i.imgur.com/U0ueJED.jpg","atendida":false,"fechaCreacion":"2018-01-23T04:03:48.060Z"},{"id":1,"puesto_trabajo_id":1,"descripcion":"No esta bien aislado el cable","prioridad":"urgente","foto_url":"https://i.imgur.com/YrQ2Aqz.jpg","atendida":true,"fechaCreacion":"2018-01-23T04:03:48.060Z","descripcionAtendida":"Se atendio"}]
+    // this.size = this.novedades.length
   }
 
   detallesNovedades (item) {

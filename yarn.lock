@@ -120,9 +120,9 @@
     superagent "^3.8.0"
     tslib "^1.8.0"
 
-"@ionic/cli-utils@1.19.0":
-  version "1.19.0"
-  resolved "https://registry.yarnpkg.com/@ionic/cli-utils/-/cli-utils-1.19.0.tgz#80b1cfab7fee812d4415f518c12515dd4c1a7b80"
+"@ionic/cli-utils@1.19.1":
+  version "1.19.1"
+  resolved "https://registry.yarnpkg.com/@ionic/cli-utils/-/cli-utils-1.19.1.tgz#c8322523a9bbd3dcebdc1f4818764f8453048642"
   dependencies:
     "@ionic/cli-framework" "0.1.2"
     "@ionic/discover" "0.4.0"
@@ -152,6 +152,7 @@
     tar "^4.0.2"
     tiny-lr "^1.0.5"
     tslib "^1.8.0"
+    untildify "^3.0.2"
     uuid "^3.0.1"
     wrap-ansi "^3.0.1"
     ws "^3.2.0"
@@ -244,6 +245,12 @@ android-versions@^1.2.1:
   resolved "https://registry.yarnpkg.com/android-versions/-/android-versions-1.2.2.tgz#9db84b5684c585a4c34152d7b7c1fdf1f56db97b"
   dependencies:
     semver "^5.4.1"
+
+angular2-moment@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/angular2-moment/-/angular2-moment-1.8.0.tgz#27dd83d98de5d5e0f45412d82c89491a6fa245ca"
+  dependencies:
+    moment "^2.16.0"
 
 ansi-escapes@^3.0.0:
   version "3.0.0"
@@ -1895,12 +1902,12 @@ ionic-plugin-keyboard@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/ionic-plugin-keyboard/-/ionic-plugin-keyboard-2.2.1.tgz#f2a9e169bbe9b5522400347c9fd6d3467ee3fa12"
 
-ionic@^3.19.0:
-  version "3.19.0"
-  resolved "https://registry.yarnpkg.com/ionic/-/ionic-3.19.0.tgz#e16a3389737292d7f751c50903009863fe3d181a"
+ionic@3.19.1:
+  version "3.19.1"
+  resolved "https://registry.yarnpkg.com/ionic/-/ionic-3.19.1.tgz#2b314aa5b6ee9f78dee3da51183e25d2de514d8c"
   dependencies:
     "@ionic/cli-framework" "0.1.2"
-    "@ionic/cli-utils" "1.19.0"
+    "@ionic/cli-utils" "1.19.1"
     chalk "^2.3.0"
     opn "^5.1.0"
     semver "^5.3.0"
@@ -2473,6 +2480,10 @@ minizlib@^1.1.0:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
     minimist "0.0.8"
+
+moment@^2.16.0, moment@^2.20.1:
+  version "2.20.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.20.1.tgz#d6eb1a46cbcc14a2b2f9434112c1ff8907f313fd"
 
 ms@2.0.0:
   version "2.0.0"
@@ -3860,6 +3871,10 @@ unreachable-branch-transform@^0.3.0:
     esmangle-evaluator "^1.0.0"
     recast "^0.10.1"
     through2 "^0.6.2"
+
+untildify@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/untildify/-/untildify-3.0.2.tgz#7f1f302055b3fea0f3e81dc78eb36766cb65e3f1"
 
 url@^0.11.0:
   version "0.11.0"

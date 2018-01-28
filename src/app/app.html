@@ -1,8 +1,8 @@
-<ion-menu [content]="content">
+<ion-menu id="authenticated" [content]="content" [enabled]="global.enPuestoDeTrabajo">
 
   <ion-header>
     <ion-toolbar>
-      <ion-title>Pages</ion-title>
+      <ion-title>i2Solutions</ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -11,9 +11,10 @@
       <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>
+      <button ion-item><ion-icon name="log-out"></ion-icon> Salir</button>
     </ion-list>
   </ion-content>
 
 </ion-menu>
 
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false" ></ion-nav>
