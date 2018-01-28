@@ -1,9 +1,11 @@
 import { Component } from '@angular/core'
-import { NavController, NavParams, LoadingController } from 'ionic-angular'
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular'
 import { GlobalProvider } from '../../providers/global/global'
 import { HttpProvider } from '../../providers/http/http'
 import { NovedadesSinAtenderPage } from '../novedades-sin-atender/novedades-sin-atender'
+import Chart from 'chart.js'
 
+@IonicPage()
 @Component({
   selector: 'page-puesto-de-trabajo',
   templateUrl: 'puesto-de-trabajo.html'
@@ -17,12 +19,32 @@ export class PuestoDeTrabajoPage {
   public idRiesgos: any
   public puestoNombre: any
   public cantidadEmpleados: number
+  public cantidadNovedades: number = 0
   constructor (public loadingController: LoadingController, public navCtrl: NavController, public navParams: NavParams, public classPuesto: HttpProvider, public rolUsuario: GlobalProvider) {
-
   }
   ionViewDidEnter () {
-    // this.cargarRiesgos()
     this.cargarDatos()
+    let altasCantidad = 0
+    let mediaCantidad = 0
+    let bajaCantidad = 0
+    for (let i = this.rolUsuario.novedadesSinAtender.length - 1; i >= 0; --i) {
+      if (this.rolUsuario.novedadesSinAtender[i].prioridad === 'alta') {
+        altasCantidad = altasCantidad + 1
+      } else if (this.rolUsuario.novedadesSinAtender[i].prioridad === 'media') {
+        mediaCantidad = mediaCantidad + 1
+      } else if (this.rolUsuario.novedadesSinAtender[i].prioridad === 'baja') {
+        bajaCantidad = bajaCantidad + 1
+      }
+    }
+    let ctx = document.getElementById('chart')
+    let data = {
+      datasets: [{
+        data: [altasCantidad, mediaCantidad, bajaCantidad],
+        backgroundColor: ['red', 'orange', 'green']
+      }],
+      labels: [`ALTA(${altasCantidad})`, `MEDIA(${mediaCantidad})`, `BAJA(${bajaCantidad})`]
+    }
+    let chart = new Chart(ctx, { type: 'doughnut', data: data })
   }
   cargarDatos () {
     this.cantidadEmpleados = this.rolUsuario.cantidadEmpleados
