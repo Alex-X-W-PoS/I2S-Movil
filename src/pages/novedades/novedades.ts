@@ -57,4 +57,11 @@ export class NovedadesPage {
   detallesNovedades (item) {
     void this.navCtrl.push(AtenderNovedadPage, { item: item , 'puesto': this.navParams.get('puestoId') })
   }
+  swipeEvent (e) {
+    if (e.direction === 2) {
+      this.segment = 'atendidas'
+    } else if (e.direction === 4) {
+      this.segment = 'sinAtender'
+    }
+  }
 }

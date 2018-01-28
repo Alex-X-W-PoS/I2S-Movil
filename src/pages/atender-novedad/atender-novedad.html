@@ -1,7 +1,16 @@
 <ion-header>
   <ion-navbar  color="primary">
-    <ion-title text-center>
+    <ion-title text-center *ngIf="user == 1 && !atendida">
       Atender novedad
+    </ion-title>
+    <ion-title text-center *ngIf="user == 1 && atendida">
+      Ver novedad
+    </ion-title>
+    <ion-title text-center *ngIf="user != 1 && !atendida">
+      Ver novedad
+    </ion-title>
+    <ion-title text-center *ngIf="user != 1 && atendida">
+      Ver novedad
     </ion-title>
   </ion-navbar>
 </ion-header>

@@ -5,12 +5,12 @@
     </button>
     <ion-title>
       <h2>{{global.areaNombre}}</h2>
-      <h3>{{global.puestoNombre}}</h3>
+      <p text-nowrap>{{global.puestoNombre}}</p>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding >
+<ion-content padding (pan)="swipeEvent($event)">
   <ion-segment [(ngModel)]="segment" >
     <ion-segment-button value="sinAtender">
       Novedades sin atender
