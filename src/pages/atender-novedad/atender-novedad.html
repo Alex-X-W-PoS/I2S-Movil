@@ -31,7 +31,7 @@
       <ion-list>
         <ion-item>
           <ion-label color="primary" floating>¿Cómo se atendió la novedad?</ion-label>
-          <ion-input clearInput type="text" [(ngModel)]="descripcionAtendida" class="input-placeholder"></ion-input>
+          <ion-input clearInput type="text" (ionChange)="verifyButton()" [(ngModel)]="descripcionAtendida" class="input-placeholder"></ion-input>
         </ion-item>
       </ion-list>
     </ion-card-content>
@@ -50,7 +50,7 @@
   <ion-toolbar position="bottom">
     <ion-grid>
       <ion-row>
-        <button ion-button color="dark" block (click)=cambiarEstado() *ngIf="user==1">ATENDER</button>
+        <button ion-button color="dark" block (click)=cambiarEstado() *ngIf="user==1" [disabled]="!isenabled">ATENDER</button>
       </ion-row>
     </ion-grid>
   </ion-toolbar>

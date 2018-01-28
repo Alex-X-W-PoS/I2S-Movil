@@ -22,6 +22,7 @@ export class AtenderNovedadPage {
   user: number
   descripcionAtendida: string = ''
   atendida: boolean
+  isenabled: boolean
   fechaAtendida: string
   constructor (public loadingController: LoadingController, public navCtrl: NavController, public navParams: NavParams, public http: HttpProvider, public globalVar: GlobalProvider) {
     this.novedadDetalle = navParams.data.item
@@ -74,5 +75,21 @@ export class AtenderNovedadPage {
     },error => {
       console.log(error)
     })
+  }
+
+  isNotEmpty (valor: string) {
+    if (!valor || valor === '') {
+      return false
+    } else {
+      return true
+    }
+  }
+
+  verifyButton () {
+    if (this.isNotEmpty(this.descripcionAtendida)) {
+      this.isenabled = true
+    } else {
+      this.isenabled = false
+    }
   }
 }
