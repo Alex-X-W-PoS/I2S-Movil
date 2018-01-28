@@ -10,7 +10,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding >
   <ion-segment [(ngModel)]="segment" >
     <ion-segment-button value="sinAtender">
       Novedades sin atender
@@ -25,46 +25,40 @@
       </ion-searchbar>
     </ion-toolbar>
       <!-- +++++++++++++++++++++ -->
-      <ion-card-header>
-        PRIORIDAD ALTA
-      </ion-card-header>
-      <ion-list>
+      <ion-item-group>
+        <ion-item-divider color="light">PRIORIDAD ALTA</ion-item-divider>
         <div *ngFor="let novedad of items">
           <ion-item *ngIf="novedad.prioridad== 'alta'">
             <h2>{{novedad.descripcion}}</h2>
-            <p>Creado {{time(novedad.fechaCreacion)}}</p>
+            <p>Creada {{time(novedad.fechaCreacion)}}</p>
             <button ion-button clear item-end (click)=detallesNovedades(novedad)>Ver</button>
           </ion-item>
         </div>
-      </ion-list>
+      </ion-item-group>
 
       <!-- +++++++++++++++++++++ -->
-      <ion-card-header>
-        PRIORIDAD MEDIA
-      </ion-card-header>
-      <ion-list>
+      <ion-item-group>
+        <ion-item-divider color="light"> PRIORIDAD MEDIA</ion-item-divider>
         <div *ngFor="let novedad of items">
           <ion-item *ngIf="novedad.prioridad== 'media'">
             <h2>{{novedad.descripcion}}</h2>
-            <p>Creado {{time(novedad.fechaCreacion)}}</p>
+            <p>Creada {{time(novedad.fechaCreacion)}}</p>
             <button ion-button clear item-end (click)=detallesNovedades(novedad)>Ver</button>
           </ion-item>
         </div>
-      </ion-list>
+      </ion-item-group>
 
       <!-- +++++++++++++++++++++ -->
-      <ion-card-header>
-        PRIORIDAD BAJA
-      </ion-card-header>
-      <ion-list>
+      <ion-item-group>
+        <ion-item-divider color="light">PRIORIDAD BAJA</ion-item-divider>
         <div *ngFor="let novedad of items">
           <ion-item *ngIf="novedad.prioridad== 'baja'">
             <h2>{{novedad.descripcion}}</h2>
-            <p>Creado {{time(novedad.fechaCreacion)}}</p>
+            <p>Creada {{time(novedad.fechaCreacion)}}</p>
             <button ion-button clear item-end (click)=detallesNovedades(novedad)>Ver</button>
           </ion-item>
         </div>
-      </ion-list>
+      </ion-item-group>
   </ion-list>
   <ion-list *ngIf="segment === 'atendidas'">
     <ion-toolbar no-border-top>

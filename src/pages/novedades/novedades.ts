@@ -23,7 +23,6 @@ export class NovedadesPage {
     this.initializeItemsAtendidos()
   }
   initializeItems () {
-    console.log('CARGADOS NOVEDADES')
     this.items = this.global.novedadesSinAtender
   }
   initializeItemsAtendidos () {
