@@ -31,7 +31,8 @@
           <ion-item *ngIf="novedad.prioridad== 'alta'">
             <h2>{{novedad.descripcion}}</h2>
             <p>Creada {{time(novedad.fechaCreacion)}}</p>
-            <button ion-button clear item-end (click)=detallesNovedades(novedad)>Ver</button>
+            <button ion-button clear item-end (click)=detallesNovedades(novedad) *ngIf="global.claseUsuario != 1">Ver</button>
+            <button ion-button clear item-end (click)=detallesNovedades(novedad) *ngIf="global.claseUsuario == 1">Atender</button>
           </ion-item>
         </div>
       </ion-item-group>
@@ -43,7 +44,8 @@
           <ion-item *ngIf="novedad.prioridad== 'media'">
             <h2>{{novedad.descripcion}}</h2>
             <p>Creada {{time(novedad.fechaCreacion)}}</p>
-            <button ion-button clear item-end (click)=detallesNovedades(novedad)>Ver</button>
+            <button ion-button clear item-end (click)=detallesNovedades(novedad) *ngIf="global.claseUsuario != 1">Ver</button>
+            <button ion-button clear item-end (click)=detallesNovedades(novedad) *ngIf="global.claseUsuario == 1">Atender</button>
           </ion-item>
         </div>
       </ion-item-group>
@@ -55,7 +57,8 @@
           <ion-item *ngIf="novedad.prioridad== 'baja'">
             <h2>{{novedad.descripcion}}</h2>
             <p>Creada {{time(novedad.fechaCreacion)}}</p>
-            <button ion-button clear item-end (click)=detallesNovedades(novedad)>Ver</button>
+            <button ion-button clear item-end (click)=detallesNovedades(novedad) *ngIf="global.claseUsuario != 1">Ver</button>
+            <button ion-button clear item-end (click)=detallesNovedades(novedad) *ngIf="global.claseUsuario == 1">Atender</button>
           </ion-item>
         </div>
       </ion-item-group>
