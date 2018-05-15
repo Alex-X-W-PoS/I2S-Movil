@@ -2,6 +2,8 @@ import { Component } from '@angular/core'
 import { IonicPage, NavController, NavParams } from 'ionic-angular'
 import { GlobalProvider } from '../../providers/global/global'
 import { AreasDeTrabajoPage } from '../areas-de-trabajo/areas-de-trabajo'
+import { EscanerQRPage } from '../escaner-qr/escaner-qr'
+
 @IonicPage()
 @Component({
   selector: 'page-roles',
@@ -23,6 +25,10 @@ export class RolesPage {
   selectEmpleado () {
     this.rolUsuario.claseUsuario = 2
     void this.navCtrl.push(AreasDeTrabajoPage)
+  }
+  selectQR () {
+    this.rolUsuario.claseUsuario = 2
+    void this.navCtrl.push(EscanerQRPage)
   }
   ionViewDidLoad () {
     this.rolUsuario.enPuestoDeTrabajo = false

@@ -3,6 +3,7 @@ import { NgModule, ErrorHandler } from '@angular/core'
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular'
 import { MyApp } from './app.component'
 import { Camera } from '@ionic-native/camera'
+import { BarcodeScanner } from '@ionic-native/barcode-scanner'
 
 import { RolesPage } from '../pages/roles/roles'
 import { AgregarNovedadesPage } from '../pages/agregar-novedades/agregar-novedades'
@@ -13,6 +14,7 @@ import { AtenderNovedadPage } from '../pages/atender-novedad/atender-novedad'
 import { EscogerPuestoTrabajoPage } from '../pages/escoger-puesto-trabajo/escoger-puesto-trabajo'
 import { TabsPage } from '../pages/tabs/tabs'
 import { NovedadesPage } from '../pages/novedades/novedades'
+import { EscanerQRPage } from '../pages/escaner-qr/escaner-qr'
 
 import { StatusBar } from '@ionic-native/status-bar'
 import { SplashScreen } from '@ionic-native/splash-screen'
@@ -32,7 +34,8 @@ import { GlobalProvider } from '../providers/global/global'
     AtenderNovedadPage,
     EscogerPuestoTrabajoPage,
     TabsPage,
-    NovedadesPage
+    NovedadesPage,
+    EscanerQRPage
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { GlobalProvider } from '../providers/global/global'
     AtenderNovedadPage,
     EscogerPuestoTrabajoPage,
     TabsPage,
-    NovedadesPage
+    NovedadesPage,
+    EscanerQRPage
   ],
   providers: [
     Camera,
@@ -58,7 +62,8 @@ import { GlobalProvider } from '../providers/global/global'
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     HttpProvider,
-    GlobalProvider
+    GlobalProvider,
+    BarcodeScanner
   ]
 })
 export class AppModule { }
