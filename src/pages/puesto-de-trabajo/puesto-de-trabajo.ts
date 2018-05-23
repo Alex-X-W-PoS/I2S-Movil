@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-an
 import { GlobalProvider } from '../../providers/global/global'
 import { HttpProvider } from '../../providers/http/http'
 import { NovedadesSinAtenderPage } from '../novedades-sin-atender/novedades-sin-atender'
+import { CapacitacionesPage } from '../capacitaciones/capacitaciones'
 import Chart from 'chart.js'
 
 @IonicPage()
@@ -66,5 +67,8 @@ export class PuestoDeTrabajoPage {
   }
   cargarNovedades () {
     void this.navCtrl.push(NovedadesSinAtenderPage, { puestoId: this.dataPuestos.puesto_trabajo_id })
+  }
+  cargarCapacitacion () {
+    void this.navCtrl.push( CapacitacionesPage )
   }
 }

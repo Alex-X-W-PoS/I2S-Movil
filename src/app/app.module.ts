@@ -15,6 +15,7 @@ import { EscogerPuestoTrabajoPage } from '../pages/escoger-puesto-trabajo/escoge
 import { TabsPage } from '../pages/tabs/tabs'
 import { NovedadesPage } from '../pages/novedades/novedades'
 import { EscanerQRPage } from '../pages/escaner-qr/escaner-qr'
+import { CapacitacionesPage } from '../pages/capacitaciones/capacitaciones'
 
 import { StatusBar } from '@ionic-native/status-bar'
 import { SplashScreen } from '@ionic-native/splash-screen'
@@ -35,7 +36,8 @@ import { GlobalProvider } from '../providers/global/global'
     EscogerPuestoTrabajoPage,
     TabsPage,
     NovedadesPage,
-    EscanerQRPage
+    EscanerQRPage,
+    CapacitacionesPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ import { GlobalProvider } from '../providers/global/global'
     EscogerPuestoTrabajoPage,
     TabsPage,
     NovedadesPage,
-    EscanerQRPage
+    EscanerQRPage,
+    CapacitacionesPage
   ],
   providers: [
     Camera,
