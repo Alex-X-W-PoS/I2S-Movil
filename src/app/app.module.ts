@@ -16,6 +16,8 @@ import { TabsPage } from '../pages/tabs/tabs'
 import { NovedadesPage } from '../pages/novedades/novedades'
 import { EscanerQRPage } from '../pages/escaner-qr/escaner-qr'
 import { CapacitacionesPage } from '../pages/capacitaciones/capacitaciones'
+import { AccidentesPage } from '../pages/accidentes/accidentes'
+import { ListaAccidentesPage } from '../pages/lista-accidentes/lista-accidentes'
 
 import { StatusBar } from '@ionic-native/status-bar'
 import { SplashScreen } from '@ionic-native/splash-screen'
@@ -37,7 +39,9 @@ import { GlobalProvider } from '../providers/global/global'
     TabsPage,
     NovedadesPage,
     EscanerQRPage,
-    CapacitacionesPage
+    CapacitacionesPage,
+    AccidentesPage,
+    ListaAccidentesPage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +61,9 @@ import { GlobalProvider } from '../providers/global/global'
     TabsPage,
     NovedadesPage,
     EscanerQRPage,
-    CapacitacionesPage
+    CapacitacionesPage,
+    AccidentesPage,
+    ListaAccidentesPage
   ],
   providers: [
     Camera,

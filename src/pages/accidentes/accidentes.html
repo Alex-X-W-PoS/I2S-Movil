@@ -1,0 +1,68 @@
+<!--
+  Generated template for the AccidentesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Accidentes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div text-center>
+      <ion-icon name="ios-nuclear" class="icono"></ion-icon>
+  </div>
+  <ion-card>
+    <ion-item>
+      <h2 text-wrap><b>Fuga de Gas</b></h2>
+      <p style="font-size: 0.7em;">Diciembre 22, 2017</p>
+    </ion-item>
+
+    <ion-card-content >
+        <h2 text-wrap ><b>Descripción</b></h2>
+      <p style="text-align:justify">
+        Cuando ya se estaba por cerrar las oficinas, se escucharon gritos que venían de
+        bodega y era porque había una fuga de gas..Esto se debió porque una manguera del
+        gas estaba rota y por ahi fluía el gas.
+      </p>
+    </ion-card-content>
+
+    <ion-row>
+        <ion-col center text-center>
+          <ion-note style="margin-right:30px ">
+            <b><u>0 heridos</u></b>
+          </ion-note>
+          <ion-note >
+            <b><u>10 muertos</u></b>
+          </ion-note>
+        </ion-col>
+      </ion-row>
+
+    <ion-row *ngIf="atendido">
+        <ion-col center text-center>
+          <h3>
+            <ion-icon name="md-done-all"></ion-icon>
+            <b>Fue Atendido en la Empresa</b>
+          </h3>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="!atendido">
+          <ion-col center text-center>
+            <h3>
+              <ion-icon name="md-thumbs-down"></ion-icon>
+              <b>No fue Atendido en la Empresa</b>
+            </h3>
+          </ion-col>
+        </ion-row>
+
+  </ion-card>
+
+</ion-content>
+
+

@@ -51,14 +51,14 @@
       Novedades sin atender
     </ion-card-header>
     <canvas id="chart"></canvas>
-  </ion-card> 
+  </ion-card>
 
 <!-- -->
 <ion-card>
   <ion-card-header text-center>
     Capacitaciones recientes
   </ion-card-header>
-  <ion-card (click)="cargarCapacitacion()">
+  <ion-card (click)="cargarCapacitacion ()">
     <ion-item>
       <h2 text-wrap>Manejo de sillas</h2>
       <p style="font-size: 0.7em;">Noviebre 5, 2017</p>
@@ -83,7 +83,7 @@
           <b>15</b> capacitados
         </ion-note>
       </ion-col>
-    </ion-row>  
+    </ion-row>
   </ion-card>
 
   <ion-card>
@@ -97,7 +97,7 @@
           <b>9</b> capacitados
         </ion-note>
       </ion-col>
-    </ion-row>    
+    </ion-row>
   </ion-card>
 </ion-card>
   <div text-center>
@@ -105,6 +105,60 @@
     <br>
   </div>
 <!-- -->
-  
 
+<!--Lista de accidentados-->
+
+<ion-card>
+  <ion-card-header text-center >
+    <ion-card>
+        <b> Accidentados Recientes</b>
+    </ion-card>
+
+  </ion-card-header>
+  <ion-card (click)="cargarAccidentes()">
+    <ion-item>
+      <h2 text-wrap>Fuga de Gas</h2>
+      <p style="font-size: 0.7em;">Diciembre 22, 2017</p>
+      <ion-note>
+        Una manguera estaba rota y estaba escapando el gas.
+      </ion-note>
+    </ion-item>
+    <ion-row>
+      <ion-col center text-center>
+        <ion-note style="margin-right:30px ">
+          <b>0</b> heridos
+        </ion-note>
+        <ion-note >
+          <b>10</b> muertos
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card >
+    <ion-item>
+      <h2 text-wrap>  Piso Mojado</h2>
+      <p style="font-size: 0.7em;">Agosto 29, 2017</p>
+      <ion-note>
+        Debido a la limpieza del piso, quedo resbaloso uno de los pasillos.
+      </ion-note>
+    </ion-item>
+    <ion-row>
+      <ion-col center text-center>
+        <ion-note style="margin-right:30px">
+          <b>0</b> heridos
+        </ion-note>
+        <ion-note >
+          <b>1</b> muertos
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-card >
+
+  <div text-center (click)="mostrarListaAccidentes()">
+    <u><a >Mostrar más</a></u>
+    <br>
+  </div>
+<!-- -->
 </ion-content>

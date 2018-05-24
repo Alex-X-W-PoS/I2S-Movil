@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { CapacitacionesPage } from './capacitaciones';
+import { NgModule } from '@angular/core'
+import { IonicPageModule } from 'ionic-angular'
+import { CapacitacionesPage } from './capacitaciones'
 
 @NgModule({
   declarations: [
-    CapacitacionesPage,
+    CapacitacionesPage
   ],
   imports: [
-    IonicPageModule.forChild(CapacitacionesPage),
-  ],
+    IonicPageModule.forChild(CapacitacionesPage)
+  ]
 })
 export class CapacitacionesPageModule {}

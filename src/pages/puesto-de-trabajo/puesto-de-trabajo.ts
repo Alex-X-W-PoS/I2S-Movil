@@ -4,6 +4,9 @@ import { GlobalProvider } from '../../providers/global/global'
 import { HttpProvider } from '../../providers/http/http'
 import { NovedadesSinAtenderPage } from '../novedades-sin-atender/novedades-sin-atender'
 import { CapacitacionesPage } from '../capacitaciones/capacitaciones'
+import { AccidentesPage } from '../accidentes/accidentes'
+import { ListaAccidentesPage } from '../lista-accidentes/lista-accidentes'
+
 import Chart from 'chart.js'
 
 @IonicPage()
@@ -68,7 +71,15 @@ export class PuestoDeTrabajoPage {
   cargarNovedades () {
     void this.navCtrl.push(NovedadesSinAtenderPage, { puestoId: this.dataPuestos.puesto_trabajo_id })
   }
+
+  cargarAccidentes () {
+    void this.navCtrl.push(AccidentesPage)
+  }
+
   cargarCapacitacion () {
-    void this.navCtrl.push( CapacitacionesPage )
+    void this.navCtrl.push(CapacitacionesPage)
+  }
+  mostrarListaAccidentes () {
+    void this.navCtrl.push(ListaAccidentesPage)
   }
 }
