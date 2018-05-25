@@ -13,13 +13,14 @@ export class HttpProvider {
   }
 
   obtenerPuestoDeTrabajoDeArea (idArea: string) {
-    return new Promise((resolve, reject) => {
-      return this.http
-      .get(`${BASE_PATH}/api/movil/puestosDeUnArea/${idArea}/`)
-      .toPromise()
-      .then(res => resolve(res.json()))
-      .catch(err => reject(err))
-    })
+    return this.http
+    .get(`${BASE_PATH}/api/movil/puestosDeUnArea/${idArea}/`)
+    .map(res => res.json(),
+      err => {
+        console.log(err)
+      }
+      )
+    .toPromise()
   }
 
   uploadImageToImgur (imagen: String) {
@@ -40,44 +41,47 @@ export class HttpProvider {
   agregarNovedad (puestoId: String, descripcion: String, prioridad: String, urlFoto: String) {
     console.log('creandop novedad:', puestoId)
     let data = { puestosId: puestoId, descripcion, prioridad, fotoUrl: urlFoto }
-    return new Promise((resolve, reject) => {
-      return this.http
-      .post(`${BASE_PATH}/api/movil/novedad`,data)
-      .toPromise()
-      .then(res => resolve(res.json()))
-      .catch(err => reject(err))
-    })
+    return this.http
+    .post(`${BASE_PATH}/api/movil/novedad`,data)
+    .map(res => res.json(),
+      err => {
+        console.log(err)
+      }
+      )
+    .toPromise()
   }
 
   marcarComoAtendida (novedadId: string, puestoId: string, descripcion: string) {
     let data = { atendida: true, descripcionAtendida: descripcion }
-    return new Promise((resolve, reject) => {
-      return this.http
-      .post(`${BASE_PATH}/api/movil/novedad/${novedadId}/puesto/${puestoId}`,data)
-      .toPromise()
-      .then(res => resolve(res.json()))
-      .catch(err => reject(err))
-    })
-
+    return this.http
+    .post(`${BASE_PATH}/api/movil/novedad/${novedadId}/puesto/${puestoId}`,data)
+    .map(res => res.json(),
+      err => {
+        console.log(err)
+      }
+      )
+    .toPromise()
   }
 
   obtenerPuestoDeTrabajo (idPuesto: string) {
-    return new Promise((resolve, reject) => {
-      return this.http
-      .get(`${BASE_PATH}//api/movil/puesto_trabajo/${idPuesto}`)
-      .then(res => resolve(res.json()))
-      .catch(err => reject(err))
-    })
+    return this.http
+    .get(`${BASE_PATH}//api/movil/puesto_trabajo/${idPuesto}`)
+    .map(res => res.json(),
+      err => {
+        console.log(err)
+      }
+      )
+    .toPromise()
   }
 
   cargarDatos (areaId: string, puestoId: string) {
-    return new Promise((resolve, reject) => {
-      return this.http
-      .get(`${BASE_PATH}/api/movil/area/${areaId}/puesto/${puestoId}/${1}`)
-      .toPromise()
-      .then(res => resolve(res.json()))
-      .catch(err => reject(err))
-    })
-
+    return this.http
+    .get(`${BASE_PATH}/api/movil/area/${areaId}/puesto/${puestoId}/${1}`)
+    .map(res => res.json(),
+      err => {
+        console.log(err)
+      }
+      )
+    .toPromise()
   }
 }
