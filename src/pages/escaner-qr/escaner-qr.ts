@@ -1,6 +1,5 @@
 import { Component } from '@angular/core'
-import { ActionSheetController,NavController, LoadingController, NavParams, ToastController } from 'ionic-angular'
-import { Camera, CameraOptions } from '@ionic-native/camera'
+import { ActionSheetController,NavController, NavParams, ToastController } from 'ionic-angular'
 import { HttpProvider } from '../../providers/http/http'
 import { GlobalProvider } from '../../providers/global/global'
 import { BarcodeScanner } from '@ionic-native/barcode-scanner'
@@ -18,21 +17,18 @@ export class EscanerQRPage {
   prioridad = ''
   isenabled: boolean
 
-  constructor (public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams, private camera: Camera, public actionSheetCtrl: ActionSheetController, public http: HttpProvider, private loadingCtrl: LoadingController, public global: GlobalProvider, private qrScanner: BarcodeScanner) {
-    //this.puestoId = navParams.get('item')
-    //this.isenabled = false
+  constructor (public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController, public http: HttpProvider, public global: GlobalProvider, private qrScanner: BarcodeScanner) {
   }
 
   scanQR () {
-    this.qrScanner.scan(
-    {
+    this.qrScanner.scan({
       'formats': 'QR_CODE',
       'prompt': 'Acerque el codigo QR al escaner.'
     }
-      ).then(barcodeData => {
-      alert('Barcode data: ' +  barcodeData.text);
+    ).then(barcodeData => {
+      alert('QR data: ' + barcodeData.text)
     }).catch(err => {
-      console.log('Error', err);
-    });
+      console.log('Error', err)
+    })
   }
 }

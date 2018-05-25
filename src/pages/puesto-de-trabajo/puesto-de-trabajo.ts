@@ -5,6 +5,8 @@ import { HttpProvider } from '../../providers/http/http'
 import { NovedadesSinAtenderPage } from '../novedades-sin-atender/novedades-sin-atender'
 import { CapacitacionesPage } from '../capacitaciones/capacitaciones'
 import { AccidentesPage } from '../accidentes/accidentes'
+import { EquiposPage } from '../equipos/equipos'
+import { ListaEquiposPage } from '../lista-equipos/lista-equipos'
 import { ListaAccidentesPage } from '../lista-accidentes/lista-accidentes'
 
 import Chart from 'chart.js'
@@ -47,7 +49,7 @@ export class PuestoDeTrabajoPage {
       }],
       labels: [`ALTA(${altasCantidad})`, `MEDIA(${mediaCantidad})`, `BAJA(${bajaCantidad})`]
     }
-    let chart = new Chart(ctx, { type: 'doughnut', data: data })
+    let _dchart = new Chart(ctx, { type: 'doughnut', data: data })
   }
   cargarDatos () {
     this.cantidadEmpleados = this.rolUsuario.cantidadEmpleados
@@ -81,5 +83,13 @@ export class PuestoDeTrabajoPage {
   }
   mostrarListaAccidentes () {
     void this.navCtrl.push(ListaAccidentesPage)
+  }
+
+  cargarEquipo () {
+    void this.navCtrl.push(EquiposPage)
+  }
+
+  mostrarListaEquipos () {
+    void this.navCtrl.push(ListaEquiposPage)
   }
 }

@@ -99,29 +99,56 @@
       </ion-col>
     </ion-row>
   </ion-card>
-</ion-card>
   <div text-center>
-    <u><a>Mostrar más</a></u>
-    <br>
-  </div>
+  <u><a>Mostrar más</a></u>
+  <br>
+</div>
+</ion-card>
+
 <!-- -->
+<ion-card>
+  <ion-card-header text-center>
+    Equipos presentes
+  </ion-card-header>
+
+  <ion-card (click)="cargarEquipo()">
+    <ion-item >
+      <h2 text-wrap>Silla</h2>
+      <p style="font-size: 0.7em;">Cantidad: 20</p>
+    </ion-item>
+  </ion-card>
+
+  <ion-card>
+    <ion-item>
+      <h2 text-wrap>Mesa</h2>
+      <p style="font-size: 0.7em;">Cantidad: 10</p>
+    </ion-item>
+  </ion-card>
+
+  <ion-card>
+    <ion-item>
+      <h2 text-wrap>Taladro</h2>
+      <p style="font-size: 0.7em;">Cantidad: 5</p>
+    </ion-item>
+  </ion-card>
+
+  <div text-center (click)="mostrarListaEquipos()">
+  <u><a>Mostrar más</a></u>
+  <br>
+</div>
+
+</ion-card>
 
 <!--Lista de accidentados-->
 
 <ion-card>
-  <ion-card-header text-center >
-    <ion-card>
-        <b> Accidentados Recientes</b>
-    </ion-card>
-
+  <ion-card-header text-center>
+    Accidentes Recientes
   </ion-card-header>
   <ion-card (click)="cargarAccidentes()">
     <ion-item>
       <h2 text-wrap>Fuga de Gas</h2>
       <p style="font-size: 0.7em;">Diciembre 22, 2017</p>
-      <ion-note>
-        Una manguera estaba rota y estaba escapando el gas.
-      </ion-note>
     </ion-item>
     <ion-row>
       <ion-col center text-center>
@@ -139,9 +166,6 @@
     <ion-item>
       <h2 text-wrap>  Piso Mojado</h2>
       <p style="font-size: 0.7em;">Agosto 29, 2017</p>
-      <ion-note>
-        Debido a la limpieza del piso, quedo resbaloso uno de los pasillos.
-      </ion-note>
     </ion-item>
     <ion-row>
       <ion-col center text-center>

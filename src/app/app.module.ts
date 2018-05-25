@@ -17,6 +17,8 @@ import { NovedadesPage } from '../pages/novedades/novedades'
 import { EscanerQRPage } from '../pages/escaner-qr/escaner-qr'
 import { CapacitacionesPage } from '../pages/capacitaciones/capacitaciones'
 import { AccidentesPage } from '../pages/accidentes/accidentes'
+import { EquiposPage } from '../pages/equipos/equipos'
+import { ListaEquiposPage } from '../pages/lista-equipos/lista-equipos'
 import { ListaAccidentesPage } from '../pages/lista-accidentes/lista-accidentes'
 
 import { StatusBar } from '@ionic-native/status-bar'
@@ -41,6 +43,8 @@ import { GlobalProvider } from '../providers/global/global'
     EscanerQRPage,
     CapacitacionesPage,
     AccidentesPage,
+    EquiposPage,
+    ListaEquiposPage,
     ListaAccidentesPage
   ],
   imports: [
@@ -63,6 +67,8 @@ import { GlobalProvider } from '../providers/global/global'
     EscanerQRPage,
     CapacitacionesPage,
     AccidentesPage,
+    EquiposPage,
+    ListaEquiposPage,
     ListaAccidentesPage
   ],
   providers: [
