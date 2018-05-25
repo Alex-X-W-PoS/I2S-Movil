@@ -37,6 +37,9 @@ export class EscogerPuestoTrabajoPage {
       let puesto = { puestoId: puestoId, nombrePuesto: nombrePuesto, novedadesSinAtender: res.datos.novedadesSinAtender.length }
       loading.dismissAll()
       void this.navCtrl.push(TabsPage, puesto)
+    },
+    error => {
+      console.log(error)
     })
   }
   ionViewDidLoad () {

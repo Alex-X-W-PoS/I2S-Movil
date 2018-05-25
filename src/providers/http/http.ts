@@ -3,16 +3,23 @@ import { Http, Headers, RequestOptions } from '@angular/http'
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/toPromise'
 
-export const BASE_PATH = 'http://i2solutions.herokuapp.com'
-// http://localhost:3000 http://i2solutions.herokuapp.com
+// export const BASE_PATH = 'http://i2solutions.herokuapp.com'
+export const BASE_PATH = 'https://i2s-app.herokuapp.com'
+// export const BASE_PATH = 'http://localhost:3000'
 @Injectable()
 export class HttpProvider {
   datos: any
-  path: string = 'https://randomuser.me/api/?results=25'
-  todosPuestos: string = BASE_PATH + '/api/movil/puesto_trabajo/area_trabajo/'
-  puesto: string = BASE_PATH + '/api/movil/puesto_trabajo/'
-  novedadesPath: string = BASE_PATH + '/api/movil/novedad/puesto_trabajo/'
   constructor (public http: Http) {
+  }
+
+  obtenerPuestoDeTrabajoDeArea (idArea: string) {
+    return new Promise((resolve, reject) => {
+      return this.http
+      .get(`${BASE_PATH}/api/movil/puestosDeUnArea/${idArea}/`)
+      .toPromise()
+      .then(res => resolve(res.json()))
+      .catch(err => reject(err))
+    })
   }
 
   uploadImageToImgur (imagen: String) {
@@ -31,69 +38,46 @@ export class HttpProvider {
   }
 
   agregarNovedad (puestoId: String, descripcion: String, prioridad: String, urlFoto: String) {
-    let data = { puesto_trabajo_id: puestoId, descripcion: descripcion, prioridad: prioridad, foto_url: urlFoto }
-    let url = BASE_PATH + '/api/movil/novedad'
-    return this.http
-    .post(url,data)
-    .map(res => res.json(),
-      err => {
-        console.error(err)
-      }
-      )
-    .toPromise()
+    console.log('creandop novedad:', puestoId)
+    let data = { puestosId: puestoId, descripcion, prioridad, fotoUrl: urlFoto }
+    return new Promise((resolve, reject) => {
+      return this.http
+      .post(`${BASE_PATH}/api/movil/novedad`,data)
+      .toPromise()
+      .then(res => resolve(res.json()))
+      .catch(err => reject(err))
+    })
   }
 
   marcarComoAtendida (novedadId: string, puestoId: string, descripcion: string) {
     let data = { atendida: true, descripcionAtendida: descripcion }
-    let url = BASE_PATH + '/api/movil/novedad/' + novedadId + '/puesto_trabajo/' + puestoId
-    return this.http
-    .post(url,data)
-    .map(res => res.json(),
-      err => {
-        console.error(err)
-      }
-    )
-    .toPromise()
-  }
-
-  obtenerPuestoDeTrabajoDeArea (idArea: string) {
-    return this.http
-      .get(this.todosPuestos.concat(idArea))
-      .map(res => res.json(),
-      err => {
-        console.log(err)
-      }
-      )
+    return new Promise((resolve, reject) => {
+      return this.http
+      .post(`${BASE_PATH}/api/movil/novedad/${novedadId}/puesto/${puestoId}`,data)
       .toPromise()
+      .then(res => resolve(res.json()))
+      .catch(err => reject(err))
+    })
+
   }
 
   obtenerPuestoDeTrabajo (idPuesto: string) {
-    return this.http
-      .get(this.puesto.concat(idPuesto))
-      .map(res => res.json(),
-        err => {
-          console.log(err)
-        }
-        )
-        .toPromise()
-  }
-
-  obetenerNovedadesSinAtender (idPuesto: string) {
-    return this.http
-  .get(this.novedadesPath.concat(idPuesto))
-      .map(res => res.json(),
-        err => {
-          console.log(err)
-        }
-        )
-      .toPromise()
+    return new Promise((resolve, reject) => {
+      return this.http
+      .get(`${BASE_PATH}//api/movil/puesto_trabajo/${idPuesto}`)
+      .then(res => resolve(res.json()))
+      .catch(err => reject(err))
+    })
   }
 
   cargarDatos (areaId: string, puestoId: string) {
-    return this.http
-      .get(`${BASE_PATH}/api/movil/area/${areaId}/puesto/${puestoId}`)
-      .map(res => res.json(), err => {
-        console.log(err)
-      }).toPromise()
+    return new Promise((resolve, reject) => {
+      return this.http
+      .get(`${BASE_PATH}/api/movil/area/${areaId}/puesto/${puestoId}/${1}`)
+      .toPromise()
+      .then(res => resolve(res.json()))
+      .catch(err => reject(err))
+    })
+
   }
 }

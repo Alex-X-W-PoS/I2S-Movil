@@ -30,12 +30,13 @@ export class AreasDeTrabajoPage {
     }
     let loading = this.loadingController.create({ content: 'Cargando, por favor espere un momento' })
     void loading.present()
-    this.puestos.obtenerPuestoDeTrabajoDeArea(areaId).then(res => {
+    this.puestos.obtenerPuestoDeTrabajoDeArea(`${areaId}`).then(res => {
       loading.dismissAll()
       void this.navCtrl.push(EscogerPuestoTrabajoPage, res.datos)
     },
     error => {
-      console.log(error)
+      // loading.dismissAll()
+      console.log('err', JSON.stringify(error))
     })
   }
 }

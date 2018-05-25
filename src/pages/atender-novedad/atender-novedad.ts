@@ -64,7 +64,9 @@ export class AtenderNovedadPage {
       // novedadTmp['atendida'] = true
       // novedadTmp['fechaAtendida'] = date.toISOString()
       this.globalVar.atenderNovedad = true
-      this.globalVar.novedadesAtendidas.push(res.datos)
+      let novedad = this.novedadDetalle
+      novedad['descripcionAtendida'] = this.descripcionAtendida
+      this.globalVar.novedadesAtendidas.push(novedad)
       this.globalVar.cantidadNovedadesSinAtender = this.globalVar.cantidadNovedadesSinAtender - 1
 
       // ionic no permite reasignar globales, por esto se edita el mismo objeto
