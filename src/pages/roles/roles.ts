@@ -1,7 +1,6 @@
 import { Component } from '@angular/core'
 import { IonicPage, NavController, NavParams } from 'ionic-angular'
 import { GlobalProvider } from '../../providers/global/global'
-import { AreasDeTrabajoPage } from '../areas-de-trabajo/areas-de-trabajo'
 import { EscanerQRPage } from '../escaner-qr/escaner-qr'
 
 @IonicPage()
@@ -16,20 +15,20 @@ export class RolesPage {
 
   selectInspector () {
     this.rolUsuario.claseUsuario = 0
-    void this.navCtrl.push(AreasDeTrabajoPage)
+    void this.navCtrl.push(EscanerQRPage)
   }
   selectJefe () {
     this.rolUsuario.claseUsuario = 1
-    void this.navCtrl.push(AreasDeTrabajoPage)
+    void this.navCtrl.push(EscanerQRPage)
   }
   selectEmpleado () {
     this.rolUsuario.claseUsuario = 2
-    void this.navCtrl.push(AreasDeTrabajoPage)
-  }
-  selectQR () {
-    this.rolUsuario.claseUsuario = 2
     void this.navCtrl.push(EscanerQRPage)
   }
+  /*selectQR () {
+    this.rolUsuario.claseUsuario = 2
+    void this.navCtrl.push(EscanerQRPage)
+  }*/
   ionViewDidLoad () {
     this.rolUsuario.enPuestoDeTrabajo = false
   }

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core'
-import { ActionSheetController,NavController, NavParams, ToastController } from 'ionic-angular'
+import { ActionSheetController,NavController, NavParams, ToastController, LoadingController } from 'ionic-angular'
 import { HttpProvider } from '../../providers/http/http'
 import { GlobalProvider } from '../../providers/global/global'
 import { BarcodeScanner } from '@ionic-native/barcode-scanner'
+import { EscogerPuestoTrabajoPage } from '../escoger-puesto-trabajo/escoger-puesto-trabajo'
 
 @Component({
   selector: 'page-escaner-qr',
@@ -17,18 +18,40 @@ export class EscanerQRPage {
   prioridad = ''
   isenabled: boolean
 
-  constructor (public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController, public http: HttpProvider, public global: GlobalProvider, private qrScanner: BarcodeScanner) {
+  constructor (public loadingController: LoadingController, public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController, public puestos: HttpProvider, public global: GlobalProvider, private qrScanner: BarcodeScanner, public rolUsuario: GlobalProvider) {
   }
 
   scanQR () {
     this.qrScanner.scan({
       'formats': 'QR_CODE',
-      'prompt': 'Acerque el codigo QR al escaner.'
+      'prompt': 'Acerque el codigo QR al escaner.',
+      'resultDisplayDuration': 0
     }
     ).then(barcodeData => {
-      alert('QR data: ' + barcodeData.text)
+      this.entrarPuestosDeTrabajo(barcodeData.text)
     }).catch(err => {
       console.log('Error', err)
+    })
+  }
+
+  entrarPuestosDeTrabajo (areaId) {
+    this.rolUsuario.area = areaId
+    if (areaId === '1') {
+      this.rolUsuario.areaNombre = 'Administrativa'
+    } else if (areaId === '2') {
+      this.rolUsuario.areaNombre = 'Matricería'
+    } else if (areaId === '3') {
+      this.rolUsuario.areaNombre = 'Inyección'
+    }
+    let loading = this.loadingController.create({ content: 'Cargando, por favor espere un momento' })
+    void loading.present()
+    this.puestos.obtenerPuestoDeTrabajoDeArea(`${areaId}`).then(res => {
+      loading.dismissAll()
+      void this.navCtrl.push(EscogerPuestoTrabajoPage, res.datos)
+    },
+    error => {
+      // loading.dismissAll()
+      console.log('err', JSON.stringify(error))
     })
   }
 }
