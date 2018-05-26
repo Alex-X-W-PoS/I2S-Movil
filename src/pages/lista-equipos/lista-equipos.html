@@ -10,46 +10,22 @@
 <ion-content padding>
   <!--Lista de accidentados-->
 
-    <ion-card (click)="cargarEquipo()">
+    <ion-card>
+  <ion-card-header text-center>
+    Equipos presentes
+  </ion-card-header>
+  <div *ngFor="let equipo of equiposProteccion">
+
+  <ion-card (click)="cargarEquipo(equipo)">
     <ion-item >
-      <h2 text-wrap>Silla</h2>
-      <p style="font-size: 0.7em;">Cantidad: 20</p>
+      <h2 text-wrap>{{ equipo.nombre }}</h2>
+      <p style="font-size: 0.7em;">Cantidad = {{ equipo.cantidad }}</p>
     </ion-item>
   </ion-card>
 
-  <ion-card>
-    <ion-item>
-      <h2 text-wrap>Mesa</h2>
-      <p style="font-size: 0.7em;">Cantidad: 10</p>
-    </ion-item>
-  </ion-card>
+</div>
 
-  <ion-card>
-    <ion-item>
-      <h2 text-wrap>Taladro</h2>
-      <p style="font-size: 0.7em;">Cantidad: 5</p>
-    </ion-item>
-  </ion-card>
 
-<ion-card>
-    <ion-item >
-      <h2 text-wrap>Extintor de Incendios</h2>
-      <p style="font-size: 0.7em;">Cantidad: 2</p>
-    </ion-item>
-  </ion-card>
-
-  <ion-card>
-    <ion-item>
-      <h2 text-wrap>Máscara de Gas</h2>
-      <p style="font-size: 0.7em;">Cantidad: 10</p>
-    </ion-item>
-  </ion-card>
-
-  <ion-card>
-    <ion-item>
-      <h2 text-wrap>Martillo</h2>
-      <p style="font-size: 0.7em;">Cantidad: 5</p>
-    </ion-item>
-  </ion-card>
+</ion-card>
 
 </ion-content>

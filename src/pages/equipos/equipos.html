@@ -11,15 +11,16 @@
 
   <ion-card>
   <div text-center>
-    <img src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Silla-Abuelo.jpg/1200px-Silla-Abuelo.jpg'>
+    <img [src]='foto' *ngIf="foto!=''">
   </div>
 
     <ion-item>
-      <h2 text-wrap><b>Silla</b></h2>
+      <h2 text-wrap><b>{{ equipo.nombre}}</b></h2>
     </ion-item>
 
     <ion-card-content >
-        <h2 text-wrap ><b>Cantidad: 20</b></h2>
+        <h2 text-wrap ><b>{{ equipo.cantidad }}</b></h2>
+        <h2 text-wrap >{{ equipo.descripcion }}</h2>
     </ion-card-content>
 
   </ion-card>

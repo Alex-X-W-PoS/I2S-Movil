@@ -16,4 +16,6 @@ export class GlobalProvider {
   // public novedadesAtendidas: any = [{"_id":3,"puesto_trabajo_id":1,"descripcion":"Las sillas no estan pintadas","prioridad":"baja","foto_url":"https://i.imgur.com/U0ueJED.jpg","atendida":true,"descripcionAtendida":"Si se pintaron a la final","createdAt":"2018-01-27T18:44:42.052Z","updatedAt":"2018-01-27T18:44:42.052Z","fechaAtendida":"2018-01-27T18:44:42.052Z","id":3},{"_id":1,"puesto_trabajo_id":1,"descripcion":"No cuenta con equipos","prioridad":"alta","foto_url":"https://i.imgur.com/YrQ2Aqz.jpg","atendida":true,"descripcionAtendida":null,"createdAt":"2018-01-27T18:44:42.052Z","updatedAt":"2018-01-27T19:01:52.246Z","fechaAtendida":"2018-01-27T18:44:42.052Z","id":1},{"_id":2,"puesto_trabajo_id":1,"descripcion":"El operario no usa guantes","prioridad":"media","foto_url":"https://i.imgur.com/E4S80tP.jpg","atendida":true,"descripcionAtendida":null,"createdAt":"2018-01-27T18:44:42.052Z","updatedAt":"2018-01-27T19:02:46.555Z","fechaAtendida":"2018-01-27T18:44:42.052Z","id":2}]
   public cantidadNovedadesSinAtender: number = 0
   public cantidadEmpleados: number = 0
+  public cantidadEquiposProteccion: number = 0
+  public equiposProteccion: any
 }

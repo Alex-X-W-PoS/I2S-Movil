@@ -25,7 +25,11 @@ export class PuestoDeTrabajoPage {
   public idRiesgos: any
   public puestoNombre: any
   public cantidadEmpleados: number
+  public equiposProteccion: any
+  public cantidadEquiposProteccion: number
+  public trackEquipos: number
   constructor (public loadingController: LoadingController, public navCtrl: NavController, public navParams: NavParams, public classPuesto: HttpProvider, public rolUsuario: GlobalProvider) {
+    this.trackEquipos = 0
   }
   ionViewDidEnter () {
     this.cargarDatos()
@@ -53,6 +57,8 @@ export class PuestoDeTrabajoPage {
   }
   cargarDatos () {
     this.cantidadEmpleados = this.rolUsuario.cantidadEmpleados
+    this.equiposProteccion = this.rolUsuario.equiposProteccion
+    this.cantidadEquiposProteccion = this.rolUsuario.cantidadEquiposProteccion
   }
   cargarRiesgos () {
     let loading = this.loadingController.create({ content: 'Cargando, por favor espere un momento' })
@@ -85,8 +91,8 @@ export class PuestoDeTrabajoPage {
     void this.navCtrl.push(ListaAccidentesPage)
   }
 
-  cargarEquipo () {
-    void this.navCtrl.push(EquiposPage)
+  cargarEquipo (equipo) {
+    void this.navCtrl.push(EquiposPage, { equipo: equipo })
   }
 
   mostrarListaEquipos () {
