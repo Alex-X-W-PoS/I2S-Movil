@@ -39,7 +39,6 @@ export class HttpProvider {
   }
 
   agregarNovedad (puestoId: String, descripcion: String, prioridad: String, urlFoto: String) {
-    console.log('creandop novedad:', puestoId)
     let data = { puestosId: puestoId, descripcion, prioridad, fotoUrl: urlFoto }
     return this.http
     .post(`${BASE_PATH}/api/movil/novedad`,data)
@@ -65,7 +64,18 @@ export class HttpProvider {
 
   obtenerPuestoDeTrabajo (idPuesto: string) {
     return this.http
-    .get(`${BASE_PATH}//api/movil/puesto_trabajo/${idPuesto}`)
+    .get(`${BASE_PATH}/api/movil/puesto_trabajo/${idPuesto}`)
+    .map(res => res.json(),
+      err => {
+        console.log(err)
+      }
+      )
+    .toPromise()
+  }
+
+  obetenerNovedadesSinAtender (idPuesto: string) {
+    return this.http
+    .get(`${BASE_PATH}/api/movil/novedadesSinAtender/${idPuesto}`)
     .map(res => res.json(),
       err => {
         console.log(err)
@@ -76,7 +86,7 @@ export class HttpProvider {
 
   cargarDatos (areaId: string, puestoId: string) {
     return this.http
-    .get(`${BASE_PATH}/api/movil/area/${areaId}/puesto/${puestoId}/${1}`)
+    .get(`${BASE_PATH}/api/movil/area/${areaId}/puesto/${puestoId}/${1}`) // coloco 1 que indica establecimiento, despues de cambiará
     .map(res => res.json(),
       err => {
         console.log(err)
