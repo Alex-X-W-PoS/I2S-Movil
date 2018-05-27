@@ -54,55 +54,32 @@
   </ion-card>
 
 <!-- -->
+
 <ion-card>
   <ion-card-header text-center>
     Capacitaciones recientes
   </ion-card-header>
-  <ion-card (click)="cargarCapacitacion ()">
-    <ion-item>
-      <h2 text-wrap>Manejo de sillas</h2>
-      <p style="font-size: 0.7em;">Noviebre 5, 2017</p>
-    </ion-item>
-    <ion-row>
-      <ion-col center text-center>
-        <ion-note>
-          <b>10</b> capacitados
-        </ion-note>
-      </ion-col>
-    </ion-row>
-  </ion-card>
-
-  <ion-card>
-    <ion-item>
-      <h2 text-wrap>Manejo de mesas</h2>
-      <p style="font-size: 0.7em;">Septiembre 5, 2017</p>
-    </ion-item>
-    <ion-row>
-      <ion-col center text-center>
-        <ion-note>
-          <b>15</b> capacitados
-        </ion-note>
-      </ion-col>
-    </ion-row>
-  </ion-card>
-
-  <ion-card>
-    <ion-item>
-      <h2 text-wrap>¿Qué hacer en caso de mal manejo de sillas y mesas?</h2>
-      <p style="font-size: 0.7em;">Enero 15, 2018</p>
-    </ion-item>
-    <ion-row>
-      <ion-col center text-center>
-        <ion-note>
-          <b>9</b> capacitados
-        </ion-note>
-      </ion-col>
-    </ion-row>
-  </ion-card>
-  <div text-center>
-  <u><a>Mostrar más</a></u>
-  <br>
-</div>
+  <div *ngFor = "let capacitacion of infoCapacitaciones; let i = index">
+    <div *ngIf = "i < 3">
+      <ion-card (click)="cargarCapacitacion (capacitacion.id)">
+        <ion-item>
+          <h2 text-wrap>{{capacitacion.nombre}}</h2>
+          <p style="font-size: 0.7em;">{{capacitacion.fechaCreacion | date:"dd MMMM yyyy"}}</p>
+        </ion-item>
+        <ion-row>
+          <ion-col center text-center>
+            <ion-note>
+              <b>10</b> capacitados
+            </ion-note>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </div>
+  </div>
+  <div text-center *ngIf = "cantCapacitaciones > 3">
+    <u (click)="mostrarListaCapacitaciones()"><a>Mostrar más</a></u>
+    <br>
+  </div>
 </ion-card>
 
 <!-- -->
@@ -173,4 +150,5 @@
     <br>
   </div>
 <!-- -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.4.6/angular-locale_es-es.js"></script>
 </ion-content>

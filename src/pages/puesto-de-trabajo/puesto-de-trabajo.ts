@@ -4,6 +4,7 @@ import { GlobalProvider } from '../../providers/global/global'
 import { HttpProvider } from '../../providers/http/http'
 import { NovedadesSinAtenderPage } from '../novedades-sin-atender/novedades-sin-atender'
 import { CapacitacionesPage } from '../capacitaciones/capacitaciones'
+import { ListaCapacitacionesPage } from '../lista-capacitaciones/lista-capacitaciones'
 import { AccidentesPage } from '../accidentes/accidentes'
 import { EquiposPage } from '../equipos/equipos'
 import { ListaEquiposPage } from '../lista-equipos/lista-equipos'
@@ -28,6 +29,9 @@ export class PuestoDeTrabajoPage {
   public equiposProteccion: any
   public cantidadEquiposProteccion: number
   public trackEquipos: number
+  public infoCapacitaciones: any
+  public cantCapacitaciones: number
+  public singleCapacitacion: any
   constructor (public loadingController: LoadingController, public navCtrl: NavController, public navParams: NavParams, public classPuesto: HttpProvider, public rolUsuario: GlobalProvider) {
     this.trackEquipos = 0
   }
@@ -59,6 +63,8 @@ export class PuestoDeTrabajoPage {
     this.cantidadEmpleados = this.rolUsuario.cantidadEmpleados
     this.equiposProteccion = this.rolUsuario.equiposProteccion
     this.cantidadEquiposProteccion = this.rolUsuario.cantidadEquiposProteccion
+    this.infoCapacitaciones = this.rolUsuario.informacionCapacitaciones
+    this.cantCapacitaciones = this.infoCapacitaciones.length
   }
   cargarRiesgos () {
     let loading = this.loadingController.create({ content: 'Cargando, por favor espere un momento' })
@@ -84,8 +90,13 @@ export class PuestoDeTrabajoPage {
     void this.navCtrl.push(AccidentesPage)
   }
 
-  cargarCapacitacion () {
-    void this.navCtrl.push(CapacitacionesPage)
+  cargarCapacitacion (id) {
+    console.log(id)
+    this.singleCapacitacion = this.infoCapacitaciones[0]
+    void this.navCtrl.push(CapacitacionesPage, { capacitacion: this.singleCapacitacion })
+  }
+  mostrarListaCapacitaciones(){
+    void this.navCtrl.push(ListaCapacitacionesPage)
   }
   mostrarListaAccidentes () {
     void this.navCtrl.push(ListaAccidentesPage)

@@ -5,8 +5,8 @@ export class GlobalProvider {
   public claseUsuario: number = 0
   public crearNovedad: boolean = false
   public atenderNovedad: boolean = false
-  public area: number = 0
-  public puesto: number = 0
+  public area: string = ''
+  public puesto: string = ''
   public puestoNombre: string = ''
   public areaNombre: string = ''
   public novedadesSinAtender: any
@@ -18,4 +18,5 @@ export class GlobalProvider {
   public cantidadEmpleados: number = 0
   public cantidadEquiposProteccion: number = 0
   public equiposProteccion: any
+  public informacionCapacitaciones: any
 }

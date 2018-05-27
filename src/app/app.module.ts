@@ -16,6 +16,7 @@ import { TabsPage } from '../pages/tabs/tabs'
 import { NovedadesPage } from '../pages/novedades/novedades'
 import { EscanerQRPage } from '../pages/escaner-qr/escaner-qr'
 import { CapacitacionesPage } from '../pages/capacitaciones/capacitaciones'
+import { ListaCapacitacionesPage } from '../pages/lista-capacitaciones/lista-capacitaciones'
 import { AccidentesPage } from '../pages/accidentes/accidentes'
 import { EquiposPage } from '../pages/equipos/equipos'
 import { ListaEquiposPage } from '../pages/lista-equipos/lista-equipos'
@@ -42,6 +43,7 @@ import { GlobalProvider } from '../providers/global/global'
     NovedadesPage,
     EscanerQRPage,
     CapacitacionesPage,
+    ListaCapacitacionesPage,
     AccidentesPage,
     EquiposPage,
     ListaEquiposPage,
@@ -66,6 +68,7 @@ import { GlobalProvider } from '../providers/global/global'
     NovedadesPage,
     EscanerQRPage,
     CapacitacionesPage,
+    ListaCapacitacionesPage,
     AccidentesPage,
     EquiposPage,
     ListaEquiposPage,

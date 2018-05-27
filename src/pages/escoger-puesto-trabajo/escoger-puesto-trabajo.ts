@@ -35,6 +35,7 @@ export class EscogerPuestoTrabajoPage {
       this.rolUsuario.novedadesAtendidas = res.datos.novedadesAtendidas
       this.rolUsuario.cantidadEquiposProteccion = res.datos.equiposProteccion.length
       this.rolUsuario.equiposProteccion = res.datos.equiposProteccion
+      this.rolUsuario.informacionCapacitaciones = res.datos.detallesCapacitaciones
       this.rolUsuario.puesto = puestoId
       let puesto = { puestoId: puestoId, nombrePuesto: nombrePuesto, novedadesSinAtender: res.datos.novedadesSinAtender.length }
       loading.dismissAll()
