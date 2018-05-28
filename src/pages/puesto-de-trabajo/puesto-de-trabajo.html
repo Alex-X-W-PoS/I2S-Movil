@@ -61,7 +61,7 @@
   </ion-card-header>
   <div *ngFor = "let capacitacion of infoCapacitaciones; let i = index">
     <div *ngIf = "i < 3 ">
-      <ion-card (click)="cargarCapacitacion (capacitacion.id)">
+      <ion-card (click)="cargarCapacitacion (capacitacion)">
         <ion-item>
           <h2 text-wrap>{{capacitacion.nombre}}</h2>
           <p style="font-size: 0.7em;">{{capacitacion.fechaCreacion | date:"dd MMMM yyyy"}}</p>

@@ -36,7 +36,7 @@ export class PuestoDeTrabajoPage {
 
   public infoCapacitaciones: any
   public cantCapacitaciones: number
-  public singleCapacitacion: any
+
   constructor (public loadingController: LoadingController, public navCtrl: NavController, public navParams: NavParams, public classPuesto: HttpProvider, public rolUsuario: GlobalProvider) {
     this.trackEquipos = 0
   }
@@ -97,10 +97,8 @@ export class PuestoDeTrabajoPage {
     void this.navCtrl.push(AccidentesPage, { accidente: accidente })
   }
 
-  cargarCapacitacion (id) {
-    console.log(id)
-    this.singleCapacitacion = this.infoCapacitaciones[0]
-    void this.navCtrl.push(CapacitacionesPage, { capacitacion: this.singleCapacitacion })
+  cargarCapacitacion (capacitacion) {
+    void this.navCtrl.push(CapacitacionesPage, { capacitacion: capacitacion })
   }
   mostrarListaCapacitaciones () {
     void this.navCtrl.push(ListaCapacitacionesPage)

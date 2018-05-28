@@ -17,7 +17,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular'
 })
 export class ListaCapacitacionesPage {
   public infoCapacitaciones: any
-  public singleCapacitacion: any
   constructor (public navCtrl: NavController, public navParams: NavParams, public rolUsuario: GlobalProvider) {
   	this.infoCapacitaciones = this.rolUsuario.informacionCapacitaciones
   }
@@ -25,9 +24,8 @@ export class ListaCapacitacionesPage {
   ionViewDidLoad () {
     console.log('ionViewDidLoad ListaCapacitacionesPage')
   }
-  cargarCapacitacion (id) {
-    this.singleCapacitacion = this.infoCapacitaciones[0]
-    void this.navCtrl.push(CapacitacionesPage, { capacitacion: this.singleCapacitacion })
+  cargarCapacitacion (capacitacion) {
+    void this.navCtrl.push(CapacitacionesPage, { capacitacion: capacitacion })
   }
 
 }
