@@ -12,7 +12,7 @@ export class AgregarNovedadesPage {
   image = '' // http://img04.deviantart.net/b31c/i/2015/254/a/2/mabel_pines_render_by_pokemonlover7669-d997jl2.png
   imgurLink = ''
   puestoId: any
-  descripcion: string
+  descripcion: string = ''
   prioridad = ''
   isenabled: boolean
 
@@ -152,8 +152,7 @@ export class AgregarNovedadesPage {
   }
 
   verifyButton () {
-    console.log(this.descripcion)
-    if (this.isNotEmpty(this.descripcion) && this.isNotEmpty(this.prioridad)) {
+    if (this.isNotEmpty(this.descripcion) && this.isNotEmpty(this.prioridad)  && this.descripcion.length >= 5) {
       this.isenabled = true
       console.log('true')
     } else {

@@ -91,7 +91,7 @@ export class AtenderNovedadPage {
   }
 
   verifyButton () {
-    if (this.isNotEmpty(this.descripcionAtendida)) {
+    if (this.isNotEmpty(this.descripcionAtendida) && this.descripcionAtendida.length >= 5) {
       this.isenabled = true
     } else {
       this.isenabled = false
