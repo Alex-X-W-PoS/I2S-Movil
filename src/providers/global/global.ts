@@ -19,4 +19,5 @@ export class GlobalProvider {
   public cantidadEquiposProteccion: number = 0
   public equiposProteccion: any
   public informacionCapacitaciones: any
+  public detallesAccidentes: any
 }

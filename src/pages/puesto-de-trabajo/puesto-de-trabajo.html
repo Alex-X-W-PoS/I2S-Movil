@@ -55,12 +55,12 @@
 
 <!-- -->
 
-<ion-card>
+<ion-card >
   <ion-card-header text-center>
     Capacitaciones recientes
   </ion-card-header>
   <div *ngFor = "let capacitacion of infoCapacitaciones; let i = index">
-    <div *ngIf = "i < 3">
+    <div *ngIf = "i < 3 ">
       <ion-card (click)="cargarCapacitacion (capacitacion.id)">
         <ion-item>
           <h2 text-wrap>{{capacitacion.nombre}}</h2>
@@ -83,6 +83,8 @@
 </ion-card>
 
 <!-- -->
+
+
 <ion-card>
   <ion-card-header text-center>
     Equipos presentes
@@ -110,45 +112,33 @@
   <ion-card-header text-center>
     Accidentes Recientes
   </ion-card-header>
-  <ion-card (click)="cargarAccidentes()">
+<div *ngFor="let accidente of detallesAccidentes; let i = index">
+  <div *ngIf="i<3" >
+  <ion-card (click)="cargarAccidentes(accidente)" >
     <ion-item>
-      <h2 text-wrap>Fuga de Gas</h2>
-      <p style="font-size: 0.7em;">Diciembre 22, 2017</p>
+      <h2 text-wrap>{{accidente.nombre}}</h2>
+      <p style="font-size: 0.7em;">{{accidente.fechaCreacion | date:"dd MMMM yyyy"}}</p>
     </ion-item>
     <ion-row>
       <ion-col center text-center>
         <ion-note style="margin-right:30px ">
-          <b>0</b> heridos
+          <b>{{accidente.heridos}}</b> heridos
         </ion-note>
         <ion-note >
-          <b>10</b> muertos
+          <b>{{accidente.muertos}}</b> muertos
         </ion-note>
       </ion-col>
     </ion-row>
   </ion-card>
+  </div>
+</div>
 
-  <ion-card >
-    <ion-item>
-      <h2 text-wrap>  Piso Mojado</h2>
-      <p style="font-size: 0.7em;">Agosto 29, 2017</p>
-    </ion-item>
-    <ion-row>
-      <ion-col center text-center>
-        <ion-note style="margin-right:30px">
-          <b>0</b> heridos
-        </ion-note>
-        <ion-note >
-          <b>1</b> muertos
-        </ion-note>
-      </ion-col>
-    </ion-row>
-  </ion-card>
-</ion-card >
-
-  <div text-center (click)="mostrarListaAccidentes()">
+  <div text-center (click)="mostrarListaAccidentes()"  *ngIf = "cantidadDeAccidentes > 3" >
     <u><a >Mostrar más</a></u>
     <br>
   </div>
+</ion-card>
+
 <!-- -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.4.6/angular-locale_es-es.js"></script>
 </ion-content>

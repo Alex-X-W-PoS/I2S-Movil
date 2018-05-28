@@ -14,10 +14,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular'
   templateUrl: 'accidentes.html'
 })
 export class AccidentesPage {
-  atendido = true
+  public atendido: any
+  public accidente: any
   constructor (public navCtrl: NavController, public navParams: NavParams) {
+    this.accidente = this.navParams.data.accidente
+    this.atendido = this.accidente.atendido_en_empresa
   }
-
   ionViewDidLoad () {
     console.log('ionViewDidLoad AccidentesPage')
   }

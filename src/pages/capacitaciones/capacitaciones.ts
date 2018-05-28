@@ -14,7 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular'
   templateUrl: 'capacitaciones.html'
 })
 export class CapacitacionesPage {
-    capacitacion: any
+  capacitacion: any
   constructor (public navCtrl: NavController, public navParams: NavParams) {
   	this.capacitacion = navParams.data.capacitacion
   	console.log(this.capacitacion)

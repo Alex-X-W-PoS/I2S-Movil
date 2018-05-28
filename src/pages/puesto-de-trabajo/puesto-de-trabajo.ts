@@ -29,6 +29,11 @@ export class PuestoDeTrabajoPage {
   public equiposProteccion: any
   public cantidadEquiposProteccion: number
   public trackEquipos: number
+
+  public detallesAccidentes: any
+  public cantidadDeAccidentes: number
+  public singleAccidentes: any
+
   public infoCapacitaciones: any
   public cantCapacitaciones: number
   public singleCapacitacion: any
@@ -65,6 +70,8 @@ export class PuestoDeTrabajoPage {
     this.cantidadEquiposProteccion = this.rolUsuario.cantidadEquiposProteccion
     this.infoCapacitaciones = this.rolUsuario.informacionCapacitaciones
     this.cantCapacitaciones = this.infoCapacitaciones.length
+    this.detallesAccidentes = this.rolUsuario.detallesAccidentes
+    this.cantidadDeAccidentes = this.detallesAccidentes.length
   }
   cargarRiesgos () {
     let loading = this.loadingController.create({ content: 'Cargando, por favor espere un momento' })
@@ -86,8 +93,8 @@ export class PuestoDeTrabajoPage {
     void this.navCtrl.push(NovedadesSinAtenderPage, { puestoId: this.dataPuestos.puesto_trabajo_id })
   }
 
-  cargarAccidentes () {
-    void this.navCtrl.push(AccidentesPage)
+  cargarAccidentes (accidente) {
+    void this.navCtrl.push(AccidentesPage, { accidente: accidente })
   }
 
   cargarCapacitacion (id) {
@@ -95,7 +102,7 @@ export class PuestoDeTrabajoPage {
     this.singleCapacitacion = this.infoCapacitaciones[0]
     void this.navCtrl.push(CapacitacionesPage, { capacitacion: this.singleCapacitacion })
   }
-  mostrarListaCapacitaciones(){
+  mostrarListaCapacitaciones () {
     void this.navCtrl.push(ListaCapacitacionesPage)
   }
   mostrarListaAccidentes () {

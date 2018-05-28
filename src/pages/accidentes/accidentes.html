@@ -20,31 +20,29 @@
   </div>
   <ion-card>
     <ion-item>
-      <h2 text-wrap><b>Fuga de Gas</b></h2>
-      <p style="font-size: 0.7em;">Diciembre 22, 2017</p>
+      <h2 text-wrap><b>{{accidente.nombre}}</b></h2>
+      <p style="font-size: 0.7em;">{{accidente.fechaCreacion | date:"dd MMMM yyyy"}}</p>
     </ion-item>
 
     <ion-card-content >
         <h2 text-wrap ><b>Descripción</b></h2>
       <p style="text-align:justify">
-        Cuando ya se estaba por cerrar las oficinas, se escucharon gritos que venían de
-        bodega y era porque había una fuga de gas..Esto se debió porque una manguera del
-        gas estaba rota y por ahi fluía el gas.
+        {{accidente.descripcion}}
       </p>
     </ion-card-content>
 
     <ion-row>
         <ion-col center text-center>
           <ion-note style="margin-right:30px ">
-            <b><u>0 heridos</u></b>
+            <b><u>{{accidente.heridos}} heridos</u></b>
           </ion-note>
           <ion-note >
-            <b><u>10 muertos</u></b>
+            <b><u>{{accidente.muertos}} muertos</u></b>
           </ion-note>
         </ion-col>
       </ion-row>
 
-    <ion-row *ngIf="atendido">
+    <ion-row *ngIf="atendido!=null">
         <ion-col center text-center>
           <h3>
             <ion-icon name="md-done-all"></ion-icon>
@@ -52,7 +50,7 @@
           </h3>
         </ion-col>
       </ion-row>
-      <ion-row *ngIf="!atendido">
+      <ion-row *ngIf="atendido==null">
           <ion-col center text-center>
             <h3>
               <ion-icon name="md-thumbs-down"></ion-icon>
