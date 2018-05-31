@@ -152,7 +152,7 @@ export class AgregarNovedadesPage {
   }
 
   verifyButton () {
-    if (this.isNotEmpty(this.descripcion) && this.isNotEmpty(this.prioridad)  && this.descripcion.length >= 5) {
+    if (this.isNotEmpty(this.descripcion) && this.isNotEmpty(this.prioridad) && this.descripcion.length >= 5) {
       this.isenabled = true
       console.log('true')
     } else {

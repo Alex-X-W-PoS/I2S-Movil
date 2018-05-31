@@ -28,7 +28,7 @@ export class AtenderNovedadPage {
     this.novedadDetalle = navParams.data.item
     this.fecha = this.novedadDetalle.fechaCreacion
     this.descripcion = this.novedadDetalle.descripcion
-    this.foto = this.novedadDetalle.foto_url
+    this.foto = this.novedadDetalle.fotoUrl
     this.prioridad = this.novedadDetalle.prioridad
     this.descripcionAtendida = this.novedadDetalle.descripcionAtendida
     this.id = this.novedadDetalle.id
