@@ -26,7 +26,7 @@
       <ion-col col-4 text-center>
         <ion-card>
           <ion-card-header>
-            5 días
+            {{diasSinAccidentes  | date:"dd"}} días
           </ion-card-header>
           <ion-card-content>
             <span style="font-size: 0.7em;">Sin accidentes</span>
@@ -36,11 +36,10 @@
       <ion-col col-4 text-center>
         <ion-card>
           <ion-card-header>
-            50 días
+            {{cantCapacitaciones}}
           </ion-card-header>
           <ion-card-content>
-            <span style="font-size: 0.7em;">Sin</span>
-            <span style="font-size: 0.7em;" text-nowrap>capacitaciones</span>
+            <span style="font-size: 0.5em;" text-center>capacitaciones realizadas</span>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -54,7 +53,6 @@
   </ion-card>
 
 <!-- -->
-
 <ion-card >
   <ion-card-header text-center>
     Capacitaciones recientes
@@ -117,7 +115,7 @@
   <ion-card (click)="cargarAccidentes(accidente)" >
     <ion-item>
       <h2 text-wrap>{{accidente.nombre}}</h2>
-      <p style="font-size: 0.7em;">{{accidente.fechaCreacion | date:"dd MMMM yyyy"}}</p>
+      <p style="font-size: 0.7em;">{{accidente.fecha | date:"dd MMMM yyyy"}}</p>
     </ion-item>
     <ion-row>
       <ion-col center text-center>

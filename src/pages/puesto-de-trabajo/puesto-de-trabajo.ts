@@ -33,6 +33,7 @@ export class PuestoDeTrabajoPage {
   public detallesAccidentes: any
   public cantidadDeAccidentes: number
   public singleAccidentes: any
+  public diasSinAccidentes: Date
 
   public infoCapacitaciones: any
   public cantCapacitaciones: number
@@ -72,6 +73,14 @@ export class PuestoDeTrabajoPage {
     this.cantCapacitaciones = this.infoCapacitaciones.length
     this.detallesAccidentes = this.rolUsuario.detallesAccidentes
     this.cantidadDeAccidentes = this.detallesAccidentes.length
+
+    this.ordenarAccidentes()
+  }
+  ordenarAccidentes () {
+    this.detallesAccidentes.sort((a: TaskItemVO, b: TaskItemVO) => {
+      return a.fecha - b.fecha
+    })
+    this.detallesAccidentes.reverse()
   }
   cargarRiesgos () {
     let loading = this.loadingController.create({ content: 'Cargando, por favor espere un momento' })
