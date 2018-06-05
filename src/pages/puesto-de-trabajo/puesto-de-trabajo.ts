@@ -77,9 +77,9 @@ export class PuestoDeTrabajoPage {
     this.ordenarAccidentes()
   }
   ordenarAccidentes () {
-    this.detallesAccidentes.sort((a: TaskItemVO, b: TaskItemVO) => {
+    /*this.detallesAccidentes.sort((a: TaskItemVO, b: TaskItemVO) => {
       return a.fecha - b.fecha
-    })
+    })*/
     this.detallesAccidentes.reverse()
   }
   cargarRiesgos () {
