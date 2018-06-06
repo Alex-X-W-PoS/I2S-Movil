@@ -23,13 +23,13 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
-      <ion-col col-4 text-center>
-        <ion-card>
+      <ion-col col-4 text-center (click)="mostrarListaAccidentes()">
+        <ion-card >
           <ion-card-header>
-            {{diasSinAccidentes  | date:"dd"}} días
+            {{cantidadDeAccidentes}}
           </ion-card-header>
           <ion-card-content>
-            <span style="font-size: 0.7em;">Sin accidentes</span>
+            <span style="font-size: 0.7em;">Número de Accidentes</span>
           </ion-card-content>
         </ion-card>
       </ion-col>
