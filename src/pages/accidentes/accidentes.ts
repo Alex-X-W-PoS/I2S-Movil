@@ -16,20 +16,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular'
 export class AccidentesPage {
   public atendido: any
   public accidente: any
-  public accidentesIcons: string []
-  public iconChoose: any
-  public n: any
+  // public accidentesIcons: string []
+  // public iconChoose: any
+  // public n: any
   constructor (public navCtrl: NavController, public navParams: NavParams) {
     this.accidente = this.navParams.data.accidente
     this.atendido = this.accidente.atendido_en_empresa
-    this.iconos()
-    this.n = this.randomInt(1,9)
-    this.iconChoose = this.accidentesIcons[this.n]
+    // this.iconos()
+    // this.n = this.randomInt(1,9)
+    // this.iconChoose = this.accidentesIcons[this.n]
   }
   ionViewDidLoad () {
     console.log('ionViewDidLoad AccidentesPage')
   }
-  iconos () {
+  /*iconos () {
     this.accidentesIcons = ['https://www.orbitalesmoleculares.com/wp-content/uploads/2018/01/toxicidad_aguda.png'
     ,'https://www.orbitalesmoleculares.com/wp-content/uploads/2018/01/pictograma_corrosivo.jpg'
     ,'https://www.orbitalesmoleculares.com/wp-content/uploads/2018/01/pictograma_irritacioncutanea.jpg'
@@ -43,5 +43,5 @@ export class AccidentesPage {
   }
   randomInt (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
-  }
+  }*/
 }
