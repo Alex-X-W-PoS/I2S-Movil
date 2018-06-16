@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core'
 import { Http, Headers, RequestOptions } from '@angular/http'
+import { GlobalProvider } from '../global/global'
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/toPromise'
 
-// export const BASE_PATH = 'http://i2solutions.herokuapp.com'
+// export const BASE_PATH = 'http://i2solutions.herokuapp.com' https://i2s-app.herokuapp.com
+// export const BASE_PATH = (process.env.NODE_ENV !== 'local' ? 'http://i2solutions.herokuapp.com' : 'http://localhost:3001')
+
 export const BASE_PATH = 'https://i2s-app.herokuapp.com'
-// export const BASE_PATH = 'http://localhost:3000'
+
 @Injectable()
 export class HttpProvider {
   datos: any
-  constructor (public http: Http) {
+  constructor (public http: Http, public global: GlobalProvider) {
   }
 
   obtenerPuestoDeTrabajoDeArea (idArea: string) {
@@ -53,7 +56,7 @@ export class HttpProvider {
   marcarComoAtendida (novedadId: string, puestoId: string, descripcion: string) {
     let data = { atendida: true, descripcionAtendida: descripcion }
     return this.http
-    .post(`${BASE_PATH}/api/movil/novedad/${novedadId}/puesto/${puestoId}`,data)
+    .put(`${BASE_PATH}/api/movil/novedad/${novedadId}`,data)
     .map(res => res.json(),
       err => {
         console.log(err)
@@ -87,7 +90,13 @@ export class HttpProvider {
   cargarDatos (areaId: string, puestoId: string) {
     return this.http
     .get(`${BASE_PATH}/api/movil/area/${areaId}/puesto/${puestoId}/${1}`) // coloco 1 que indica establecimiento, despues de cambiará
-    .map(res => res.json(),
+    .map(res => {
+      let datos = res.json()
+
+      this.global.novedadesSinAtender = datos['datos']['novedadesSinAtender']
+      this.global.novedadesAtendidas = datos['datos']['novedadesAtendidas']
+      return datos
+    },
       err => {
         console.log(err)
       }

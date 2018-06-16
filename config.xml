@@ -85,5 +85,5 @@
     <plugin name="cordova-plugin-camera" spec="^4.0.1" />
     <plugin name="phonegap-plugin-barcodescanner" spec="^7.1.2" />
     <engine name="browser" spec="~5.0.3" />
-    <engine name="android" spec="~7.0.0" />
+    <engine name="android" spec="7.0.0" />
 </widget>

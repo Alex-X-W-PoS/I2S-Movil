@@ -19,6 +19,7 @@
       Novedades atendidas
     </ion-segment-button>
   </ion-segment>
+
   <ion-list *ngIf="segment === 'sinAtender'">
     <ion-toolbar no-border-top>
       <ion-searchbar color="primary" [(ngModel)]="queryText" (ionInput)="filterNovedadesSinAtender($event)" placeholder="Buscar">

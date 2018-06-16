@@ -24,7 +24,7 @@
         <ion-list>
           <ion-item>
             <ion-label color="primary" floating>Ingrese una descripción</ion-label>
-            <ion-input clearInput type="text" (ionChange)="verifyButton()" [(ngModel)]="descripcion" class="input-placeholder" maxLength="200" ></ion-input>
+            <ion-textarea clearInput rows="5" type="text" (ionChange)="verifyButton()" [(ngModel)]="descripcion" class="input-placeholder" maxLength="200" ></ion-textarea>
           </ion-item>
         </ion-list>
       </ion-card-title>

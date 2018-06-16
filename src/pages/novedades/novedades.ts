@@ -13,10 +13,11 @@ export class NovedadesPage {
   segment = 'sinAtender'
   queryText = ''
   queryTextNoAtendidas = ''
-  items: any
-  itemAtendidos: any
+  items = []
+  itemAtendidos = []
   constructor (public navCtrl: NavController, public navParams: NavParams, public global: GlobalProvider) {
     moment.locale('es')
+    this.items = this.global.novedadesSinAtender
   }
 
   ionViewDidLoad () {
@@ -60,6 +61,9 @@ export class NovedadesPage {
   }
   public novedadesPrioridad (novedades, prioridad) {
     for (let i = novedades.length - 1; i >= 0; --i) {
+      console.log(novedades[i].prioridad)
+      console.log(prioridad)
+      console.log(novedades[i].prioridad === prioridad)
       if (novedades[i].prioridad === prioridad) {
         return true
       }
