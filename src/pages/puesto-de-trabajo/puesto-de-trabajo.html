@@ -4,8 +4,8 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      <h2>{{rolUsuario.areaNombre}}</h2>
-      <h3>{{rolUsuario.puestoNombre}}</h3>
+      <h2 style="margin-top: 0px;">{{rolUsuario.areaNombre}}</h2>
+      <h4 style="margin-top: 0px">{{rolUsuario.puestoNombre}}</h4>
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -33,13 +33,14 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
-      <ion-col col-4 text-center>
+
+      <ion-col col-4 text-center (click)="mostrarListaCapacitaciones()">
         <ion-card>
           <ion-card-header>
             {{cantCapacitaciones}}
           </ion-card-header>
           <ion-card-content>
-            <span style="font-size: 0.5em;" text-center>capacitaciones realizadas</span>
+            <span style="font-size: 0.7em;" text-center>capacitaciones realizadas</span>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -55,12 +56,13 @@
 <!-- -->
 <ion-card >
   <ion-card-header text-center>
-    Capacitaciones recientes
+    <b>Capacitaciones recientes</b>
   </ion-card-header>
   <div *ngFor = "let capacitacion of infoCapacitaciones; let i = index">
     <div *ngIf = "i < 3 ">
       <ion-card (click)="cargarCapacitacion (capacitacion)">
         <ion-item>
+          <ion-icon name=person item-left ></ion-icon>
           <h2 text-wrap>{{capacitacion.nombre}}</h2>
           <p style="font-size: 0.7em;">{{capacitacion.fechaCreacion | date:"dd MMMM yyyy"}}</p>
         </ion-item>
@@ -85,14 +87,22 @@
 
 <ion-card>
   <ion-card-header text-center>
-    Equipos presentes
+    <b>Equipos presentes</b>
   </ion-card-header>
   <div *ngFor="let equipo of equiposProteccion; let i = index">
     <div *ngIf="i<3">
   <ion-card (click)="cargarEquipo(equipo)">
-    <ion-item >
+    <ion-item *ngIf = "i == 0">
       <h2 text-wrap>{{ equipo.nombre }}</h2>
-      <p style="font-size: 0.7em;">Cantidad = {{ equipo.cantidad }}</p>
+      <p style="font-size: 0.7em;">Cantidad = {{equipo.cantidad}}</p>
+    </ion-item>
+    <ion-item *ngIf = "i == 1">
+      <h2 text-wrap>{{ equipo.nombre }}</h2>
+      <p style="font-size: 0.7em;">Cantidad = {{equipo.cantidad}}</p>
+    </ion-item>
+    <ion-item *ngIf = "i == 2">
+      <h2 text-wrap>{{ equipo.nombre }}</h2>
+      <p style="font-size: 0.7em;">Cantidad = {{equipo.cantidad}}</p>
     </ion-item>
   </ion-card>
 </div>
@@ -108,18 +118,29 @@
 
 <ion-card>
   <ion-card-header text-center>
-    Accidentes Recientes
+    <b>Accidentes Recientes</b>
   </ion-card-header>
 <div *ngFor="let accidente of detallesAccidentes; let i = index">
   <div *ngIf="i<3" >
   <ion-card (click)="cargarAccidentes(accidente)" >
-    <ion-item>
+    <ion-item *ngIf="i == 0">
+      <ion-icon name={{iconChoose1}} item-left ></ion-icon>
+      <h2 text-wrap>{{accidente.nombre}}</h2>
+      <p style="font-size: 0.7em;">{{accidente.fecha | date:"dd MMMM yyyy"}}</p>
+    </ion-item>
+    <ion-item *ngIf="i == 1">
+    <ion-icon name={{iconChoose2}} item-left ></ion-icon>
+      <h2 text-wrap>{{accidente.nombre}}</h2>
+      <p style="font-size: 0.7em;">{{accidente.fecha | date:"dd MMMM yyyy"}}</p>
+    </ion-item>
+    <ion-item *ngIf="i == 2">
+    <ion-icon name={{iconChoose3}} item-left ></ion-icon>
       <h2 text-wrap>{{accidente.nombre}}</h2>
       <p style="font-size: 0.7em;">{{accidente.fecha | date:"dd MMMM yyyy"}}</p>
     </ion-item>
     <ion-row>
-      <ion-col center text-center>
-        <ion-note style="margin-right:30px ">
+      <ion-col left text-center>
+        <ion-note style="padding-left:10px">
           <b>{{accidente.heridos}}</b> heridos
         </ion-note>
         <ion-note >

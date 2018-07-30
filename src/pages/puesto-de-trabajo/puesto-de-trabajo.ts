@@ -37,6 +37,13 @@ export class PuestoDeTrabajoPage {
 
   public infoCapacitaciones: any
   public cantCapacitaciones: number
+  n1: number
+  n2: number
+  n3: number
+  iconChoose1: any
+  iconChoose2: any
+  iconChoose3: any
+  public accidentesIcons: string []
 
   constructor (public loadingController: LoadingController, public navCtrl: NavController, public navParams: NavParams, public classPuesto: HttpProvider, public rolUsuario: GlobalProvider) {
     this.trackEquipos = 0
@@ -46,6 +53,7 @@ export class PuestoDeTrabajoPage {
     let altasCantidad = 0
     let mediaCantidad = 0
     let bajaCantidad = 0
+    console.log('equipos', this.equiposProteccion)
     for (let i = this.rolUsuario.novedadesSinAtender.length - 1; i >= 0; --i) {
       if (this.rolUsuario.novedadesSinAtender[i].prioridad === 'alta') {
         altasCantidad = altasCantidad + 1
@@ -66,6 +74,14 @@ export class PuestoDeTrabajoPage {
     let _dchart = new Chart(ctx, { type: 'doughnut', data: data })
   }
   cargarDatos () {
+    this.iconos()
+    this.n1 = this.randomInt(1,9)
+    this.n2 = this.randomInt(1,9)
+    this.n3 = this.randomInt(1,9)
+    this.iconChoose1 = this.accidentesIcons[this.n1]
+    this.iconChoose2 = this.accidentesIcons[this.n2]
+    this.iconChoose3 = this.accidentesIcons[this.n3]
+    console.log(this.iconChoose1, this.iconChoose2, this.iconChoose3)
     this.cantidadEmpleados = this.rolUsuario.cantidadEmpleados
     this.equiposProteccion = this.rolUsuario.equiposProteccion
     this.cantidadEquiposProteccion = this.rolUsuario.cantidadEquiposProteccion
@@ -73,14 +89,6 @@ export class PuestoDeTrabajoPage {
     this.cantCapacitaciones = this.infoCapacitaciones.length
     this.detallesAccidentes = this.rolUsuario.detallesAccidentes
     this.cantidadDeAccidentes = this.detallesAccidentes.length
-
-    this.ordenarAccidentes()
-  }
-  ordenarAccidentes () {
-    /*this.detallesAccidentes.sort((a: TaskItemVO, b: TaskItemVO) => {
-      return a.fecha - b.fecha
-    })*/
-    this.detallesAccidentes.reverse()
   }
   cargarRiesgos () {
     let loading = this.loadingController.create({ content: 'Cargando, por favor espere un momento' })
@@ -101,11 +109,9 @@ export class PuestoDeTrabajoPage {
   cargarNovedades () {
     void this.navCtrl.push(NovedadesSinAtenderPage, { puestoId: this.dataPuestos.puesto_trabajo_id })
   }
-
   cargarAccidentes (accidente) {
     void this.navCtrl.push(AccidentesPage, { accidente: accidente })
   }
-
   cargarCapacitacion (capacitacion) {
     void this.navCtrl.push(CapacitacionesPage, { capacitacion: capacitacion })
   }
@@ -115,12 +121,27 @@ export class PuestoDeTrabajoPage {
   mostrarListaAccidentes () {
     void this.navCtrl.push(ListaAccidentesPage)
   }
-
   cargarEquipo (equipo) {
     void this.navCtrl.push(EquiposPage, { equipo: equipo })
   }
-
   mostrarListaEquipos () {
     void this.navCtrl.push(ListaEquiposPage)
+  }
+  iconos () {
+    this.accidentesIcons = ['md-bonfire'
+    ,'md-color-fill'
+    ,'md-color-filter'
+    ,'md-construct'
+    ,'md-flask'
+    ,'md-flash'
+    ,'md-information-circle'
+    ,'md-medkit'
+    ,'md-no-smoking'
+    ,'md-settings'
+    ,'md-warning'
+    ,'md-walk']
+  }
+  randomInt (min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min
   }
 }

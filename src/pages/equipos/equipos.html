@@ -8,21 +8,20 @@
 
 
 <ion-content padding>
-
+    <h5 style="text-align: center;"><b>Area:</b> {{areaNombre}}</h5>
+    <h6 style="text-align: center;"><b>Puesto:</b> {{puestoNombre}}</h6>
   <ion-card>
+    <ion-card-header>
+      <h1><b>{{ equipo.nombre}}</b></h1>
+    </ion-card-header>
   <div text-center>
     <img [src]='foto' *ngIf="foto!=''">
   </div>
-
-    <ion-item>
-      <h2 text-wrap><b>{{ equipo.nombre}}</b></h2>
-    </ion-item>
-
     <ion-card-content >
-        <h2 text-wrap ><b>{{ equipo.cantidad }}</b></h2>
-        <h2 text-wrap >{{ equipo.descripcion }}</h2>
+        <h2 text-wrap style="text-align: center;"><b>Descripción</b></h2>
+        <h3 text-wrap style="text-align: center;">{{ equipo.descripcion }}</h3>
     </ion-card-content>
-
+    <ion-note><b>Cantidad: </b>{{ equipo.cantidad }}</ion-note>
   </ion-card>
 
 </ion-content>

@@ -10,7 +10,9 @@ import { EscanerQRPage } from '../escaner-qr/escaner-qr'
 })
 export class RolesPage {
   public text: string = '2'
+  isenabled: boolean
   constructor (public navCtrl: NavController, public navParams: NavParams, public rolUsuario: GlobalProvider) {
+    this.isenabled = false
   }
 
   selectInspector () {

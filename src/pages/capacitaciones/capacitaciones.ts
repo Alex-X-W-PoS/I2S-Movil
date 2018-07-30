@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { IonicPage, NavController, NavParams } from 'ionic-angular'
+import { GlobalProvider } from '../../providers/global/global'
 
 /**
  * Generated class for the CapacitacionesPage page.
@@ -14,14 +15,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular'
   templateUrl: 'capacitaciones.html'
 })
 export class CapacitacionesPage {
+  puestoNombre: any
+  areaNombre: any
   capacitacion: any
-  constructor (public navCtrl: NavController, public navParams: NavParams) {
+  constructor (public navCtrl: NavController, public navParams: NavParams, public rolUsuario: GlobalProvider) {
   	this.capacitacion = navParams.data.capacitacion
-  	console.log(this.capacitacion)
   }
-
   ionViewDidLoad () {
     console.log('ionViewDidLoad CapacitacionesPage')
+    this.puestoNombre = this.rolUsuario.puestoNombre
+    this.areaNombre = this.rolUsuario.areaNombre
   }
 
 }

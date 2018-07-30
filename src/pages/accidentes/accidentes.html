@@ -18,9 +18,12 @@
   <!--div text-center>
     <img class="alignleft size-full wp-image-1308" [src]='iconChoose' alt="accidente" width="100" height="95">
   </div-->
+  <h5 style="text-align: center;"><b>Area:</b> {{areaNombre}}</h5>
+  <h6 style="text-align: center;"><b>Puesto:</b> {{puestoNombre}}</h6>
+  <hr>
   <ion-card>
     <ion-item>
-      <h2 text-wrap><b>{{accidente.nombre}}</b></h2>
+      <h2 text-wrap><b>Accidente: </b>{{accidente.nombre}}</h2>
       <p style="font-size: 0.7em;">{{accidente.fechaCreacion | date:"dd MMMM yyyy"}}</p>
     </ion-item>
 
@@ -33,7 +36,7 @@
 
     <ion-row>
         <ion-col center text-center>
-          <ion-note style="margin-right:30px ">
+          <ion-note style="padding-left:10px">
             <b><u>{{accidente.heridos}} heridos</u></b>
           </ion-note>
           <ion-note >

@@ -1,8 +1,8 @@
 {
   "name": "i2solutions",
-  "app_id": "82ece298",
-  "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "type": "ionic-angular",
+  "pro_id": "82ece298"
 }

@@ -19,7 +19,6 @@
 		Capacitaciones recientes
 		</ion-card-header>
 		<div *ngFor = "let capacitacion of infoCapacitaciones; let i = index">
-		<div *ngIf = "i < 3">
 		  <ion-card (click)="cargarCapacitacion (capacitacion)">
 		    <ion-item>
 		      <h2 text-wrap>{{capacitacion.nombre}}</h2>
@@ -33,7 +32,6 @@
 		      </ion-col>
 		    </ion-row>
 		  </ion-card>
-		</div>
 		</div>
 	</ion-card>
 </ion-content>

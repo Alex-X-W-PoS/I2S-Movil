@@ -1,14 +1,43 @@
+
 <ion-header id="authenticated">
    <ion-navbar color="primary">
     <ion-title text-center>
-      Roles de la empresa
+      Login
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="body-roles" scrollbar-y-auto>
-  <button ion-button full large (click)="selectInspector()">Inspector de Seguridad</button>
+<ion-content padding>
+	<button ion-button full large (click)="selectInspector()">Inspector de Seguridad</button>
   <button ion-button full large (click)="selectJefe()"> Jefe de Seguridad</button>
   <button ion-button full large (click)="selectEmpleado()">Empleados</button>
-  <!--button ion-button full large (click)="selectQR()">Escanear QR</button-->
+  
+	<br><br><br><br>
+	<ion-card style="margin:10px">
+		<ion-card-header style="background-color:#2196F3">
+   			<h2 style="text-align: center; color: white;">i2solutions Cía. Ltda.</h2>
+  		</ion-card-header>
+  		
+  <form  (ngSubmit)="loginUser()">
+    <ion-list>
+      <ion-item>
+        <ion-icon name="person" item-left></ion-icon>
+        <!--ion-label stacked>Email:</ion-label-->
+        <ion-input  type="text" placeholder="usuario"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-icon name="key" item-left></ion-icon>
+        <!--ion-label stacked>Password:</ion-label-->
+        <ion-input  type="password" placeholder="contraseña"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+      	<div padding>
+      <button ion-button block type="submit" [disabled]="isenabled">Ingresar</button>
+    </div>
+      </ion-item>	
+    </ion-list>
+  </form>
+</ion-card>
 </ion-content>

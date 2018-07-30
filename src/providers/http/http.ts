@@ -92,9 +92,11 @@ export class HttpProvider {
     .get(`${BASE_PATH}/api/movil/area/${areaId}/puesto/${puestoId}/${1}`) // coloco 1 que indica establecimiento, despues de cambiará
     .map(res => {
       let datos = res.json()
-
+      console.log(datos)
       this.global.novedadesSinAtender = datos['datos']['novedadesSinAtender']
       this.global.novedadesAtendidas = datos['datos']['novedadesAtendidas']
+      console.log('Novedades sin atender',this.global.novedadesSinAtender)
+      console.log('novedadesAtendidas', this.global.novedadesAtendidas)
       return datos
     },
       err => {

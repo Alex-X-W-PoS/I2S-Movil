@@ -1,29 +1,25 @@
 <ion-header>
-  <ion-navbar  color="primary">
-    <ion-title text-center *ngIf="user == 1 && !atendida">
-      Atender novedad
+  <ion-navbar  color="primary" text-center>
+    <ion-title style="margin-left: 5px" *ngIf="user == 1 && !atendida">
+      <h3><b>Atender Novedad</b></h3>
     </ion-title>
-    <ion-title text-center *ngIf="user == 1 && atendida">
-      Ver novedad
+    <ion-title style="margin-left: 5px" *ngIf="user == 1 && atendida">
+      <h3><b>Ver Novedad</b></h3>
     </ion-title>
-    <ion-title text-center *ngIf="user != 1 && !atendida">
-      Ver novedad
+    <ion-title style="margin-left: 5px" *ngIf="user != 1 && !atendida">
+      <h3><b>Ver Novedad</b></h3>
     </ion-title>
-    <ion-title text-center *ngIf="user != 1 && atendida">
-      Ver novedad
+    <ion-title  style="margin-left: 5px" *ngIf="user != 1 && atendida">
+      <h3><b>Ver Novedad</b></h3>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-row *ngIf="!atendida">
+  
+  <ion-row>
     <ion-col col-12 text-center>
       <p style="color:  #757575">Creada {{time(fecha)}}</p>
-    </ion-col>
-  </ion-row>
-  <ion-row *ngIf="atendida">
-    <ion-col col-12 text-center>
-      <p style="color:  #757575">Atendida en {{timeAtendida(fecha, fechaAtendida)}}</p>
     </ion-col>
   </ion-row>
   <h2 text-center>PRIORIDAD: {{prioridad.toUpperCase()}}</h2>
@@ -31,7 +27,7 @@
     <img [src]='foto' *ngIf="foto!=''">
     <!-- <ion-spinner  text-center></ion-spinner> -->
     <ion-card-content>
-      {{descripcion}}
+      <b>Descripción: </b>{{descripcion}}
     </ion-card-content>
   </ion-card>
 
@@ -46,6 +42,7 @@
     </ion-card-content>
   </ion-card>
   <ion-card *ngIf="atendida">
+
     <ion-card-title text-center>
       ¿Cómo se atendió la novedad?
     </ion-card-title>
@@ -53,6 +50,11 @@
       {{descripcionAtendida}}
     </ion-card-content>
   </ion-card>
+  <ion-row *ngIf="atendida">
+    <ion-col col-12 text-center>
+      <p style="color:  #757575">Fue atendida en {{timeAtendida(fecha,fechaAtendida)}}</p>
+    </ion-col>
+  </ion-row>
 
 </ion-content>
 <ion-footer no-shadow *ngIf="user == 1 && !atendida">

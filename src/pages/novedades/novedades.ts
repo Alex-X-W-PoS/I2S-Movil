@@ -61,9 +61,6 @@ export class NovedadesPage {
   }
   public novedadesPrioridad (novedades, prioridad) {
     for (let i = novedades.length - 1; i >= 0; --i) {
-      console.log(novedades[i].prioridad)
-      console.log(prioridad)
-      console.log(novedades[i].prioridad === prioridad)
       if (novedades[i].prioridad === prioridad) {
         return true
       }

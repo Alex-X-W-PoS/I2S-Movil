@@ -30,6 +30,7 @@ export class EscogerPuestoTrabajoPage {
     this.rolUsuario.puestoNombre = nombrePuesto
     this.http.cargarDatos(`${this.rolUsuario.area}`, puestoId).then(res => {
       this.rolUsuario.cantidadEmpleados = res.datos.cantidadEmpleados
+      console.log(this.rolUsuario.cantidadEmpleados)
       this.rolUsuario.novedadesSinAtender = res.datos.novedadesSinAtender
       this.rolUsuario.cantidadNovedadesSinAtender = res.datos.novedadesSinAtender.length
       this.rolUsuario.novedadesAtendidas = res.datos.novedadesAtendidas

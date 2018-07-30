@@ -17,13 +17,13 @@
     <ion-item>
       <h2 text-wrap>{{accidente.nombre}}</h2>
       <p style="font-size: 0.7em;">{{accidente.fechaCreacion | date:"dd MMMM yyyy"}}</p>
-      <ion-note>
+      <ion-note style="padding-left:0px">
         {{accidente.descripcion}}
       </ion-note>
     </ion-item>
     <ion-row>
       <ion-col center text-center>
-        <ion-note style="margin-right:30px ">
+        <ion-note style="padding-left:10px ">
           <b>{{accidente.heridos}}</b> heridos
         </ion-note>
         <ion-note >

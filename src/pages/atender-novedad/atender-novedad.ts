@@ -32,8 +32,9 @@ export class AtenderNovedadPage {
     this.prioridad = this.novedadDetalle.prioridad
     this.descripcionAtendida = this.novedadDetalle.descripcionAtendida
     this.id = this.novedadDetalle.id
-    this.atendida = this.novedadDetalle.atendida
-    this.fechaAtendida = this.novedadDetalle.fechaAtendida
+    this.atendida = this.novedadDetalle.fueAtendida
+    console.log('atendida:', this.atendida)
+    this.fechaAtendida = this.novedadDetalle.fechaActualizacion
     this.user = globalVar.claseUsuario
     this.puestoId = navParams.get('puesto')
     moment.locale('es')
@@ -50,6 +51,7 @@ export class AtenderNovedadPage {
     return moment(fecha).fromNow()
   }
   public timeAtendida (fechaInicio, fechaFin) {
+    // return moment(fechaInicio,fechaFin).fromNow()
     let a = moment(fechaInicio)
     let b = moment(fechaFin)
     return a.to(b, true)

@@ -1,11 +1,11 @@
 <ion-header>
-  <ion-navbar color="primary" text-center>
+  <ion-navbar color="primary" style="padding: 5px">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      <h2>{{global.areaNombre}}</h2>
-      <p text-nowrap>{{global.puestoNombre}}</p>
+      <h2 style="margin-top: 0px;">{{global.areaNombre}}</h2>
+      <h4 style="margin-top: 0px">{{global.puestoNombre}}</h4>
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -76,7 +76,7 @@
       <div *ngFor="let novedad of itemAtendidos">
         <ion-item>
           <h2>{{novedad.descripcion}}</h2>
-          <p>Atendida en {{timeAtendida(novedad.fechaCreacion, novedad.fechaAtendida)}}</p>
+          <p>Atendida en {{timeAtendida(novedad.fecha,novedad.fechaActualizacion)}}</p>
           <p>PRIORIDAD {{novedad.prioridad.toUpperCase()}}</p>
           <button ion-button clear item-end (click)=detallesNovedades(novedad)>Ver</button>
         </ion-item>
