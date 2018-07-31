@@ -8,36 +8,38 @@
 </ion-header>
 
 <ion-content padding>
-	<button ion-button full large (click)="selectInspector()">Inspector de Seguridad</button>
+	<!-- <button ion-button full large (click)="selectInspector()">Inspector de Seguridad</button>
   <button ion-button full large (click)="selectJefe()"> Jefe de Seguridad</button>
-  <button ion-button full large (click)="selectEmpleado()">Empleados</button>
-  
+  <button ion-button full large (click)="selectEmpleado()">Empleados</button> -->
+
 	<br><br><br><br>
 	<ion-card style="margin:10px">
 		<ion-card-header style="background-color:#2196F3">
    			<h2 style="text-align: center; color: white;">i2solutions Cía. Ltda.</h2>
   		</ion-card-header>
-  		
-  <form  (ngSubmit)="loginUser()">
+
+  <!-- <form  > -->
     <ion-list>
       <ion-item>
-        <ion-icon name="person" item-left></ion-icon>
+        <ion-icon name="person" item-left ></ion-icon>
         <!--ion-label stacked>Email:</ion-label-->
-        <ion-input  type="text" placeholder="usuario"></ion-input>
+        <ion-input  type="text" placeholder="usuario" [(ngModel)]="usuario" ></ion-input>
+        <!-- [(ngModel)]="usuario" -->
       </ion-item>
-      
+
       <ion-item>
         <ion-icon name="key" item-left></ion-icon>
         <!--ion-label stacked>Password:</ion-label-->
-        <ion-input  type="password" placeholder="contraseña"></ion-input>
+        <ion-input  type="password" placeholder="contraseña" [(ngModel)]="clave" ></ion-input>
+        <!-- [(ngModel)]="clave"  -->
       </ion-item>
-      
+
       <ion-item>
       	<div padding>
-      <button ion-button block type="submit" [disabled]="isenabled">Ingresar</button>
+      <button ion-button block type="submit" (click)="Login()">Ingresar</button>
     </div>
-      </ion-item>	
+      </ion-item>
     </ion-list>
-  </form>
+  <!-- </form> -->
 </ion-card>
 </ion-content>

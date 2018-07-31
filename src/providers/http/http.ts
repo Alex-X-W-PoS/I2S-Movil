@@ -7,6 +7,7 @@ import 'rxjs/add/operator/toPromise'
 // export const BASE_PATH = 'http://i2solutions.herokuapp.com' https://i2s-app.herokuapp.com
 // export const BASE_PATH = (process.env.NODE_ENV !== 'local' ? 'http://i2solutions.herokuapp.com' : 'http://localhost:3001')
 
+// export const BASE_PATH = 'http://localhost:3001'
 export const BASE_PATH = 'https://i2s-app.herokuapp.com'
 
 @Injectable()
@@ -15,6 +16,17 @@ export class HttpProvider {
   constructor (public http: Http, public global: GlobalProvider) {
   }
 
+  login (usuario: string, clave: string) {
+    let data = { usuario, clave }
+    return this.http
+    .post(`${BASE_PATH}/api/auth/login`,data)
+    .map(res => res.json(),
+      err => {
+        console.log(err)
+      }
+      )
+    .toPromise()
+  }
   obtenerPuestoDeTrabajoDeArea (idArea: string) {
     return this.http
     .get(`${BASE_PATH}/api/movil/puestosDeUnArea/${idArea}/`)
