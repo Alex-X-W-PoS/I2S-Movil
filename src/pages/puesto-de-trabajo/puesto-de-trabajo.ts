@@ -127,6 +127,9 @@ export class PuestoDeTrabajoPage {
   mostrarListaEquipos () {
     void this.navCtrl.push(ListaEquiposPage)
   }
+  capacitados (capacitacion) {
+    return capacitacion.capacitados.length
+  }
   iconos () {
     this.accidentesIcons = ['md-bonfire'
     ,'md-color-fill'

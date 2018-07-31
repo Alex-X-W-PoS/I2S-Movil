@@ -18,6 +18,7 @@ export class CapacitacionesPage {
   puestoNombre: any
   areaNombre: any
   capacitacion: any
+  cantidadCapacitados: number
   constructor (public navCtrl: NavController, public navParams: NavParams, public rolUsuario: GlobalProvider) {
   	this.capacitacion = navParams.data.capacitacion
   }
@@ -25,6 +26,7 @@ export class CapacitacionesPage {
     console.log('ionViewDidLoad CapacitacionesPage')
     this.puestoNombre = this.rolUsuario.puestoNombre
     this.areaNombre = this.rolUsuario.areaNombre
+    this.cantidadCapacitados = this.capacitacion.capacitados.length
+    console.log(this.cantidadCapacitados)
   }
-
 }

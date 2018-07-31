@@ -2,7 +2,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>capacitaciones</ion-title>
+    <ion-title text-center>capacitaciones</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,19 +19,46 @@
 		</ion-card-header>
 		<ion-item>
 		<h2 text-wrap><b>Tema: </b>{{capacitacion.tema}}</h2>
-		<p style="font-size: 0.9em;">{{capacitacion.fechaCreacion | date: 'dd MMMM yyyy'}}</p>
+		<p style="font-size: 0.9em;"><b>Fecha: </b>{{capacitacion.fechaCapacitacion | date: 'dd MMMM yyyy'}}</p>
 		</ion-item>
 		<ion-card-content>
 			<h2 text-wrap ><b>Descripción</b></h2>
 		      <p style="text-align:justify">
 		        {{capacitacion.descripcion}}
 		      </p>
-		</ion-card-content>
-		<ion-item>
+		      <!--ion-item>
 			<ion-note style="font-size: 0.8em">
-			<b >capacitados:</b> 10
+			<b >capacitados:</b> {{cantidadCapacitados}}
 		</ion-note>
-		</ion-item>
-	</ion-card>
+		</ion-item-->
 
+		<!-- -->
+				<ion-card >
+				  <ion-card-header text-center>
+				    <b>Personas Capacitadas: {{cantidadCapacitados}}</b>
+				  </ion-card-header>
+				  <div *ngFor = "let capacitados of capacitacion.capacitados; let i = index">
+				      <ion-card>
+				        <ion-item>
+				          <ion-icon name=person item-left ></ion-icon>
+				          <h2 text-wrap>{{capacitados.nombres}} {{capacitados.apellidos}}</h2>
+				          <p style="font-size: 0.7em;">{{capacitados.correo}}</p>
+				        </ion-item>
+				        <ion-row>
+				          <ion-col center text-center>
+				            <ion-note>
+				            <b >celular</b>
+				            {{capacitados.telefono}}</ion-note>
+				          </ion-col>
+				          <ion-col center text-center>
+				            <ion-note>
+				            <b>cedula</b>
+				            {{capacitados.cedula}}</ion-note>
+				          </ion-col>
+				        </ion-row>
+				      </ion-card>
+				    </div>
+				</ion-card>
+		</ion-card-content>
+	</ion-card>
 </ion-content>
