@@ -3,12 +3,6 @@ import { GlobalProvider } from '../../providers/global/global'
 import { CapacitacionesPage } from '../capacitaciones/capacitaciones'
 import { IonicPage, NavController, NavParams } from 'ionic-angular'
 
-/**
- * Generated class for the ListaCapacitacionesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -27,5 +21,7 @@ export class ListaCapacitacionesPage {
   cargarCapacitacion (capacitacion) {
     void this.navCtrl.push(CapacitacionesPage, { capacitacion: capacitacion })
   }
-
+  n_capacitados (capacitacion) {
+    return capacitacion.capacitados.length
+  }
 }

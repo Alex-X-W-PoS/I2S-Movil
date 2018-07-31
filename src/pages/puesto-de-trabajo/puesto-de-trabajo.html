@@ -64,12 +64,12 @@
         <ion-item>
           <ion-icon name=person item-left ></ion-icon>
           <h2 text-wrap>{{capacitacion.nombre}}</h2>
-          <p style="font-size: 0.7em;">{{capacitacion.fechaCreacion | date:"dd MMMM yyyy"}}</p>
+          <p style="font-size: 0.7em;">{{capacitacion.fechaCapacitacion | date:"dd MMMM yyyy"}}</p>
         </ion-item>
         <ion-row>
           <ion-col center text-center>
             <ion-note>
-              <b>10</b> capacitados
+              <b>{{capacitados(capacitacion)}}</b> capacitados
             </ion-note>
           </ion-col>
         </ion-row>
