@@ -52,7 +52,7 @@ export class MyApp {
     this.rootPage = RolesPage
     this.platformReady()
     this.pages = [
-      { title: 'Roles Page', component: RolesPage }
+      { title: 'Salir', component: RolesPage }
     ]
 
   }

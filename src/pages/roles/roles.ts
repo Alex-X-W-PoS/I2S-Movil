@@ -21,14 +21,11 @@ export class RolesPage {
   Login () {
     let usuario = this.usuario
     let clave = this.clave
-    // let usuario = 'joelerll'
-    // let clave = '1234'
     let loading = this.loadingCtrl.create({
       content: 'Por favor, espere...'
     })
     void loading.present()
     this.http.login(usuario, clave).then(res => {
-      // console.log(JSON.stringify(res, null, 2))
       void loading.dismiss()
       if (res.estado) {
         let token = res.datos.token

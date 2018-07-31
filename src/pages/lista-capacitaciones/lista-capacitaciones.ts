@@ -3,7 +3,6 @@ import { GlobalProvider } from '../../providers/global/global'
 import { CapacitacionesPage } from '../capacitaciones/capacitaciones'
 import { IonicPage, NavController, NavParams } from 'ionic-angular'
 
-
 @IonicPage()
 @Component({
   selector: 'page-lista-capacitaciones',

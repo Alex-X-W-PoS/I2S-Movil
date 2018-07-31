@@ -1,5 +1,4 @@
 <ion-menu id="authenticated" [content]="content" [enabled]="global.enPuestoDeTrabajo" [swipeEnabled]="false">
-
   <ion-header>
     <ion-toolbar>
       <ion-title>i2Solutions</ion-title>
@@ -9,9 +8,9 @@
   <ion-content>
     <ion-list>
       <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon name="md-log-out" item-left ></ion-icon>
         {{p.title}}
       </button>
-      <button ion-item><ion-icon name="log-out"></ion-icon> Salir</button>
     </ion-list>
   </ion-content>
 
