@@ -36,13 +36,13 @@
       <ion-list>
         <ion-item>
           <ion-label color="primary" floating>¿Cómo se atendió la novedad?</ion-label>
-          <ion-input clearInput type="text" (ionChange)="verifyButton()" [(ngModel)]="descripcionAtendida" class="input-placeholder" maxLength="100"></ion-input>
+          <ion-textarea clearInput type="text" (ionChange)="verifyButton()" [(ngModel)]="descripcionAtendida" class="input-placeholder" maxLength="100"></ion-textarea>
         </ion-item>
       </ion-list>
     </ion-card-content>
   </ion-card>
-  <ion-card *ngIf="atendida">
 
+  <ion-card *ngIf="atendida">
     <ion-card-title text-center>
       ¿Cómo se atendió la novedad?
     </ion-card-title>

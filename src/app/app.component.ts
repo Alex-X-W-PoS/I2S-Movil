@@ -52,7 +52,8 @@ export class MyApp {
     this.rootPage = RolesPage
     this.platformReady()
     this.pages = [
-      { title: 'Salir', component: RolesPage }
+      { title: 'Salir', component: RolesPage },
+      { title: 'EscanearQr', component: RolesPage }
     ]
 
   }

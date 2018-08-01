@@ -1,77 +1,77 @@
 {
-    "name": "i2solutions",
-    "version": "0.0.1",
-    "author": "TODOS",
-    "homepage": "https://github.com/Alex-X-W-PoS/I2S-Movil",
-    "private": true,
-    "scripts": {
-        "dev": "NODE_ENV=local ionic serve --lab -c",
-        "clean": "ionic-app-scripts clean",
-        "build": "ionic-app-scripts build",
-        "lint": "ionic-app-scripts lint",
-        "ionic:build": "ionic-app-scripts build",
-        "ionic:serve": "ionic-app-scripts serve",
-        "test": "node_modules/.bin/standard --pretty"
+  "name": "i2solutions",
+  "version": "0.0.1",
+  "author": "TODOS",
+  "homepage": "https://github.com/Alex-X-W-PoS/I2S-Movil",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_ENV=local ionic serve --lab -c",
+    "clean": "ionic-app-scripts clean",
+    "build": "ionic-app-scripts build",
+    "lint": "ionic-app-scripts lint",
+    "ionic:build": "ionic-app-scripts build",
+    "ionic:serve": "ionic-app-scripts serve",
+    "test": "node_modules/.bin/standard --pretty"
+  },
+  "dependencies": {
+    "@angular/common": "5.0.3",
+    "@angular/compiler": "5.0.3",
+    "@angular/compiler-cli": "5.0.3",
+    "@angular/core": "5.0.3",
+    "@angular/forms": "5.0.3",
+    "@angular/http": "5.0.3",
+    "@angular/platform-browser": "5.0.3",
+    "@angular/platform-browser-dynamic": "5.0.3",
+    "@ionic-native/barcode-scanner": "^4.7.0",
+    "@ionic-native/camera": "^4.5.2",
+    "@ionic-native/core": "4.4.0",
+    "@ionic-native/splash-screen": "4.4.0",
+    "@ionic-native/status-bar": "4.4.0",
+    "@ionic/lab": "^1.0.0",
+    "@ionic/pro": "1.0.16",
+    "@ionic/storage": "2.1.3",
+    "chart.js": "^2.7.1",
+    "cordova-android": "7.0.0",
+    "cordova-browser": "~5.0.3",
+    "cordova-plugin-camera": "^4.0.3",
+    "cordova-plugin-device": "^1.1.7",
+    "cordova-plugin-ionic-webview": "^1.2.1",
+    "cordova-plugin-splashscreen": "^4.1.0",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "ionic-angular": "3.9.2",
+    "ionic-plugin-keyboard": "^2.2.1",
+    "ionicons": "3.0.0",
+    "jwt-decode": "^2.2.0",
+    "moment": "^2.20.1",
+    "phonegap-plugin-barcodescanner": "^7.1.2",
+    "rxjs": "5.5.2",
+    "sw-toolbox": "3.6.0",
+    "tslint-config-standard": "^7.0.0",
+    "zone.js": "0.8.18"
+  },
+  "devDependencies": {
+    "@ionic/app-scripts": "^3.1.11",
+    "ionic": "4.0.1",
+    "typescript": "^2.4.2",
+    "typescript-eslint-parser": "^11.0.0",
+    "typescript-standard": "^0.3.30"
+  },
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-camera": {},
+      "ionic-plugin-keyboard": {},
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {},
+      "phonegap-plugin-barcodescanner": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      }
     },
-    "dependencies": {
-        "@angular/common": "5.0.3",
-        "@angular/compiler": "5.0.3",
-        "@angular/compiler-cli": "5.0.3",
-        "@angular/core": "5.0.3",
-        "@angular/forms": "5.0.3",
-        "@angular/http": "5.0.3",
-        "@angular/platform-browser": "5.0.3",
-        "@angular/platform-browser-dynamic": "5.0.3",
-        "@ionic-native/barcode-scanner": "^4.7.0",
-        "@ionic-native/camera": "^4.5.2",
-        "@ionic-native/core": "4.4.0",
-        "@ionic-native/splash-screen": "4.4.0",
-        "@ionic-native/status-bar": "4.4.0",
-        "@ionic/lab": "^1.0.0",
-        "@ionic/pro": "1.0.16",
-        "@ionic/storage": "2.1.3",
-        "chart.js": "^2.7.1",
-        "cordova-android": "7.0.0",
-        "cordova-browser": "~5.0.3",
-        "cordova-plugin-camera": "^4.0.3",
-        "cordova-plugin-device": "^1.1.7",
-        "cordova-plugin-ionic-webview": "^1.2.1",
-        "cordova-plugin-splashscreen": "^4.1.0",
-        "cordova-plugin-whitelist": "^1.3.3",
-        "ionic-angular": "3.9.2",
-        "ionic-plugin-keyboard": "^2.2.1",
-        "ionicons": "3.0.0",
-        "jwt-decode": "^2.2.0",
-        "moment": "^2.20.1",
-        "phonegap-plugin-barcodescanner": "^7.1.2",
-        "rxjs": "5.5.2",
-        "sw-toolbox": "3.6.0",
-        "tslint-config-standard": "^7.0.0",
-        "zone.js": "0.8.18"
-    },
-    "devDependencies": {
-        "@ionic/app-scripts": "^3.1.11",
-        "ionic": "4.0.1",
-        "typescript": "^2.4.2",
-        "typescript-eslint-parser": "^11.0.0",
-        "typescript-standard": "^0.3.30"
-    },
-    "description": "An Ionic project",
-    "cordova": {
-        "plugins": {
-            "cordova-plugin-camera": {},
-            "ionic-plugin-keyboard": {},
-            "cordova-plugin-whitelist": {},
-            "cordova-plugin-device": {},
-            "cordova-plugin-splashscreen": {},
-            "cordova-plugin-ionic-webview": {},
-            "phonegap-plugin-barcodescanner": {
-                "ANDROID_SUPPORT_V4_VERSION": "27.+"
-            }
-        },
-        "platforms": [
-            "android",
-            "browser"
-        ]
-    }
+    "platforms": [
+      "android",
+      "browser"
+    ]
+  }
 }

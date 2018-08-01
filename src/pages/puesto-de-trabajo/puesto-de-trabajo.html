@@ -83,8 +83,6 @@
 </ion-card>
 
 <!-- -->
-
-
 <ion-card>
   <ion-card-header text-center>
     <b>Equipos presentes</b>
@@ -94,15 +92,15 @@
   <ion-card (click)="cargarEquipo(equipo)">
     <ion-item *ngIf = "i == 0">
       <h2 text-wrap>{{ equipo.nombre }}</h2>
-      <p style="font-size: 0.7em;">Cantidad = {{equipo.cantidad}}</p>
+      <ion-note center text-center><b>Cantidad:</b> {{equipo.cantidad}}</ion-note>
     </ion-item>
     <ion-item *ngIf = "i == 1">
       <h2 text-wrap>{{ equipo.nombre }}</h2>
-      <p style="font-size: 0.7em;">Cantidad = {{equipo.cantidad}}</p>
+      <ion-note center text-center><b>Cantidad:</b> {{equipo.cantidad}}</ion-note>
     </ion-item>
     <ion-item *ngIf = "i == 2">
       <h2 text-wrap>{{ equipo.nombre }}</h2>
-      <p style="font-size: 0.7em;">Cantidad = {{equipo.cantidad}}</p>
+      <ion-note center text-center><b>Cantidad:</b> {{equipo.cantidad}}</ion-note>
     </ion-item>
   </ion-card>
 </div>

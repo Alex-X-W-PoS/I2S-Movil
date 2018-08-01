@@ -33,16 +33,8 @@ export class EscanerQRPage {
       console.log('Error', err)
     })
   }
-
   entrarPuestosDeTrabajo (areaId) {
-    this.rolUsuario.area = areaId
-    if (areaId === '1') {
-      this.rolUsuario.areaNombre = 'Administrativa'
-    } else if (areaId === '2') {
-      this.rolUsuario.areaNombre = 'Matricería'
-    } else if (areaId === '3') {
-      this.rolUsuario.areaNombre = 'Inyección'
-    }
+    this.rolUsuario.area = areaId 
     let loading = this.loadingController.create({ content: 'Cargando, por favor espere un momento' })
     void loading.present()
     this.puestos.obtenerPuestoDeTrabajoDeArea(`${areaId}`).then(res => {
