@@ -6,8 +6,8 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>listaCapacitaciones</ion-title>
+  <ion-navbar color="primary">
+    <ion-title text-center>listaCapacitaciones</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -22,8 +22,8 @@
 		  <ion-card (click)="cargarCapacitacion (capacitacion)">
 		    <ion-item>
 		    	<ion-icon name="person" item-left ></ion-icon>
-		      <h2 text-wrap>{{capacitacion.nombre}}</h2>
-		      <p style="font-size: 0.7em;">{{capacitacion.fechaCapacitacion | date:"dd MMMM yyyy"}}</p>
+		      <h2 text-wrap>{{capacitacion.tema}}</h2>
+		      <p style="font-size: 0.7em;">{{fecha_ocurrida(capacitacion.fechaCapacitacion)}}</p>
 		    </ion-item>
 		    <ion-row>
 		      <ion-col center text-center>

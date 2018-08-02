@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content padding (pan)="swipeEvent($event)">
-  <ion-segment [(ngModel)]="segment" >
+  <ion-segment [(ngModel)]="segment">
     <ion-segment-button value="sinAtender">
       Novedades sin atender
     </ion-segment-button>
@@ -27,7 +27,7 @@
     </ion-toolbar>
       <!-- +++++++++++++++++++++ -->
       <ion-item-group *ngIf="novedadesPrioridad(global.novedadesSinAtender, 'alta')">
-        <ion-item-divider color="light" *ngIf="queryText == ''">ALTA PRIORIDAD</ion-item-divider>
+        <ion-item-divider  style="background-color: red" color="light" *ngIf="queryText == ''">ALTA PRIORIDAD</ion-item-divider>
         <div *ngFor="let novedad of items">
           <ion-item *ngIf="novedad.prioridad== 'alta'">
             <h2>{{novedad.descripcion}}</h2>
@@ -41,7 +41,7 @@
 
       <!-- +++++++++++++++++++++ -->
       <ion-item-group *ngIf="novedadesPrioridad(global.novedadesSinAtender, 'media')">
-        <ion-item-divider color="light" *ngIf="queryText == ''">MEDIA PRIORIDAD</ion-item-divider>
+        <ion-item-divider style="background-color: orange" color="light" *ngIf="queryText == ''">MEDIA PRIORIDAD</ion-item-divider>
         <div *ngFor="let novedad of items">
           <ion-item *ngIf="novedad.prioridad== 'media'">
             <h2>{{novedad.descripcion}}</h2>
@@ -55,7 +55,7 @@
 
       <!-- +++++++++++++++++++++ -->
       <ion-item-group *ngIf="novedadesPrioridad(global.novedadesSinAtender, 'baja')">
-        <ion-item-divider color="light" *ngIf="queryText == ''">BAJA PRIORIDAD</ion-item-divider>
+        <ion-item-divider style="background-color: green" color="light" *ngIf="queryText == ''">BAJA PRIORIDAD</ion-item-divider>
         <div *ngFor="let novedad of items">
           <ion-item *ngIf="novedad.prioridad== 'baja'">
             <h2>{{novedad.descripcion}}</h2>

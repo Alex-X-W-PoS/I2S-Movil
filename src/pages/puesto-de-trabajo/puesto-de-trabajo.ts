@@ -9,6 +9,7 @@ import { AccidentesPage } from '../accidentes/accidentes'
 import { EquiposPage } from '../equipos/equipos'
 import { ListaEquiposPage } from '../lista-equipos/lista-equipos'
 import { ListaAccidentesPage } from '../lista-accidentes/lista-accidentes'
+import moment from 'moment'
 
 import Chart from 'chart.js'
 
@@ -37,16 +38,9 @@ export class PuestoDeTrabajoPage {
 
   public infoCapacitaciones: any
   public cantCapacitaciones: number
-  n1: number
-  n2: number
-  n3: number
-  iconChoose1: any
-  iconChoose2: any
-  iconChoose3: any
-  public accidentesIcons: string []
-
   constructor (public loadingController: LoadingController, public navCtrl: NavController, public navParams: NavParams, public classPuesto: HttpProvider, public rolUsuario: GlobalProvider) {
     this.trackEquipos = 0
+    moment.locale('es')
   }
   ionViewDidEnter () {
     this.cargarDatos()
@@ -74,14 +68,6 @@ export class PuestoDeTrabajoPage {
     let _dchart = new Chart(ctx, { type: 'doughnut', data: data })
   }
   cargarDatos () {
-    this.iconos()
-    this.n1 = this.randomInt(1,9)
-    this.n2 = this.randomInt(1,9)
-    this.n3 = this.randomInt(1,9)
-    this.iconChoose1 = this.accidentesIcons[this.n1]
-    this.iconChoose2 = this.accidentesIcons[this.n2]
-    this.iconChoose3 = this.accidentesIcons[this.n3]
-    console.log(this.iconChoose1, this.iconChoose2, this.iconChoose3)
     this.cantidadEmpleados = this.rolUsuario.cantidadEmpleados
     this.equiposProteccion = this.rolUsuario.equiposProteccion
     this.cantidadEquiposProteccion = this.rolUsuario.cantidadEquiposProteccion
@@ -127,24 +113,10 @@ export class PuestoDeTrabajoPage {
   mostrarListaEquipos () {
     void this.navCtrl.push(ListaEquiposPage)
   }
-  capacitados (capacitacion) {
+  public capacitados (capacitacion) {
     return capacitacion.capacitados.length
   }
-  iconos () {
-    this.accidentesIcons = ['md-bonfire'
-    ,'md-color-fill'
-    ,'md-color-filter'
-    ,'md-construct'
-    ,'md-flask'
-    ,'md-flash'
-    ,'md-information-circle'
-    ,'md-medkit'
-    ,'md-no-smoking'
-    ,'md-settings'
-    ,'md-warning'
-    ,'md-walk']
-  }
-  randomInt (min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min
+  public fecha_ocurrida (fecha) {
+    return moment(fecha).format('LL')
   }
 }

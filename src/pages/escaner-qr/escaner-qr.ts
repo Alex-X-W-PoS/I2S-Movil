@@ -34,7 +34,7 @@ export class EscanerQRPage {
     })
   }
   entrarPuestosDeTrabajo (areaId) {
-    this.rolUsuario.area = areaId 
+    this.rolUsuario.area = areaId
     let loading = this.loadingController.create({ content: 'Cargando, por favor espere un momento' })
     void loading.present()
     this.puestos.obtenerPuestoDeTrabajoDeArea(`${areaId}`).then(res => {

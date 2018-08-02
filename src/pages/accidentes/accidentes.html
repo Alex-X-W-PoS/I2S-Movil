@@ -6,8 +6,8 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Accidentes</ion-title>
+  <ion-navbar color="primary">
+    <ion-title text-center>Accidentes</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -24,7 +24,7 @@
   <ion-card>
     <ion-item>
       <h2 text-wrap><b>Accidente: </b>{{accidente.nombre}}</h2>
-      <p style="font-size: 0.7em;">{{accidente.fechaCreacion | date:"dd MMMM yyyy"}}</p>
+      <p style="font-size: 0.7em;">{{fecha_ocurrida(accidente.fechaCreacion)}}</p>
     </ion-item>
 
     <ion-card-content >
