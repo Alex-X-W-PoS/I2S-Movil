@@ -87,8 +87,40 @@
     width: 100%;
     color: #fff;
   }
-
 }
 }
+  ion-alert {
+    $alert-min-width: 100px;
+    
+     $colors: (
+        success: #2196F3,
+        danger: #f50142,
+        warning: #f53d3d,
+      );
 
+  &.alert-warning {
+    .alert-head {
+      background-color: map-get($colors, danger);
+      color: #fff;
+      margin-bottom: 10px;
+    }
+  }
+  &.alertas {
+    .alert-head {
+      background-color: map-get($colors, warning);
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .alert-subTitle {
+      color: black;
+    }
+  }
+  &.alert-success {
+    .alert-head {
+      background: map-get($colors, success);
+      color: #fff;
+      margin-bottom: 10px;
+    }
+  }
+}
 

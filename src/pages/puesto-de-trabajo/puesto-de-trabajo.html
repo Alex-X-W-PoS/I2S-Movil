@@ -23,7 +23,7 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
-      <ion-col col-4 text-center (click)="mostrarListaAccidentes()">
+      <ion-col  col-4 text-center (click)="mostrarListaAccidentes()">
         <ion-card >
           <ion-card-header>
             {{cantidadDeAccidentes}}
@@ -54,7 +54,7 @@
   </ion-card>
 
 <!-- -->
-<ion-card >
+<ion-card *ngIf = "cantCapacitaciones >0 ">
   <ion-card-header text-center>
     <b>Capacitaciones Recientes</b>
   </ion-card-header>
@@ -83,7 +83,7 @@
 </ion-card>
 
 <!-- -->
-<ion-card>
+<ion-card *ngIf = "cantidadEquiposProteccion >0 ">
   <ion-card-header text-center>
     <b>Equipos Presentes</b>
   </ion-card-header>
@@ -106,7 +106,7 @@
 
 <!--Lista de accidentados-->
 
-<ion-card>
+<ion-card *ngIf = "cantidadDeAccidentes >0 ">
   <ion-card-header text-center>
     <b>Accidentes Recientes</b>
   </ion-card-header>

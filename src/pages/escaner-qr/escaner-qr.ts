@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { ActionSheetController,NavController, NavParams, ToastController, LoadingController } from 'ionic-angular'
+import { ActionSheetController, NavController, NavParams, ToastController, LoadingController, AlertController } from 'ionic-angular'
 import { HttpProvider } from '../../providers/http/http'
 import { GlobalProvider } from '../../providers/global/global'
 import { BarcodeScanner } from '@ionic-native/barcode-scanner'
@@ -18,7 +18,7 @@ export class EscanerQRPage {
   prioridad = ''
   isenabled: boolean
 
-  constructor (public loadingController: LoadingController, public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController, public puestos: HttpProvider, public global: GlobalProvider, private qrScanner: BarcodeScanner, public rolUsuario: GlobalProvider) {
+  constructor (public loadingController: LoadingController, private alertCtrl: AlertController, public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController, public puestos: HttpProvider, public global: GlobalProvider, private qrScanner: BarcodeScanner, public rolUsuario: GlobalProvider) {
   }
 
   scanQR () {
@@ -33,17 +33,30 @@ export class EscanerQRPage {
       console.log('Error', err)
     })
   }
+
   entrarPuestosDeTrabajo (areaId) {
     this.rolUsuario.area = areaId
     let loading = this.loadingController.create({ content: 'Cargando, por favor espere un momento' })
     void loading.present()
     this.puestos.obtenerPuestoDeTrabajoDeArea(`${areaId}`).then(res => {
       loading.dismissAll()
-      void this.navCtrl.push(EscogerPuestoTrabajoPage, res.datos)
+      if (res.datos.length > 0) {
+        void this.navCtrl.push(EscogerPuestoTrabajoPage, res.datos)
+      } else {
+        return this.noHayPuestosAlert()
+        console.log('No existe puestos en esa area')
+      }
     },
     error => {
-      // loading.dismissAll()
-      console.log('err', JSON.stringify(error))
+      console.log('errorr', JSON.stringify(error))
     })
+  }
+  noHayPuestosAlert () {
+    let alert = this.alertCtrl.create({
+      subTitle: 'No existen puestos en esta Area',
+      buttons: ['Aceptar'],
+      cssClass: 'alertas'
+    })
+    return alert.present()
   }
 }

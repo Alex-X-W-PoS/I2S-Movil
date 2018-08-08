@@ -32,8 +32,6 @@ export class AtenderNovedadPage {
     this.prioridad = this.novedadDetalle.prioridad
     this.descripcionAtendida = this.novedadDetalle.descripcionAtendida
     this.id = this.novedadDetalle.id
-    this.atendida = this.novedadDetalle.fueAtendida
-    console.log('atendida:', this.atendida)
     this.fechaAtendida = this.novedadDetalle.fechaActualizacion
     this.user = globalVar.claseUsuario
     this.puestoId = navParams.get('puesto')
@@ -42,8 +40,8 @@ export class AtenderNovedadPage {
 
   ionViewDidLoad () {
     console.log(' AtenderNovedadPage')
+    this.atendida = this.novedadDetalle.fueAtendida
   }
-
   regresar () {
     void this.navCtrl.pop()
   }
@@ -66,8 +64,10 @@ export class AtenderNovedadPage {
       // novedadTmp['atendida'] = true
       // novedadTmp['fechaAtendida'] = date.toISOString()
       this.globalVar.atenderNovedad = true
+      this.atendida = true
       let novedad = this.novedadDetalle
       novedad['descripcionAtendida'] = this.descripcionAtendida
+      novedad['fueAtendida'] = true
       this.globalVar.novedadesAtendidas.push(novedad)
       this.globalVar.cantidadNovedadesSinAtender = this.globalVar.cantidadNovedadesSinAtender - 1
 
@@ -77,13 +77,13 @@ export class AtenderNovedadPage {
           this.globalVar.novedadesSinAtender.splice(i,1)
         }
       }
+      console.log('despues de atender: ', this.globalVar.atenderNovedad)
       loading.dismissAll()
       void this.navCtrl.pop()
     },error => {
       console.log(error)
     })
   }
-
   isNotEmpty (valor: string) {
     if (!valor || valor === '') {
       return false
@@ -91,7 +91,6 @@ export class AtenderNovedadPage {
       return true
     }
   }
-
   verifyButton () {
     if (this.isNotEmpty(this.descripcionAtendida) && this.descripcionAtendida.length >= 5) {
       this.isenabled = true

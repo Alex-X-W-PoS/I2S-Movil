@@ -102,10 +102,14 @@ export class PuestoDeTrabajoPage {
     void this.navCtrl.push(CapacitacionesPage, { capacitacion: capacitacion })
   }
   mostrarListaCapacitaciones () {
-    void this.navCtrl.push(ListaCapacitacionesPage)
+    if (this.cantCapacitaciones > 0) {
+      void this.navCtrl.push(ListaCapacitacionesPage)
+    }
   }
   mostrarListaAccidentes () {
-    void this.navCtrl.push(ListaAccidentesPage)
+    if (this.cantidadDeAccidentes > 0) {
+      void this.navCtrl.push(ListaAccidentesPage)
+    }
   }
   cargarEquipo (equipo) {
     void this.navCtrl.push(EquiposPage, { equipo: equipo })
