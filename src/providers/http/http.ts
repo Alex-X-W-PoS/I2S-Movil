@@ -8,6 +8,7 @@ import 'rxjs/add/operator/toPromise'
 // export const BASE_PATH = (process.env.NODE_ENV !== 'local' ? 'http://i2solutions.herokuapp.com' : 'http://localhost:3001')
 
 // export const BASE_PATH = 'http://localhost:3001'
+// https://i2s-app.herokuapp.com/api/movil/puestosDeUnArea/1
 export const BASE_PATH = 'https://i2s-app.herokuapp.com'
 
 @Injectable()

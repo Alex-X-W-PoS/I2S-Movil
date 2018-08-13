@@ -43,8 +43,7 @@ export class EscanerQRPage {
       if (res.datos.length > 0) {
         void this.navCtrl.push(EscogerPuestoTrabajoPage, res.datos)
       } else {
-        return this.noHayPuestosAlert()
-        console.log('No existe puestos en esa area')
+        this.noHayPuestosAlert()
       }
     },
     error => {
@@ -57,6 +56,6 @@ export class EscanerQRPage {
       buttons: ['Aceptar'],
       cssClass: 'alertas'
     })
-    return alert.present()
+    alert.present()
   }
 }
