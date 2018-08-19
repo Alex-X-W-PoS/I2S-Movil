@@ -1,9 +1,7 @@
 import { Component } from '@angular/core'
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular'
-// import { NovedadesSinAtenderPage } from '../../pages/novedades-sin-atender/novedades-sin-atender'
 import { HttpProvider } from '../../providers/http/http'
 import { GlobalProvider } from '../../providers/global/global'
-// import { global } from '@angular/core/src/util'
 import moment from 'moment'
 
 @IonicPage()
@@ -77,7 +75,6 @@ export class AtenderNovedadPage {
           this.globalVar.novedadesSinAtender.splice(i,1)
         }
       }
-      console.log('despues de atender: ', this.globalVar.atenderNovedad)
       loading.dismissAll()
       void this.navCtrl.pop()
     },error => {
@@ -92,7 +89,7 @@ export class AtenderNovedadPage {
     }
   }
   verifyButton () {
-    if (this.isNotEmpty(this.descripcionAtendida) && this.descripcionAtendida.length >= 5) {
+    if (this.isNotEmpty(this.descripcionAtendida) && this.descripcionAtendida.length >= 5 && this.foto !== '') {
       this.isenabled = true
     } else {
       this.isenabled = false

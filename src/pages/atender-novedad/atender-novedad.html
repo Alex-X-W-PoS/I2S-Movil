@@ -32,13 +32,21 @@
   </ion-card>
 
   <ion-card *ngIf="user==1 && !atendida">
-    <ion-card-content>
+  <ion-card-content>
       <ion-list>
         <ion-item>
           <ion-label color="primary" floating>¿Cómo se atendió la novedad?</ion-label>
           <ion-textarea clearInput type="text" (ionChange)="verifyButton()" [(ngModel)]="descripcionAtendida" class="input-placeholder" maxLength="100"></ion-textarea>
         </ion-item>
+        <ion-item>
+          <ion-note>Descripción debe contener mas 5 letras</ion-note>
+        </ion-item>
       </ion-list>
+     <ion-list>
+      <ion-item>
+        <p *ngIf="descripcionAtendida < 5" ></p>
+      </ion-item> 
+    </ion-list>
     </ion-card-content>
   </ion-card>
 
@@ -53,7 +61,7 @@
   <ion-row *ngIf="atendida">
     <ion-col col-12 text-center>
       <ion-icon name=md-checkbox-outline item-left ></ion-icon>
-      <p style="color:  #757575; font-size: 1.0em">Fue atendida en {{timeAtendida(fecha,fechaAtendida)}}</p>
+      <p style="color:  #757575; font-size: 1.0em">Fue atendida {{time(fechaAtendida)}}</p>
     </ion-col>
   </ion-row>
 

@@ -17,6 +17,7 @@ export class EscanerQRPage {
   descripcion: string
   prioridad = ''
   isenabled: boolean
+  descripcionAtendida: ''
 
   constructor (public loadingController: LoadingController, private alertCtrl: AlertController, public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController, public puestos: HttpProvider, public global: GlobalProvider, private qrScanner: BarcodeScanner, public rolUsuario: GlobalProvider) {
   }

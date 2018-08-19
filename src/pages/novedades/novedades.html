@@ -76,7 +76,7 @@
       <div *ngFor="let novedad of itemAtendidos">
         <ion-item>
           <h2>{{novedad.descripcion}}</h2>
-          <p>Atendida en {{timeAtendida(novedad.fecha,novedad.fechaActualizacion)}}</p>
+          <p>Atendida {{time(novedad.fechaActualizacion)}}</p>
           <p>PRIORIDAD {{novedad.prioridad.toUpperCase()}}</p>
           <button ion-button clear item-end (click)=detallesNovedades(novedad)>Ver</button>
         </ion-item>
