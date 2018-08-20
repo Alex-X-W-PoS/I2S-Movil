@@ -32,6 +32,10 @@
       <p style="text-align:justify">
         {{accidente.descripcion}}
       </p>
+      <h2 *ngIf="accidente.diasPerdidos !== null">Días Perdidos:</h2>
+      <p style="text-align: justify;">
+        {{accidente.diasPerdidos}}
+      </p>
     </ion-card-content>
 
     <ion-row>
