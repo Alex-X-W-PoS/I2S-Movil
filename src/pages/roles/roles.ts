@@ -31,47 +31,31 @@ export class RolesPage {
         let token = res.datos.token
         let decoded = decode(token)
         let { rol } = decoded['data']
+        // Si el usuario se loguea como empleado se setea la variable claseUsuario ubicada  em ./providers/global/global.ts con el valor 2
         if (rol === 'empleado') {
           this.rolUsuario.claseUsuario = 2
           void this.navCtrl.push(EscanerQRPage)
+          // Si el usuario se loguea como empleado se setea la variable claseUsuario ubicada  em ./providers/global/global.ts con el valor 1
         } else if (rol === 'inspector-seguridad') {
           this.rolUsuario.claseUsuario = 1
           void this.navCtrl.push(EscanerQRPage)
+          // Si el usuario se loguea como empleado se setea la variable claseUsuario ubicada  em ./providers/global/global.ts con el valor 0
         } else if (rol === 'jefe-seguridad') {
           this.rolUsuario.claseUsuario = 0
           void this.navCtrl.push(EscanerQRPage)
         } else {
+          // Si no se loguea como ninguno se presenta un mensaje
           this.presentToast('El usuario no esta autorizado')
         }
         console.log(rol)
       } else {
         this.presentToast(res.datos)
       }
-      // this.imgurLink = res.data.link
-      // void loading.dismiss()
     })
     .catch(error => {
       console.error(error)
     })
-    // console.log(this.usuario)
-    console.log('Login')
   }
-  selectInspector () {
-    this.rolUsuario.claseUsuario = 0
-    void this.navCtrl.push(EscanerQRPage)
-  }
-  selectJefe () {
-    this.rolUsuario.claseUsuario = 1
-    void this.navCtrl.push(EscanerQRPage)
-  }
-  selectEmpleado () {
-    this.rolUsuario.claseUsuario = 2
-    void this.navCtrl.push(EscanerQRPage)
-  }
-  /*selectQR () {
-    this.rolUsuario.claseUsuario = 2
-    void this.navCtrl.push(EscanerQRPage)
-  }*/
   ionViewDidLoad () {
     this.rolUsuario.enPuestoDeTrabajo = false
   }

@@ -16,19 +16,15 @@
   <!-- <form  > -->
     <ion-list>
       <ion-item>
+        <!--Usuario-->
         <ion-icon name="person" item-left ></ion-icon>
-        <!--ion-label stacked>Email:</ion-label-->
         <ion-input  type="text" placeholder="usuario" [(ngModel)]="usuario" ></ion-input>
-        <!-- [(ngModel)]="usuario" -->
       </ion-item>
-
       <ion-item>
         <ion-icon name="key" item-left></ion-icon>
-        <!--ion-label stacked>Password:</ion-label-->
+        <!--Contraseña-->
         <ion-input  type="password" placeholder="contraseña" [(ngModel)]="clave" ></ion-input>
-        <!-- [(ngModel)]="clave"  -->
       </ion-item>
-
       <ion-item>
       	<div padding>
       <button ion-button block type="submit" (click)="Login()">Ingresar</button>

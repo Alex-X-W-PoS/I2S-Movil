@@ -68,6 +68,7 @@ export class PuestoDeTrabajoPage {
     let _dchart = new Chart(ctx, { type: 'doughnut', data: data })
   }
   cargarDatos () {
+    // Carga datos importantes tales como la cantidad de empleados, equipos de proteciión y la cantidad, las capacitaciones y los accidentes con sus repectivas cantidades 
     this.cantidadEmpleados = this.rolUsuario.cantidadEmpleados
     this.equiposProteccion = this.rolUsuario.equiposProteccion
     this.cantidadEquiposProteccion = this.rolUsuario.cantidadEquiposProteccion
@@ -76,6 +77,7 @@ export class PuestoDeTrabajoPage {
     this.detallesAccidentes = this.rolUsuario.detallesAccidentes
     this.cantidadDeAccidentes = this.detallesAccidentes.length
   }
+  // Función que que obtiene los riesgos en un puesto, no se la ha usado hasta ahora...posiblemente en un futuro.
   cargarRiesgos () {
     let loading = this.loadingController.create({ content: 'Cargando, por favor espere un momento' })
     void loading.present()
@@ -92,34 +94,42 @@ export class PuestoDeTrabajoPage {
       console.log(error)
     })
   }
+  // Carga las novedaes 
   cargarNovedades () {
     void this.navCtrl.push(NovedadesSinAtenderPage, { puestoId: this.dataPuestos.puesto_trabajo_id })
   }
   cargarAccidentes (accidente) {
     void this.navCtrl.push(AccidentesPage, { accidente: accidente })
   }
+  // Carga los detalles de una capacitación
   cargarCapacitacion (capacitacion) {
     void this.navCtrl.push(CapacitacionesPage, { capacitacion: capacitacion })
   }
+  // Muestra la lista de capacitaciones
   mostrarListaCapacitaciones () {
     if (this.cantCapacitaciones > 0) {
       void this.navCtrl.push(ListaCapacitacionesPage)
     }
   }
+  // Muestra la lista total de accidentes ocurridos
   mostrarListaAccidentes () {
     if (this.cantidadDeAccidentes > 0) {
       void this.navCtrl.push(ListaAccidentesPage)
     }
   }
+  // Carga los detalles de un equipo
   cargarEquipo (equipo) {
     void this.navCtrl.push(EquiposPage, { equipo: equipo })
   }
+  // Carga los lista de equipos y lo muestra en el respectivo componente.
   mostrarListaEquipos () {
     void this.navCtrl.push(ListaEquiposPage)
   }
+  // retorna la cantidad de capacitados
   public capacitados (capacitacion) {
     return capacitacion.capacitados.length
   }
+  // Se usa para mostar la fecha que ocurrió el accidente en formato 12/08/2018
   public fecha_ocurrida (fecha) {
     return moment(fecha).format('LL')
   }

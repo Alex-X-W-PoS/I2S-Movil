@@ -4,6 +4,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
+      <!--Nombre del Area y el puesto donde se encuentran-->
       <h2 style="margin-top: 0px;">{{rolUsuario.areaNombre}}</h2>
       <h4 style="margin-top: 0px">{{rolUsuario.puestoNombre}}</h4>
     </ion-title>
@@ -16,6 +17,7 @@
       <ion-col col-4 text-center>
         <ion-card>
           <ion-card-header>
+            <!--Cantidad de Empleados del puesto de trabajo-->
             {{cantidadEmpleados}}
           </ion-card-header>
           <ion-card-content>
@@ -26,6 +28,7 @@
       <ion-col  col-4 text-center (click)="mostrarListaAccidentes()">
         <ion-card >
           <ion-card-header>
+             <!--Cantidad de Accidentes del puesto de trabajo-->
             {{cantidadDeAccidentes}}
           </ion-card-header>
           <ion-card-content>
@@ -37,6 +40,7 @@
       <ion-col col-4 text-center (click)="mostrarListaCapacitaciones()">
         <ion-card>
           <ion-card-header>
+            <!--Cantidad de Capacitaciones del puesto de trabajo-->
             {{cantCapacitaciones}}
           </ion-card-header>
           <ion-card-content>
@@ -53,7 +57,7 @@
     <canvas id="chart"></canvas>
   </ion-card>
 
-<!-- -->
+<!--De aqui en adelante se mostrará las 3 primeras capacitaciones, los 3 primeros accidentes y los 3 primero equipos pertenecientes al puesto de trabajo -->
 <ion-card *ngIf = "cantCapacitaciones >0 ">
   <ion-card-header text-center>
     <b>Capacitaciones Recientes</b>
@@ -130,7 +134,7 @@
   </ion-card>
   </div>
 </div>
-
+<!--En caso de que existan mas de 3 hay un botón que me muestra la lista completa-->
   <div text-center (click)="mostrarListaAccidentes()"  *ngIf = "cantidadDeAccidentes > 3" >
     <u><a >Mostrar más</a></u>
     <br>

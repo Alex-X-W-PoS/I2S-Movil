@@ -1,14 +1,18 @@
 <ion-header>
   <ion-navbar  color="primary" text-center>
+    <!--En caso de que la novedad no este atendida se mostrará esta vista y el usuario sea jefe de Seguridad-->
     <ion-title style="margin-left: 5px" *ngIf="user == 1 && !atendida">
       <h3><b>Atender Novedad</b></h3>
     </ion-title>
+   <!--En caso de que la novedad este atendida se mostrará esta vista y el usuario sea jefe de Seguridad-->
     <ion-title style="margin-left: 5px" *ngIf="user == 1 && atendida">
       <h3><b>Ver Novedad</b></h3>
     </ion-title>
+    <!--En caso de que la novedad no este atendida se mostrará esta vista y el usuario no sea jefe de Seguridad, Puede ser Inspector u otro-->
     <ion-title style="margin-left: 5px" *ngIf="user != 1 && !atendida">
       <h3><b>Ver Novedad</b></h3>
     </ion-title>
+    <!--En caso de que la novedad este atendida se mostrará esta vista y el usuario no sea jefe de Seguridad, Puede ser Inspector u otro-->
     <ion-title  style="margin-left: 5px" *ngIf="user != 1 && atendida">
       <h3><b>Ver Novedad</b></h3>
     </ion-title>
@@ -19,18 +23,21 @@
   
   <ion-row>
     <ion-col col-12 text-center>
+      <!--Muestra la fecha en que fue Creada la novedad-->
       <p style="color:  #757575">Creada {{time(fecha)}}</p>
     </ion-col>
   </ion-row>
+  <!--Muestra la prioridad de la novedad-->
   <h2 text-center>PRIORIDAD: {{prioridad.toUpperCase()}}</h2>
   <ion-card>
+    <!--Muestra la foto de la novedad-->
     <img [src]='foto' *ngIf="foto!=''">
-    <!-- <ion-spinner  text-center></ion-spinner> -->
     <ion-card-content>
+      <!--Muestra la descripción de la novedad-->
       <b>Descripción: </b>{{descripcion}}
     </ion-card-content>
   </ion-card>
-
+<!--En caso de que el usuario es jefe de seguridad y la novedad no sea atendida-->
   <ion-card *ngIf="user==1 && !atendida">
   <ion-card-content>
       <ion-list>

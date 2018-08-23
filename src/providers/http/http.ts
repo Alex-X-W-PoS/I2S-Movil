@@ -16,7 +16,7 @@ export class HttpProvider {
   datos: any
   constructor (public http: Http, public global: GlobalProvider) {
   }
-
+// Función que me permite enviar al api mi clave y usuario y mediante eso me envíe que rol tengo
   login (usuario: string, clave: string) {
     let data = { usuario, clave }
     return this.http
@@ -28,6 +28,7 @@ export class HttpProvider {
       )
     .toPromise()
   }
+  // Función que pasada el area como argumento, me envía la lista de puesto que existe en el area como respuesta
   obtenerPuestoDeTrabajoDeArea (idArea: string) {
     return this.http
     .get(`${BASE_PATH}/api/movil/puestosDeUnArea/${idArea}/`)
@@ -38,7 +39,7 @@ export class HttpProvider {
       )
     .toPromise()
   }
-
+// Función que me guarda la imagenes en Imgur
   uploadImageToImgur (imagen: String) {
     let data = { image: imagen }
     let headers = new Headers({ 'Authorization': 'Client-ID d40866b7eff4bd0' })
@@ -53,7 +54,7 @@ export class HttpProvider {
       )
     .toPromise()
   }
-
+// Función que recibe como argumentos parametros necearios para crear o agregar una nueva novedad.
   agregarNovedad (puestoId: String, descripcion: String, prioridad: String, urlFoto: String) {
     let data = { puestosId: puestoId, descripcion, prioridad, fotoUrl: urlFoto }
     return this.http
@@ -65,7 +66,7 @@ export class HttpProvider {
       )
     .toPromise()
   }
-
+// Función que cambia el atributo atendida de false a true, determinando de esta manera que la novedad fue atendida
   marcarComoAtendida (novedadId: string, puestoId: string, descripcion: string) {
     let data = { atendida: true, descripcionAtendida: descripcion }
     return this.http
@@ -77,7 +78,7 @@ export class HttpProvider {
       )
     .toPromise()
   }
-
+// Función que recibe como parametro un id de un puesto y retorna los detalles del puesto de trabajo
   obtenerPuestoDeTrabajo (idPuesto: string) {
     return this.http
     .get(`${BASE_PATH}/api/movil/puesto_trabajo/${idPuesto}`)
@@ -88,7 +89,7 @@ export class HttpProvider {
       )
     .toPromise()
   }
-
+// Función que dado un id puesto, me devuelve todas la novedades sin atender desde el api, que existen es ese puesto.
   obetenerNovedadesSinAtender (idPuesto: string) {
     return this.http
     .get(`${BASE_PATH}/api/movil/novedadesSinAtender/${idPuesto}`)
@@ -99,7 +100,7 @@ export class HttpProvider {
       )
     .toPromise()
   }
-
+// Función que recibe como parametro el id del area y el id del puesto y me retorna un json con los detalles del puesto y area.
   cargarDatos (areaId: string, puestoId: string) {
     return this.http
     .get(`${BASE_PATH}/api/movil/area/${areaId}/puesto/${puestoId}/${1}`) // coloco 1 que indica establecimiento, despues de cambiará
